@@ -2,6 +2,5 @@
 
 return [
     'models' => [
-        \App\Job::class,
     ],
 ];
