@@ -28,3 +28,5 @@ output.txt
 coverage.xml
 /coverage
 .phpunit.result.cache
+_ide_helper.php
+_ide_helper_models.php
