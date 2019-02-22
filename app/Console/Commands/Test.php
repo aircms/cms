@@ -13,6 +13,6 @@ class Test extends Command
 
     public function handle()
     {
-        dd(Settings::all());
+        dd(Settings::all(false));
     }
 }
