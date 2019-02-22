@@ -13,6 +13,6 @@ class Test extends Command
 
     public function handle()
     {
-        dd(Settings::all(false));
+        dd(Settings::all(),Settings::get("mac.denis"));
     }
 }
