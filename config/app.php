@@ -187,9 +187,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\ObserverServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-		aircms\groupable\GroupableServiceProvider::class,
-		aircms\settings\SettingsServiceProvider::class,
-
     ],
 
     /*
