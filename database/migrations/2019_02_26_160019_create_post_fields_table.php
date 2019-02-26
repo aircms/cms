@@ -28,6 +28,6 @@ class CreatePostFieldsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fields');
+        Schema::dropIfExists('post_fields');
     }
 }

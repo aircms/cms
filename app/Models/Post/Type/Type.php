@@ -3,14 +3,22 @@
 namespace App\Models\Post\Type;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\EloquentSortable\Sortable;
+use Spatie\EloquentSortable\SortableTrait;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class Type extends Model
+class Type extends Model implements Sortable
 {
     use HasSlug;
+    use SortableTrait;
 
     protected $table = 'post_types';
+
+    public $sortable = [
+        'order_column_name' => 'order',
+    ];
+
 
     public function getSlugOptions(): SlugOptions
     {

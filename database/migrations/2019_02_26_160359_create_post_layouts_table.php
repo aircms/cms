@@ -28,6 +28,6 @@ class CreatePostLayoutsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('layouts');
+        Schema::dropIfExists('post_layouts');
     }
 }
