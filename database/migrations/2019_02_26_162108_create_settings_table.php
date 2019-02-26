@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePostFieldsTable extends Migration
+class CreateSettingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreatePostFieldsTable extends Migration
      */
     public function up()
     {
-        Schema::create('post_fields', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->string('alias');
-            $table->timestamps();
+        Schema::create('settings', function (Blueprint $table) {
+            $table->string('key')->nullable(false)->unique();
+            $table->string('value')->nullable(false);
         });
     }
 
@@ -28,6 +26,6 @@ class CreatePostFieldsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fields');
+        Schema::dropIfExists('settings');
     }
 }
