@@ -49,7 +49,7 @@
         @include('backend.includes.aside')
     </div><!--app-body-->
 
-    @include('backend.includes.footer')
+{{--    @include('backend.includes.footer')--}}
 
     <!-- Scripts -->
     @stack('before-scripts')
