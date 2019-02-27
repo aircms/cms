@@ -59,7 +59,7 @@ return [
          * The string should be: 'Language-name-in-your-own-language (Language-name-in-English)'.
          * Be sure to add the new language in alphabetical order.
          */
-        'langs' => [
+        'langs'    => [
             'ar'    => '阿拉伯语（Arabic）',
             'zh'    => '中文-简体（Chinese Simplified）',
             'zh-TW' => '中文-繁体（Chinese Traditional）',

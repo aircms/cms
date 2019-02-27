@@ -67,7 +67,7 @@ return [
 
     'emails' => [
         'auth' => [
-            'account_confirmed' => '你的账户已经被确认',
+            'account_confirmed'       => '你的账户已经被确认',
             'error'                   => '哎呀！',
             'greeting'                => '你好！',
             'regards'                 => '问候,',
@@ -84,7 +84,7 @@ return [
 
         'contact' => [
             'email_body_title' => '你有一个新的联系请求， 详情如下：',
-            'subject' => '一个新提交的 :app_name 联系请求',
+            'subject'          => '一个新提交的 :app_name 联系请求',
         ],
     ],
 
@@ -118,14 +118,14 @@ return [
         ],
 
         'general' => [
-            'joined'        => '加入',
+            'joined' => '加入',
         ],
 
         'user' => [
-            'change_email_notice' => '如果你更改你的邮件地址，你会被登出系统直到你确认你的新邮件地址。',
+            'change_email_notice'  => '如果你更改你的邮件地址，你会被登出系统直到你确认你的新邮件地址。',
             'email_changed_notice' => '在登录之前，你必须确认你的新邮件地址。',
-            'profile_updated'  => '个人资料更新成功。',
-            'password_updated' => '密码修改成功。',
+            'profile_updated'      => '个人资料更新成功。',
+            'password_updated'     => '密码修改成功。',
         ],
 
         'welcome_to' => '欢迎来到 :place',
