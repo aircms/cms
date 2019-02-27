@@ -5,7 +5,7 @@ return [
     /*
      * Application captcha specific settings
      */
-    'captcha' => [
+    'captcha'                => [
         /*
          * Whether the registration captcha is on or off
          */
@@ -15,50 +15,50 @@ return [
     /*
      * Whether or not registration is enabled
      */
-    'registration' => env('ENABLE_REGISTRATION', true),
+    'registration'           => env('ENABLE_REGISTRATION', true),
 
     /*
      * Table names for access tables
      */
-    'table_names' => [
+    'table_names'            => [
         'password_histories' => 'password_histories',
-        'users' => 'users',
+        'users'              => 'users',
     ],
 
     /*
      * Configurations for the user
      */
-    'users' => [
+    'users'                  => [
         /*
          * Whether or not the user has to confirm their email when signing up
          */
-        'confirm_email' => env('CONFIRM_EMAIL', false),
+        'confirm_email'         => env('CONFIRM_EMAIL', false),
 
         /*
          * Whether or not the users email can be changed on the edit profile screen
          */
-        'change_email' => env('CHANGE_EMAIL', false),
+        'change_email'          => env('CHANGE_EMAIL', false),
 
         /*
          * The name of the super administrator role
          */
-        'admin_role' => 'administrator',
+        'admin_role'            => 'administrator',
 
         /*
          * The default role all new registered users get added to
          */
-        'default_role' => 'user',
+        'default_role'          => 'user',
 
         /*
          * Whether or not new users need to be approved by an administrator before logging in
          * If this is set to true, then confirm_email is not in effect
          */
-        'requires_approval' => env('REQUIRES_APPROVAL', false),
+        'requires_approval'     => env('REQUIRES_APPROVAL', false),
 
         /*
          * Login username to be used by the controller.
          */
-        'username' => 'email',
+        'username'              => 'email',
 
         /*
          * Session Database Driver Only
@@ -66,7 +66,7 @@ return [
          * That is all other sessions for that user will be deleted when they log in
          * (They can only be logged into one place at a time, all others will be logged out)
          */
-        'single_login' => true,
+        'single_login'          => true,
 
         /*
          * How many days before users have to change their passwords
@@ -78,13 +78,13 @@ return [
          * The number of most recent previous passwords to check against when changing/resetting a password
          * false is off which doesn't log password changes or check against them
          */
-        'password_history' => env('PASSWORD_HISTORY', 3),
+        'password_history'      => env('PASSWORD_HISTORY', 3),
     ],
 
     /*
     * Configuration for roles
     */
-    'roles' => [
+    'roles'                  => [
         /*
          * Whether a role must contain a permission or can be used standalone as a label
          */

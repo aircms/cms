@@ -45,6 +45,23 @@
 
             <li class="divider"></li>
 
+            <li class="nav-item nav-dropdown {{ active_class(Active::checkUriPattern('admin/category/*'), 'open') }}">
+                <a class="nav-link nav-dropdown-toggle {{ active_class(Active::checkUriPattern('admin/category/*')) }}" href="#">
+                    <i class="nav-icon icon-list"></i> 分类管理
+                </a>
+
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link {{ active_class(Active::checkUriPattern('admin/category/group/index')) }}" href="{{ route('admin.category.group.index') }}">
+                            所有分组
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li class="divider"></li>
+
             <li class="nav-item nav-dropdown {{ active_class(Active::checkUriPattern('admin/log-viewer*'), 'open') }}">
                 <a class="nav-link nav-dropdown-toggle {{ active_class(Active::checkUriPattern('admin/log-viewer*')) }}" href="#">
                     <i class="nav-icon icon-list"></i> @lang('menus.backend.log-viewer.main')
