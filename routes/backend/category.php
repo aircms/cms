@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\Category\ChildrenController;
 use App\Http\Controllers\Backend\Category\GroupController;
 
 /*
@@ -15,10 +16,28 @@ Route::group(['prefix' => 'category/', 'as' => 'category.', 'namespace' => 'Cate
         Route::get('create', [GroupController::class, 'create'])->name('create');
         Route::post('store', [GroupController::class, 'store'])->name('store');
 
-        Route::get('edit', [GroupController::class, 'edit'])->name('edit');
-        Route::post('update', [GroupController::class, 'update'])->name('update');
+        Route::get('{category}/edit', [GroupController::class, 'edit'])->name('edit');
+        Route::post('{category}/update', [GroupController::class, 'update'])->name('update');
 
-        Route::post('delete', [GroupController::class, 'delete'])->name('delete');
+        Route::post('{category}/delete', [GroupController::class, 'delete'])->name('delete');
+
+    });
+
+    // children
+    Route::group(['prefix' => '{ancestor}/children', 'as' => 'children.'], function () {
+
+        Route::get('/', [ChildrenController::class, 'index'])->name('index');
+
+        Route::get('{parent}/child/create', [ChildrenController::class, 'child'])->name('create.child');
+        Route::post('{parent}/child/store', [ChildrenController::class, 'storeChild'])->name('store.child');
+
+        Route::get('create', [ChildrenController::class, 'create'])->name('create');
+        Route::post('store', [ChildrenController::class, 'store'])->name('store');
+
+        Route::get('{category}/edit', [ChildrenController::class, 'edit'])->name('edit');
+        Route::post('{category}/update', [ChildrenController::class, 'update'])->name('update');
+
+        Route::post('{category}/delete', [ChildrenController::class, 'delete'])->name('delete');
 
     });
 

@@ -1,19 +1,17 @@
 @extends('backend.layouts.app')
 
-@section('title',  __('labels.backend.category.group.management'))
-
 @section('content')
     <div class="card">
         <div class="card-body">
             <div class="row">
                 <div class="col-sm-5">
                     <h4 class="card-title mb-0">
-                        @lang('labels.backend.category.group.management')
+                        @lang('labels.backend.category.children.management')
                     </h4>
                 </div><!--col-->
 
                 <div class="col-sm-7 pull-right">
-                    @include('backend.category.group.includes.header-buttons')
+                    @include('backend.category.children.includes.header-buttons')
                 </div><!--col-->
             </div><!--row-->
 
@@ -24,30 +22,31 @@
                             <thead>
                             <tr>
                                 <th>@lang('labels.backend.category.group.table.name')</th>
-                                <th>@lang('labels.backend.category.group.table.slug')</th>
-                                <th>@lang('labels.backend.category.group.table.description')</th>
+                                <th>@lang('labels.backend.category.children.table.slug')</th>
+                                <th>@lang('labels.backend.category.children.table.description')</th>
                                 <th>@lang('labels.general.actions')</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($roots as $root)
+                            @foreach($children as $child)
                                 <tr>
-                                    <td>{{ $root->name }}</td>
-                                    <td>{{ $root->slug }}</td>
-                                    <td>{{ $root->description }}</td>
+                                    <td>{{ $child->name }}</td>
+                                    <td>{{ $child->slug }}</td>
+                                    <td>{{ $child->description }}</td>
                                     <td>
-                                        <a href="{{ route('admin.category.group.edit', $root->id) }}" class="btn btn-primary">
+                                        <a href="{{ route('admin.category.children.edit', [$request->ancestor,$child->id]) }}"
+                                           class="btn btn-primary">
                                             @lang('buttons.general.crud.edit')
                                         </a>
 
-                                        <a href="{{ route('admin.category.group.delete', $root->id) }}" class="btn btn-danger">
+                                        <a href="{{ route('admin.category.children.delete', [$request->ancestor,$child->id]) }}"
+                                           class="btn btn-danger">
                                             @lang('buttons.general.crud.delete')
                                         </a>
 
-                                        {{-- 子分类--}}
-                                        <a href="{{ route('admin.category.children.index',$root->id) }}"
-                                           class="btn btn-primary">
-                                            @lang('labels.backend.category.children.management')
+                                        <a href="{{ route('admin.category.children.create.child', [$request->ancestor,$child->id]) }}"
+                                           class="btn btn-info">
+                                            @lang('labels.backend.category.children.create')
                                         </a>
                                     </td>
                                 </tr>

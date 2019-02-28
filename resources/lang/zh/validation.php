@@ -32,7 +32,7 @@ return [
     'boolean'              => ':attribute 必须为布尔值。',
     'confirmed'            => ':attribute 两次输入不一致。',
     'date'                 => ':attribute 不是一个有效的日期。',
-    'date_equals' => 'The :attribute must be a date equal to :date.',
+    'date_equals'          => 'The :attribute must be a date equal to :date.',
     'date_format'          => ':attribute 的格式必须为 :format。',
     'different'            => ':attribute 和 :other 必须不同。',
     'digits'               => ':attribute 必须是 :digits 位的数字。',
@@ -108,13 +108,13 @@ return [
         'string'  => ':attribute 必须是 :size 个字符。',
         'array'   => ':attribute 必须为 :size 个单元。',
     ],
-    'starts_with' => 'The :attribute must start with one of the following: :values',
+    'starts_with'          => 'The :attribute must start with one of the following: :values',
     'string'               => ':attribute 必须是一个字符串。',
     'timezone'             => ':attribute 必须是一个合法的时区值。',
     'unique'               => ':attribute 已经存在。',
     'uploaded'             => ':attribute 上传失败。',
     'url'                  => ':attribute 格式不正确。',
-    'uuid' => 'The :attribute must be a valid UUID.',
+    'uuid'                 => 'The :attribute must be a valid UUID.',
 
     /*
     |--------------------------------------------------------------------------
@@ -147,7 +147,21 @@ return [
     'attributes' => [
 
         'backend' => [
-            'access' => [
+            'category' => [
+                'children' => [
+                    'name'        => '名称',
+                    'slug'        => '别名',
+                    'description' => '描述',
+                    'parent'      => '父分类',
+                ],
+                'group'    => [
+                    'name'        => '名称',
+                    'slug'        => '别名',
+                    'description' => '描述',
+                    'parent'      => '父分类',
+                ]
+            ],
+            'access'   => [
                 'permissions' => [
                     'associated_roles' => '关联的角色',
                     'dependencies'     => '依赖关系',
@@ -188,8 +202,8 @@ return [
             'name'                      => '用户名',
             'password'                  => '密码',
             'password_confirmation'     => '确认密码',
-            'phone' => '电话',
-            'message' => '消息',
+            'phone'                     => '电话',
+            'message'                   => '消息',
             'old_password'              => '旧密码',
             'new_password'              => '新密码',
             'new_password_confirmation' => '确认新密码',

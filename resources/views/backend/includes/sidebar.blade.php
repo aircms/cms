@@ -47,13 +47,13 @@
 
             <li class="nav-item nav-dropdown {{ active_class(Active::checkUriPattern('admin/category/*'), 'open') }}">
                 <a class="nav-link nav-dropdown-toggle {{ active_class(Active::checkUriPattern('admin/category/*')) }}" href="#">
-                    <i class="nav-icon icon-list"></i> 分类管理
+                    <i class="nav-icon icon-list"></i> @lang('labels.backend.system.setting')
                 </a>
 
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
                         <a class="nav-link {{ active_class(Active::checkUriPattern('admin/category/group/index')) }}" href="{{ route('admin.category.group.index') }}">
-                            所有分组
+                            @lang('labels.backend.category.group.management')
                         </a>
                     </li>
                 </ul>

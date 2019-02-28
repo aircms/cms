@@ -3,14 +3,55 @@
 namespace App\Http\Controllers\Backend\Category;
 
 use App\Http\Controllers\Controller;
-use Rinvex\Categories\Models\Category;
+use App\Models\Category;
+use Illuminate\Http\Request;
 
 class GroupController extends Controller
 {
     public function index(Category $category)
     {
         return view('backend.category.group.index', [
-            'ancestors' => $category->ancestors(),
+            'roots' => $category->root()->get(),
         ]);
+    }
+
+    public function create()
+    {
+        return view('backend.category.group.create');
+    }
+
+    public function store(Request $request, Category $category)
+    {
+        $params = $request->only(['name', 'slug', 'description']);
+        if ($category->create($params)) {
+            return redirect()->route('admin.category.group.index');
+        }
+    }
+
+    public function edit1(Category $category)
+    {
+        dd($category->toArray());
+    }
+
+
+    public function edit(Category $category)
+    {
+        return view('backend.category.group.edit', [
+            'category' => $category,
+        ]);
+    }
+
+    public function update(Category $category, Request $request)
+    {
+        $params = $request->only(['name', 'slug', 'description']);
+        if ($category->update($params)) {
+            return redirect()->route('admin.category.group.index');
+        }
+    }
+
+    public function delete(Category $category)
+    {
+        $category->delete();
+        return redirect()->route('admin.category.group.index');
     }
 }

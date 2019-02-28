@@ -14,25 +14,31 @@ return [
     */
 
     'general' => [
-        'all'     => '全部',
-        'yes'     => '是',
-        'no'      => '否',
-        'custom'  => '自定义',
-        'actions' => '操作',
-        'active'  => '激活',
-        'buttons' => [
+        'all'               => '全部',
+        'yes'               => '是',
+        'no'                => '否',
+        'custom'            => '自定义',
+        'actions'           => '操作',
+        'active'            => '激活',
+        'buttons'           => [
             'save'   => '保存',
             'update' => '更新',
+            'delete' => '删除',
         ],
         'hide'              => '隐藏',
         'inactive'          => '禁用',
         'none'              => '空',
         'show'              => '显示',
         'toggle_navigation' => '切换导航',
+        'create'            => '新建',
+        'update'            => '编辑',
     ],
 
     'backend' => [
-        'access' => [
+        'system'   => [
+            'setting' => '系统设置'
+        ],
+        'access'   => [
             'roles' => [
                 'create'     => '新建角色',
                 'edit'       => '编辑角色',
@@ -71,7 +77,7 @@ return [
                     'no_deactivated' => '没有停用的用户',
                     'no_deleted'     => '没有删除的用户',
                     'roles'          => '角色',
-                    'social' => 'Social',
+                    'social'         => 'Social',
                     'total'          => '用户总计',
                 ],
 
@@ -83,17 +89,17 @@ return [
 
                     'content' => [
                         'overview' => [
-                            'avatar'       => '头像',
-                            'confirmed'    => '已确认',
-                            'created_at'   => '创建于',
-                            'deleted_at'   => '删除于',
-                            'email'        => '电子邮件',
+                            'avatar'        => '头像',
+                            'confirmed'     => '已确认',
+                            'created_at'    => '创建于',
+                            'deleted_at'    => '删除于',
+                            'email'         => '电子邮件',
                             'last_login_at' => 'Last Login At',
                             'last_login_ip' => 'Last Login IP',
-                            'last_updated' => '最后更新',
-                            'name'         => '名称',
-                            'status'       => '状态',
-                            'timezone'     => 'Timezone',
+                            'last_updated'  => '最后更新',
+                            'name'          => '名称',
+                            'status'        => '状态',
+                            'timezone'      => 'Timezone',
                         ],
                     ],
                 ],
@@ -101,6 +107,37 @@ return [
                 'view' => '查看用户',
             ],
         ],
+        'category' => [
+            'children' => [
+                'management'   => '子分类管理',
+                'list'         => '所有分类',
+                'create'       => '新建分类',
+                'create_child' => '新建子分类',
+                'edit'         => '编辑分类',
+
+                'table' => [
+                    'name'        => '名称',
+                    'slug'        => '别名',
+                    'description' => '描述',
+                    'sort'        => '排序',
+                    'children'    => '子分类',
+                ],
+            ],
+            'group'    => [
+                'list'       => '所有分类',
+                'management' => '分类管理',
+                'create'     => '新建分类',
+                'edit'       => '编辑分类',
+
+                'table' => [
+                    'name'        => '名称',
+                    'slug'        => '别名',
+                    'description' => '描述',
+                    'sort'        => '排序',
+                    'children'    => '子分类',
+                ],
+            ]
+        ]
     ],
 
     'frontend' => [
@@ -116,7 +153,7 @@ return [
 
         'contact' => [
             'box_title' => 'Contact Us',
-            'button' => 'Send Information',
+            'button'    => 'Send Information',
         ],
 
         'passwords' => [

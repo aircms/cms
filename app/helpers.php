@@ -1,12 +1,12 @@
 <?php
 
-use App\Helpers\General\Timezone;
 use App\Helpers\General\HtmlHelper;
+use App\Helpers\General\Timezone;
 
 /*
  * Global helpers file with misc functions.
  */
-if (! function_exists('app_name')) {
+if (!function_exists('app_name')) {
     /**
      * Helper to grab the application name.
      *
@@ -18,7 +18,7 @@ if (! function_exists('app_name')) {
     }
 }
 
-if (! function_exists('gravatar')) {
+if (!function_exists('gravatar')) {
     /**
      * Access the gravatar helper.
      */
@@ -28,7 +28,7 @@ if (! function_exists('gravatar')) {
     }
 }
 
-if (! function_exists('timezone')) {
+if (!function_exists('timezone')) {
     /**
      * Access the timezone helper.
      */
@@ -38,7 +38,7 @@ if (! function_exists('timezone')) {
     }
 }
 
-if (! function_exists('include_route_files')) {
+if (!function_exists('include_route_files')) {
 
     /**
      * Loops through a folder and requires all PHP files
@@ -53,7 +53,7 @@ if (! function_exists('include_route_files')) {
             $it = new recursiveIteratorIterator($rdi);
 
             while ($it->valid()) {
-                if (! $it->isDot() && $it->isFile() && $it->isReadable() && $it->current()->getExtension() === 'php') {
+                if (!$it->isDot() && $it->isFile() && $it->isReadable() && $it->current()->getExtension() === 'php') {
                     require $it->key();
                 }
 
@@ -65,7 +65,7 @@ if (! function_exists('include_route_files')) {
     }
 }
 
-if (! function_exists('home_route')) {
+if (!function_exists('home_route')) {
 
     /**
      * Return the route to the "home" page depending on authentication/authorization status.
@@ -86,7 +86,7 @@ if (! function_exists('home_route')) {
     }
 }
 
-if (! function_exists('style')) {
+if (!function_exists('style')) {
 
     /**
      * @param       $url
@@ -101,7 +101,7 @@ if (! function_exists('style')) {
     }
 }
 
-if (! function_exists('script')) {
+if (!function_exists('script')) {
 
     /**
      * @param       $url
@@ -116,7 +116,7 @@ if (! function_exists('script')) {
     }
 }
 
-if (! function_exists('form_cancel')) {
+if (!function_exists('form_cancel')) {
 
     /**
      * @param        $cancel_to
@@ -125,13 +125,13 @@ if (! function_exists('form_cancel')) {
      *
      * @return mixed
      */
-    function form_cancel($cancel_to, $title, $classes = 'btn btn-danger btn-sm')
+    function form_cancel($cancel_to, $title, $classes = 'btn btn-danger px-4')
     {
         return resolve(HtmlHelper::class)->formCancel($cancel_to, $title, $classes);
     }
 }
 
-if (! function_exists('form_submit')) {
+if (!function_exists('form_submit')) {
 
     /**
      * @param        $title
@@ -139,13 +139,13 @@ if (! function_exists('form_submit')) {
      *
      * @return mixed
      */
-    function form_submit($title, $classes = 'btn btn-success btn-sm pull-right')
+    function form_submit($title, $classes = 'btn btn-success pull-right px-4')
     {
         return resolve(HtmlHelper::class)->formSubmit($title, $classes);
     }
 }
 
-if (! function_exists('camelcase_to_word')) {
+if (!function_exists('camelcase_to_word')) {
 
     /**
      * @param $str
