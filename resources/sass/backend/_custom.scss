@@ -3,7 +3,11 @@
 
 // Fix mobile footer
 .app-footer {
-    flex: 0 0;
-    padding-top: map-get($spacers, 3);
-    padding-bottom: map-get($spacers, 3);
+  flex: 0 0;
+  padding-top: map-get($spacers, 3);
+  padding-bottom: map-get($spacers, 3);
+}
+
+button:focus {
+  outline: none;
 }

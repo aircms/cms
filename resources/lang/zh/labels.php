@@ -112,7 +112,7 @@ return [
                 'management'   => '子分类管理',
                 'list'         => '所有分类',
                 'create'       => '新建分类',
-                'create_child' => '新建子分类',
+                'create_child' => '添加子分类',
                 'edit'         => '编辑分类',
 
                 'table' => [

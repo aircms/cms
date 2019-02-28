@@ -1940,22 +1940,22 @@
         },
         {
             "name": "kalnoy/nestedset",
-            "version": "v4.3.3",
+            "version": "v4.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lazychaser/laravel-nestedset.git",
-                "reference": "8f2882b8e402cce1204233541ea8ff51513f9e71"
+                "reference": "351fab2eaab95f885a0e52b01985301e93c4d7e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lazychaser/laravel-nestedset/zipball/8f2882b8e402cce1204233541ea8ff51513f9e71",
-                "reference": "8f2882b8e402cce1204233541ea8ff51513f9e71",
+                "url": "https://api.github.com/repos/lazychaser/laravel-nestedset/zipball/351fab2eaab95f885a0e52b01985301e93c4d7e7",
+                "reference": "351fab2eaab95f885a0e52b01985301e93c4d7e7",
                 "shasum": ""
             },
             "require": {
-                "illuminate/database": "5.2 - 5.7",
-                "illuminate/events": "5.2 - 5.7",
-                "illuminate/support": "5.2 - 5.7",
+                "illuminate/database": "5.2 - 5.8",
+                "illuminate/events": "5.2 - 5.8",
+                "illuminate/support": "5.2 - 5.8",
                 "php": ">=5.5.9"
             },
             "require-dev": {
@@ -1995,7 +1995,7 @@
                 "nested sets",
                 "nsm"
             ],
-            "time": "2018-09-04T15:11:11+00:00"
+            "time": "2019-02-27T15:22:30+00:00"
         },
         {
             "name": "laravel/framework",

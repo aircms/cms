@@ -28,6 +28,9 @@ Route::group(['prefix' => 'category/', 'as' => 'category.', 'namespace' => 'Cate
 
         Route::get('/', [ChildrenController::class, 'index'])->name('index');
 
+        Route::get('{category}/up', [ChildrenController::class, 'up'])->name('up');
+        Route::get('{category}/down', [ChildrenController::class, 'down'])->name('down');
+
         Route::get('{parent}/child/create', [ChildrenController::class, 'child'])->name('create.child');
         Route::post('{parent}/child/store', [ChildrenController::class, 'storeChild'])->name('store.child');
 

@@ -10,10 +10,23 @@ class ChildrenController extends Controller
 {
     public function index(Category $ancestor)
     {
+//        dd($ancestor->descendants()->defaultOrder()->withDepth()->get()->toArray());
         return view('backend.category.children.index', [
             'ancestor' => $ancestor,
-            'children' => $ancestor->descendants()->get(),
+            'children' => $ancestor->descendants()->defaultOrder()->withDepth()->get(),
         ]);
+    }
+
+    public function up(Category $ancestor, Category $category)
+    {
+        $category->up();
+        return redirect()->route('admin.category.children.index', $ancestor->id);
+    }
+
+    public function down(Category $ancestor, Category $category)
+    {
+        $category->down();
+        return redirect()->route('admin.category.children.index', $ancestor->id);
     }
 
     public function create(Category $ancestor)
@@ -64,11 +77,11 @@ class ChildrenController extends Controller
         ]);
     }
 
-    public function edit(Category $category, Request $request)
+    public function edit(Category $ancestor, Category $category, Request $request)
     {
         $params = $request->only(['name', 'slug', 'description']);
         if ($category->update($params)) {
-            return redirect()->route('admin.category.children.index', $category->parent_id);
+            return redirect()->route('admin.category.children.index', $ancestor->id);
         }
     }
 

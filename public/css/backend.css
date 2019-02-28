@@ -16930,6 +16930,10 @@ body {
   padding-bottom: 1rem;
 }
 
+button:focus {
+  outline: none;
+}
+
 .breadcrumb .breadcrumb-item a {
   text-decoration: none;
 }

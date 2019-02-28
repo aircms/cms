@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 
 class GroupController extends Controller
 {
-    public function index(Category $category)
+    public function index()
     {
         return view('backend.category.group.index', [
-            'roots' => $category->root()->get(),
+            'roots' => Category::whereIsRoot()->get(),
         ]);
     }
 
@@ -27,12 +27,6 @@ class GroupController extends Controller
             return redirect()->route('admin.category.group.index');
         }
     }
-
-    public function edit1(Category $category)
-    {
-        dd($category->toArray());
-    }
-
 
     public function edit(Category $category)
     {
