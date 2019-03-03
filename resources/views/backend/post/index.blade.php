@@ -9,8 +9,10 @@
                 </div><!--col-->
 
                 <div class="col-sm-7 pull-right">
-                    <div class="btn-toolbar float-right" role="toolbar" aria-label="@lang('labels.general.toolbar_btn_groups')">
-                        <a href="{{ route('admin.post.create',$type->id) }}" class="btn btn-success ml-1" data-toggle="tooltip" title="@lang('labels.general.create')">
+                    <div class="btn-toolbar float-right" role="toolbar"
+                         aria-label="@lang('labels.general.toolbar_btn_groups')">
+                        <a href="{{ route('admin.post.create',$type->id) }}" class="btn btn-success ml-1"
+                           data-toggle="tooltip" title="@lang('labels.general.create')">
                             <i class="fas fa-plus-circle"></i>
                         </a>
                     </div>
@@ -23,51 +25,40 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th>@lang('labels.backend.post.type.name')</th>
-                                <th>@lang('labels.backend.post.type.slug')</th>
-                                <th>@lang('labels.backend.post.type.description')</th>
                                 <th>
-                                    @lang('labels.backend.post.type.created_at')
+                                    @lang('labels.backend.post.title')
                                     <span class="text-muted">/</span>
-                                    @lang('labels.backend.post.type.updated_at')
+                                    @lang('labels.backend.post.slug')
+                                </th>
+                                <th>@lang('labels.backend.post.status')</th>
+                                <th>
+                                    @lang('labels.backend.post.field.created_at')
+                                    <span class="text-muted">/</span>
+                                    @lang('labels.backend.post.field.updated_at')
                                 </th>
                                 <th>@lang('labels.general.actions')</th>
                                 <th>#</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($types as $type)
+                            @foreach($posts as $post)
                                 <tr>
-                                    <td>{{ $type->name }}</td>
-                                    <td>{{ $type->slug }}</td>
-                                    <td>{{ $type->description }}</td>
                                     <td>
-                                        <div>{{ $type->created_at }}</div>
-                                        <div>{{ $type->updated_at }}</div>
+                                        <div>{{ $post->title }}</div>
+                                        <small class="text-muted">{{ $post->slug }}</small>
+                                    </td>
+                                    <td>{{ $post->status_text }}</td>
+                                    <td>
+                                        <div>{{ $post->created_at }}</div>
+                                        <div>{{ $post->updated_at }}</div>
                                     </td>
                                     <td>
-                                        <a href="{{ route('admin.post.type.up', $type->id) }}"
-                                           class="btn btn-info btn-sm">
-                                            <i class="icon-arrow-up"></i>
-                                        </a>
-                                        <a href="{{ route('admin.post.type.down', $type->id) }}"
-                                           class="btn btn-info btn-sm">
-                                            <i class="icon-arrow-down"></i>
-                                        </a>
-
-                                        <a href="{{ route('admin.post.layout.index', $type->id) }}"
-                                           class="btn btn-info btn-sm">
-                                            @lang('labels.backend.post.type.manage_layout')
-                                        </a>
-                                    </td>
-
-                                    <td>
-                                        <a href="{{ route('admin.post.type.edit', $type->id) }}"
+                                        <a href="{{ route('admin.post.edit', [$type->id,$post->id]) }}"
                                            class="btn btn-primary btn-sm">
                                             @lang('buttons.general.crud.edit')
                                         </a>
 
-                                        <a href="{{ route('admin.post.type.delete', $type->id) }}"
+                                        <a href="{{ route('admin.post.delete', [$type->id,$post->id]) }}"
                                            class="btn btn-danger btn-sm">
                                             @lang('buttons.general.crud.delete')
                                         </a>
@@ -79,20 +70,12 @@
                 </div>
             </div><!--col-->
         </div><!--row-->
-        <div class="row">
-            <div class="col-7">
-                <div class="float-left">
-                    {{--{!! $roles->total() !!} {{ trans_choice('labels.backend.access.roles.table.total', $roles->total()) }}--}}
-                </div>
-            </div><!--col-->
 
-            <div class="col-5">
-                <div class="float-right">
-                    {{--{!! $roles->render() !!}--}}
-                </div>
-            </div><!--col-->
-        </div><!--row-->
-    </div><!--card-body-->
+        @if($posts->count())
+            <div class="card-footer">
+                {!! $posts->links() !!}
+            </div>
+        @endif
     </div><!--card-->
 
 @endsection

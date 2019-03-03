@@ -31,4 +31,9 @@ class Post extends Model
     {
         return $this->belongsTo(Type::class);
     }
+
+    public function getStatusTextAttribute()
+    {
+        return PostStatus::description($this->status);
+    }
 }

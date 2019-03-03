@@ -17,7 +17,7 @@ Route::group(['prefix' => 'post/{type}', 'as' => 'post.', 'namespace' => 'Post']
     Route::get('{post}/edit', [PostController::class, 'edit'])->name('edit');
     Route::post('{post}/update', [PostController::class, 'update'])->name('update');
 
-    Route::delete('delete', [PostController::class, 'delete'])->name('store');
+    Route::delete('{post}/delete', [PostController::class, 'delete'])->name('delete');
 });
 
 

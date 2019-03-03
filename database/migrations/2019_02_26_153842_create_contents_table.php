@@ -13,7 +13,7 @@ class CreateContentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('contents', function (Blueprint $table) {
+        Schema::create('post_contents', function (Blueprint $table) {
             $table->increments('id');
             $table->integer("post_id");
             $table->longText("content")->nullable();
@@ -28,6 +28,6 @@ class CreateContentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contents');
+        Schema::dropIfExists('post_contents');
     }
 }
