@@ -2,11 +2,25 @@
 
 use App\Http\Controllers\Backend\Post\FieldController;
 use App\Http\Controllers\Backend\Post\LayoutController;
+use App\Http\Controllers\Backend\Post\PostController;
 use App\Http\Controllers\Backend\Post\TypeController;
 
 /*
  * All route names are prefixed with 'admin.'.
  */
+Route::group(['prefix' => 'post/{type}', 'as' => 'post.', 'namespace' => 'Post'], function () {
+    Route::get('/', [PostController::class, 'index'])->name('index');
+
+    Route::get('create', [PostController::class, 'create'])->name('create');
+    Route::post('store', [PostController::class, 'store'])->name('store');
+
+    Route::get('{post}/edit', [PostController::class, 'edit'])->name('edit');
+    Route::post('{post}/update', [PostController::class, 'update'])->name('update');
+
+    Route::delete('delete', [PostController::class, 'delete'])->name('store');
+});
+
+
 Route::group(['prefix' => 'setting/'], function () {
     Route::group(['prefix' => 'post/', 'as' => 'post.', 'namespace' => 'Post'], function () {
 

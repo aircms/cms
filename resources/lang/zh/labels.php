@@ -109,6 +109,9 @@ return [
         ],
         'post'     => [
             'management' => '发布管理',
+            'title'      => '标题',
+            'slug'       => '别名',
+            'status'     => '状态',
 
             'type'   => [
                 'management'    => '发布类型',

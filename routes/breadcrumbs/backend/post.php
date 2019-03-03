@@ -33,7 +33,17 @@ Breadcrumbs::for('admin.post.field.edit', function ($trail, $id) {
 });
 
 // layout management
-Breadcrumbs::for('admin.post.layout.index', function ($trail,$type) {
+Breadcrumbs::for('admin.post.layout.index', function ($trail, $type) {
     $trail->parent('admin.post.type.index');
-    $trail->push(__('labels.backend.post.layout.management'), route('admin.post.layout.index',$type));
+    $trail->push(__('labels.backend.post.layout.management'), route('admin.post.layout.index', $type));
+});
+
+// post items
+Breadcrumbs::for('admin.post.management', function ($trail) {
+    $trail->push(__('labels.backend.post.management'));
+});
+
+Breadcrumbs::for('admin.post.index', function ($trail, $type) {
+    $trail->parent('admin.post.management');
+    $trail->push($type->name, route('admin.post.index', $type));
 });

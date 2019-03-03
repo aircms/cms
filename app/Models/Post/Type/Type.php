@@ -2,6 +2,7 @@
 
 namespace App\Models\Post\Type;
 
+use App\Models\Post\Post;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\EloquentSortable\Sortable;
 use Spatie\EloquentSortable\SortableTrait;
@@ -37,6 +38,11 @@ class Type extends Model implements Sortable
     public function fields()
     {
         return $this->hasMany(Field::class);
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
     }
 
     public function layout()

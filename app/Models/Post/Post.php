@@ -2,6 +2,7 @@
 
 namespace App\Models\Post;
 
+use App\Models\Post\Type\Type;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Plank\Metable\Metable;
@@ -12,8 +13,8 @@ use Spatie\Sluggable\SlugOptions;
 class Post extends Model
 {
     use Metable;
-    use SoftDeletes;
     use HasSlug;
+    use SoftDeletes;
     use Categorizable;
 
     public function getSlugOptions(): SlugOptions
@@ -24,5 +25,10 @@ class Post extends Model
     public function content()
     {
         return $this->hasOne(Content::class);
+    }
+
+    public function type()
+    {
+        return $this->belongsTo(Type::class);
     }
 }

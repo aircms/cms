@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Post\Type\Type;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
@@ -84,5 +85,6 @@ class AppServiceProvider extends ServiceProvider
 
 
         \Illuminate\Support\Facades\View::share('request', app('request'));
+        \Illuminate\Support\Facades\View::share('postTypes', Type::ordered()->get());
     }
 }

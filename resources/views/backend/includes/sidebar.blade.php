@@ -51,6 +51,13 @@
                 </a>
 
                 <ul class="nav-dropdown-items">
+                    @foreach($postTypes as $postType)
+                    <li class="nav-item">
+                        <a class="nav-link {{ active_class(Active::checkUriPattern('admin/post/'.$postType->id.'/*')) }}" href="{{ route('admin.post.index',$postType->id) }}">
+                            {{ $postType->name }}
+                        </a>
+                    </li>
+                    @endforeach
                 </ul>
             </li>
 
