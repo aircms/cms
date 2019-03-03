@@ -16,7 +16,9 @@ class CreatePostFieldsTable extends Migration
         Schema::create('post_fields', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('alias');
+            $table->string('slug');
+            $table->text('description')->nullable();
+            $table->integer('order');
             $table->timestamps();
         });
     }

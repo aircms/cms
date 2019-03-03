@@ -1,0 +1,56 @@
+<?php
+
+use App\Http\Controllers\Backend\Post\FieldController;
+use App\Http\Controllers\Backend\Post\LayoutController;
+use App\Http\Controllers\Backend\Post\TypeController;
+
+/*
+ * All route names are prefixed with 'admin.'.
+ */
+Route::group(['prefix' => 'setting/'], function () {
+    Route::group(['prefix' => 'post/', 'as' => 'post.', 'namespace' => 'Post'], function () {
+
+        // type
+        Route::group(['prefix' => 'type/', 'as' => 'type.'], function () {
+            Route::get('/', [TypeController::class, 'index'])->name('index');
+
+            Route::get('create', [TypeController::class, 'create'])->name('create');
+            Route::post('store', [TypeController::class, 'store'])->name('store');
+
+            Route::get('{type}/edit', [TypeController::class, 'edit'])->name('edit');
+            Route::post('{type}/update', [TypeController::class, 'update'])->name('update');
+
+            Route::post('{type}/delete', [TypeController::class, 'delete'])->name('delete');
+
+            Route::get('{type}/move-up', [TypeController::class, 'up'])->name('up');
+            Route::get('{type}/move-down', [TypeController::class, 'down'])->name('down');
+        });
+
+        // field
+        Route::group(['prefix' => '/field', 'as' => 'field.'], function () {
+            Route::get('/', [FieldController::class, 'index'])->name('index');
+
+            Route::get('create', [FieldController::class, 'create'])->name('create');
+            Route::post('store', [FieldController::class, 'store'])->name('store');
+
+            Route::get('{field}/edit', [FieldController::class, 'edit'])->name('edit');
+            Route::post('{field}/update', [FieldController::class, 'update'])->name('update');
+
+            Route::post('{field}/delete', [FieldController::class, 'delete'])->name('delete');
+
+            Route::get('{field}/move-up', [FieldController::class, 'up'])->name('up');
+            Route::get('{field}/move-down', [FieldController::class, 'down'])->name('down');
+        });
+
+
+        // layout
+        Route::group(['prefix' => 'type/{type}/layout', 'as' => 'layout.'], function () {
+            Route::get('/', [LayoutController::class, 'index'])->name('index');
+
+            Route::post('{layout}/store', [LayoutController::class, 'store'])->name('store');
+
+            Route::post('{layout}/preview', [LayoutController::class, 'preview'])->name('preview');
+        });
+
+    });
+});

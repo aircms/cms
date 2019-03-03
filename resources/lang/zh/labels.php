@@ -107,6 +107,42 @@ return [
                 'view' => '查看用户',
             ],
         ],
+        'post'     => [
+            'management' => '发布管理',
+
+            'type'   => [
+                'management'    => '发布类型',
+                'create'        => '创建文章类型',
+                'edit'          => '编辑文章类型',
+                'name'          => '名称',
+                'slug'          => '别名',
+                'description'   => '描述',
+                'order'         => '排序',
+                'created_at'    => '创建日期',
+                'updated_at'    => '更新日期',
+                'manage_layout' => '布局管理',
+            ],
+            'field'  => [
+                'management'  => '发布字段',
+                'create'      => '创建发布字段',
+                'edit'        => '创建发布字段',
+                'name'        => '名称',
+                'slug'        => '别名',
+                'description' => '描述',
+                'order'       => '排序',
+                'created_at'  => '创建日期',
+                'updated_at'  => '更新日期',
+            ],
+            'layout' => [
+                'management' => '类型模板',
+                'preview'    => '预览',
+                'name'       => '名称',
+                'slug'       => '别名',
+                'order'      => '排序',
+                'created_at' => '创建日期',
+                'updated_at' => '更新日期',
+            ],
+        ],
         'category' => [
             'children' => [
                 'management'   => '子分类管理',

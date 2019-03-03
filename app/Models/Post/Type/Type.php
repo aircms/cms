@@ -13,7 +13,8 @@ class Type extends Model implements Sortable
     use HasSlug;
     use SortableTrait;
 
-    protected $table = 'post_types';
+    protected $table    = 'post_types';
+    protected $fillable = ['name', 'slug', 'description', 'order'];
 
     public $sortable = [
         'order_column_name' => 'order',

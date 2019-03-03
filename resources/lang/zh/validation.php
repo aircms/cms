@@ -147,6 +147,24 @@ return [
     'attributes' => [
 
         'backend' => [
+            'post'     => [
+                'type'   => [
+                    'name'        => '名称',
+                    'slug'        => '别名',
+                    'description' => '描述',
+                    'order'       => '排序',
+                ],
+                'field'  => [
+                    'name'        => '名称',
+                    'slug'        => '别名',
+                    'description' => '描述',
+                    'order'       => '排序',
+                ],
+                'layout' => [
+                    'layout' => '布局',
+                ],
+
+            ],
             'category' => [
                 'children' => [
                     'name'        => '名称',

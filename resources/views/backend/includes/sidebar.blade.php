@@ -45,15 +45,38 @@
 
             <li class="divider"></li>
 
-            <li class="nav-item nav-dropdown {{ active_class(Active::checkUriPattern('admin/category/*'), 'open') }}">
-                <a class="nav-link nav-dropdown-toggle {{ active_class(Active::checkUriPattern('admin/category/*')) }}" href="#">
+            <li class="nav-item nav-dropdown {{ active_class(Active::checkUriPattern('admin/post/*'), 'open') }}">
+                <a class="nav-link nav-dropdown-toggle {{ active_class(Active::checkUriPattern('admin/post/*')) }}" href="#">
+                    <i class="nav-icon icon-list"></i> @lang('labels.backend.post.management')
+                </a>
+
+                <ul class="nav-dropdown-items">
+                </ul>
+            </li>
+
+            <li class="divider"></li>
+
+            <li class="nav-item nav-dropdown {{ active_class(Active::checkUriPattern('admin/setting/*'), 'open') }}">
+                <a class="nav-link nav-dropdown-toggle {{ active_class(Active::checkUriPattern('admin/setting/*')) }}" href="#">
                     <i class="nav-icon icon-list"></i> @lang('labels.backend.system.setting')
                 </a>
 
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
-                        <a class="nav-link {{ active_class(Active::checkUriPattern('admin/category/group/index')) }}" href="{{ route('admin.category.group.index') }}">
+                        <a class="nav-link {{ active_class(Active::checkUriPattern('admin/setting/category/group/*')) }}" href="{{ route('admin.category.group.index') }}">
                             @lang('labels.backend.category.group.management')
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link {{ active_class(Active::checkUriPattern('admin/setting/post/type/*')) }}" href="{{ route('admin.post.type.index') }}">
+                            @lang('labels.backend.post.type.management')
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link {{ active_class(Active::checkUriPattern('admin/setting/post/field/*')) }}" href="{{ route('admin.post.field.index') }}">
+                            @lang('labels.backend.post.field.management')
                         </a>
                     </li>
                 </ul>
