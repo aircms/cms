@@ -69,15 +69,15 @@ class ChildrenController extends Controller
         }
     }
 
-    public function update(Category $ancestor, Category $category)
+    public function edit(Category $ancestor, Category $category)
     {
-        return view('backend.category.children.update', [
+        return view('backend.category.children.edit', [
             'category' => $category,
             'ancestor' => $ancestor,
         ]);
     }
 
-    public function edit(Category $ancestor, Category $category, Request $request)
+    public function update(Category $ancestor, Category $category, Request $request)
     {
         $params = $request->only(['name', 'slug', 'description']);
         if ($category->update($params)) {

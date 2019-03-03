@@ -1,9 +1,8 @@
 @extends('backend.layouts.app')
 
 @section('content')
-    {{ html()->form('POST', route('admin.category.children.update',$category->id))->class('form-horizontal')->open() }}
+    {{ html()->form('POST', route('admin.category.children.update',[$ancestor->id,$category->id]))->class('form-horizontal')->open() }}
     <div class="card">
-
 
         <div class="card-body">
 
