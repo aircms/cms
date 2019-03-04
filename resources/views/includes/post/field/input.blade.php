@@ -1,18 +1,20 @@
 @include('includes.post.field.common.header')
 
-@isset($post)
-    {{
-    html()
-    ->text(array_get($input,'name',""),$post->getMeta(array_get($input,'name',"")))
-    ->attributes(array_get($input,'attributes',[]))
-    }}
-@else
-    {{
-    html()
-    ->text(array_get($input,'name',""),array_get($input,'value',""))
-    ->attributes(array_get($input,'attributes',[]))
-    }}
-@endisset
+@php
+    $inputName = array_get($input, 'name', "");
+    $inputValue = array_get($input, 'value', "");
+    $inputAttributes = array_get($input, 'attributes', []);
+
+    $labelName = array_get($label, 'name', "");
+    $labelAttributes = array_get($label, 'attributes', []);
+
+    $metaValue = $post->getMeta($inputName);
+
+    $value = isset($post) ? $metaValue : $inputValue;
+
+@endphp
+
+{{ html()->text($inputName,$value)->attributes($inputAttributes) }}
 
 
 @include('includes.post.field.common.footer')
