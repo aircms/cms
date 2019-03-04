@@ -9,12 +9,11 @@
     $labelName = array_get($label, 'name', "");
     $labelAttributes = array_get($label, 'attributes', []);
 
-    $metaValue = $post->getMeta($inputName);
-
-    $value = isset($post) ? $metaValue : $inputValue;
+    $value = isset($post) ? $post->getMeta($inputName,[]) : $inputValue;
+    $items = array_get($input,'items');
 @endphp
 
-@foreach(array_get($input,'items') as $itemKey=>$itemLabel)
+@foreach($items as $itemKey=>$itemLabel)
     <div class="form-check {{ array_get($input,'inline',false) ?"form-check-inline":"" }}">
         {{ html()->radio($inputName,$itemKey==$value, $itemKey)->id($inputName."-".$itemKey)->attributes($inputAttributes) }}
         {{ html()->label($itemLabel)->class('form-check-label')->for($inputName.'-'.$itemKey) }}

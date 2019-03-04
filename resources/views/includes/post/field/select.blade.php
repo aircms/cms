@@ -8,13 +8,12 @@
     $labelName = array_get($label, 'name', "");
     $labelAttributes = array_get($label, 'attributes', []);
 
-    $inputChecked = isset($post)? $post->getMeta($inputName) == $inputValue:array_get($input,'checked',false);
+    $value = isset($post) ? $post->getMeta($inputName,$inputValue) : $inputValue;
 
+    $items = array_get($input,'items');
 @endphp
 
-
-{{ html()->checkbox($inputName,$inputChecked, $inputValue)->attributes($inputAttributes) }}
-{{ html()->label($labelName)->class('form-check-label')->attributes($labelAttributes)->for($inputName) }}
+{{ html()->select($inputName,$items,$value)->attributes($inputAttributes) }}
 
 
 @include('includes.post.field.common.footer')

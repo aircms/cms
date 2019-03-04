@@ -6,20 +6,6 @@
 
         <div class="card-body">
 
-            <div class="row">
-                <div class="col-sm-5">
-                    <h4 class="card-title mb-0">
-                        {{ $post->title }}
-
-                        <small class="text-muted">
-                            @lang('labels.general.update')
-                        </small>
-                    </h4>
-                </div><!--col-->
-            </div><!--row-->
-
-            <hr>
-
             <div class="form-group">
                 {{ html()->label(__('validation.attributes.backend.post.title'))->for('title') }}
                 {{ html()->text('title')->value($post->title)->class('form-control')->attribute('maxlength', 190)->required()->autofocus() }}

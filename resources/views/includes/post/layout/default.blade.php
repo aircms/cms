@@ -4,6 +4,16 @@
 
 <div class="row">
     <div class="col">
+        @include('includes.post.field.select',config('layouts.default.fields.status-1'))
+    </div>
+
+    <div class="col">
+        @include('includes.post.field.select_multi',config('layouts.default.fields.status-2'))
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
         @include('includes.post.field.checkbox',config('layouts.default.fields.can'))
     </div>
     <div class="col">

@@ -8,8 +8,7 @@
     $labelName = array_get($label, 'name', "");
     $labelAttributes = array_get($label, 'attributes', []);
 
-    $metaValue = $post->getMeta($inputName);
-    $inputChecked = isset($post)? $metaValue == $inputValue : array_get($input,'checked',false);
+    $inputChecked = isset($post)? $post->getMeta($inputName) == $inputValue : array_get($input,'checked',false);
 
 @endphp
 

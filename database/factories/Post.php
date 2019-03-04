@@ -18,8 +18,8 @@ $factory->define(\App\Models\Post\Post::class, function (Faker $faker) {
     ];
 });
 
-$factory->define(\App\Models\Post\Content::class, function (Faker $faker) {
+$factory->define(\App\Models\Post\Type\Layout::class, function (Faker $faker) {
     return [
-        'content' => $faker->text,
+        'layout' => 'default',
     ];
 });

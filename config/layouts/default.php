@@ -18,6 +18,49 @@ return [
                 'input' => ['class' => 'form-check']
             ]
         ],
+        'status-2'    => [
+            'label'   => ['name' => 'Status-2'],
+            'input'   => [
+                'name'       => 'status-2',
+                'value'      => ['a', 'b'],
+                'items'      => [
+                    'a' => 'AStatus',
+                    'b' => 'BStatus',
+                    'c' => 'CStatus',
+                    'd' => 'DStatus',
+                    'e' => 'EStatus',
+                    'f' => 'FStatus',
+                    'g' => 'GStatus',
+                ],
+                'attributes' => [
+                    'class' => 'form-control'
+                ]
+            ],
+            'wrapper' => [
+                'all'   => ['class' => 'form-group'],
+                'input' => []
+            ]
+        ],
+        'status-1'    => [
+            'label'   => ['name' => 'Status-1'],
+            'input'   => [
+                'name'       => 'status-1',
+                'value'      => 'c',
+                'items'      => [
+                    'a' => 'AStatus',
+                    'b' => 'AStatus',
+                    'c' => 'CStatus',
+                    'd' => 'DStatus',
+                ],
+                'attributes' => [
+                    'class' => 'form-control'
+                ]
+            ],
+            'wrapper' => [
+                'all'   => ['class' => 'form-group'],
+                'input' => []
+            ]
+        ],
         'status'      => [
             'label'   => ['name' => 'Status'],
             'input'   => [

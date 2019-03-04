@@ -21,9 +21,9 @@ class PostSeeder extends Seeder
         ]);
 
         factory(\App\Models\Post\Type\Type::class, 3)->create()->each(function (\App\Models\Post\Type\Type $type) {
-            $type->posts()->saveMany(factory(\App\Models\Post\Post::class, 30)->create()->each(function (\App\Models\Post\Post $post) {
-                $post->content()->save(factory(\App\Models\Post\Content::class)->make());
-            }));
+            $type->posts()->saveMany(factory(\App\Models\Post\Post::class, 30)->create());
+
+            $type->layout()->save(factory(\App\Models\Post\Type\Layout::class)->make());
         });
     }
 }

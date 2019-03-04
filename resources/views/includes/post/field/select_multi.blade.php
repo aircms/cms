@@ -2,19 +2,19 @@
 
 @php
     $inputName = array_get($input, 'name', "");
-    $inputValue = array_get($input, 'value', "");
+    $inputValue = array_get($input, 'value', []);
     $inputAttributes = array_get($input, 'attributes', []);
 
     $labelName = array_get($label, 'name', "");
     $labelAttributes = array_get($label, 'attributes', []);
 
-    $value = isset($post) ? $post->getMeta($inputName) : $inputValue;
+    $value = isset($post) ? $post->getMeta($inputName,$inputValue) : $inputValue;
 
+    $items = array_get($input,'items');
 @endphp
 
-{{ html()->textarea($inputName,$value)->attributes($inputAttributes) }}
+{{ html()->multiselect($inputName,$items,$value)->attributes($inputAttributes) }}
 
 
 @include('includes.post.field.common.footer')
-
 
