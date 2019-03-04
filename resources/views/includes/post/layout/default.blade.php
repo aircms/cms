@@ -4,6 +4,15 @@
 
 <div class="row">
     <div class="col">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        @include('includes.post.field.category',config('layouts.default.fields.category'))
+    </div>
+
+    <div class="col">
         @include('includes.post.field.select',config('layouts.default.fields.status-1'))
     </div>
 

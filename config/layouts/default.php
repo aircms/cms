@@ -5,6 +5,18 @@ return [
         'vendor.ueditor.assets',
     ],
     'fields'   => [
+        'category'    => [
+            'label'   => ['name' => 'Category-1'],
+            'input'   => [
+                'name'       => 'category-1',
+                'group'      => 'voluptas-voluptas-aliquid-quos-illum-aut-enim-voluptas-sit',
+                'attributes' => ['class' => 'form-check-input'],
+            ],
+            'wrapper' => [
+                'all'   => ['class' => 'form-group'],
+                'input' => []
+            ]
+        ],
         'can'         => [
             'label'   => ['name' => 'Can'],
             'input'   => [

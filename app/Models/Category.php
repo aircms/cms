@@ -2,21 +2,19 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Builder;
-
 class Category extends \Rinvex\Categories\Models\Category
 {
-    public function scopeRoots(Builder $query)
+    public function depthPrefix($char = "┇┄", $ignoreRoot = true)
     {
-        return $query->whereNull('parent_id');
+        return str_repeat($char, ($this->depth - 1)) . ' ';
     }
 
-    public function depthPrefix($char = "--", $ignoreRoot = true)
+    public function flatIndentMap($char = '┇┄')
     {
-        if ($this->depth == 1) {
-            return "";
-        }
-
-        return "|-".str_repeat($char, 2 * ($this->depth - 1)) . ' ';
+        return $this->descendants()->defaultOrder()->withDepth()->get()->flatMap(function (Category $category) use ($char) {
+            return [
+                $category->id => $category->depthPrefix($char) . $category->name,
+            ];
+        })->all();
     }
 }
