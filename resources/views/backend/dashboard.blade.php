@@ -11,6 +11,33 @@
                 </div><!--card-header-->
                 <div class="card-body">
                     {!! __('strings.backend.welcome') !!}
+
+
+                    @include('includes.post.field.input',[
+                        'label'=>[
+                            'name'=>'TestLabel',
+                            'attributes'=>[
+                                'class'=>'col-md-2 form-control-label',
+                                'for'=>'abc',
+                            ],
+                        ],
+                        'input'=>[
+                            'name'=>'abc',
+                            'value'=>'abcdef',
+                            'attributes'=>[
+                                'class'=>'form-control',
+                                'required'=>true,
+                            ],
+                        ],
+                        'wrapper'=>[
+                            'all'=>[
+                                'class'=>'form-group row'
+                            ],
+                            'input'=>[
+                                'class'=>'col-md-10'
+                            ]
+                        ]
+                    ])
                 </div><!--card-body-->
             </div><!--card-->
         </div><!--col-->

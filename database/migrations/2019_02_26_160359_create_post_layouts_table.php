@@ -16,7 +16,7 @@ class CreatePostLayoutsTable extends Migration
         Schema::create('post_layouts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('type_id');
-            $table->text('layout')->nullable();
+            $table->string('layout')->nullable();
             $table->timestamps();
         });
     }
