@@ -124,7 +124,6 @@ return [
             'port'     => env('REDIS_PORT', 6379),
             'database' => env('REDIS_DB', 0),
         ],
-
     ],
 
 ];

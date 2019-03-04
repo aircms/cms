@@ -37,7 +37,7 @@ return [
     ],
 
     'frontend' => [
-        'contact' => [
+        'ContactSeeder' => [
             'sent' => '您的信息已经成功提交！ 我们会尽快回复到您提供的电子邮箱。',
         ],
     ],

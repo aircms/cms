@@ -1,6 +1,7 @@
 <?php
 
 Breadcrumbs::for('admin.system.management', function ($trail) {
+    $trail->parent('admin.dashboard');
     $trail->push(__('labels.backend.system.setting'));
 });
 

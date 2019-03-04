@@ -14,7 +14,7 @@ return [
     */
 
     'backend' => [
-        'access' => [
+        'access'  => [
             'title' => '权限管理',
 
             'roles' => [
@@ -35,6 +35,11 @@ return [
                 'main'            => '用户',
                 'view'            => '查看用户',
             ],
+        ],
+        'contact' => [
+            'status'  => '状态',
+            'replied' => '已回复',
+            'waiting' => '待回复',
         ],
 
         'log-viewer' => [

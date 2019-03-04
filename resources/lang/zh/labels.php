@@ -31,12 +31,14 @@ return [
         'show'              => '显示',
         'toggle_navigation' => '切换导航',
         'create'            => '新建',
+        'reply'             => '回复',
         'update'            => '编辑',
     ],
 
     'backend' => [
         'system'   => [
-            'setting' => '系统设置'
+            'setting' => '系统设置',
+            'utils'   => '系统功能',
         ],
         'access'   => [
             'roles' => [
@@ -146,6 +148,25 @@ return [
                 'updated_at' => '更新日期',
             ],
         ],
+        'contact'  => [
+            'management'        => '联系我们',
+            'waiting_for_reply' => '等待回复',
+            'replied'           => '已回复',
+            'list'              => '所有咨询',
+            'create'            => '新建',
+            'reply'             => '回复',
+            'phone_number'      => '电话',
+            'email'             => '邮箱',
+            'user'              => '用户',
+            'address'           => '地址',
+            'name'              => '姓名',
+            'sex'               => '性别',
+            'age'               => '年龄',
+            'message'           => '咨询内容',
+            'reply_channel'     => '消息通道',
+            'created_at'        => '创建日期',
+            'updated_at'        => '回复日期',
+        ],
         'category' => [
             'children' => [
                 'management'   => '子分类管理',
@@ -190,7 +211,7 @@ return [
             'remember_me'        => '记住我',
         ],
 
-        'contact' => [
+        'ContactSeeder' => [
             'box_title' => 'Contact Us',
             'button'    => 'Send Information',
         ],

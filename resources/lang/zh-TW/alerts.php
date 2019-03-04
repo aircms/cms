@@ -34,7 +34,7 @@ return [
     ],
 
     'frontend' => [
-        'contact' => [
+        'ContactSeeder' => [
             'sent' => 'Your information was successfully sent. We will respond back to the e-mail provided as soon as we can.',
         ],
     ],

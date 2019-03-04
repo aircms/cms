@@ -19,14 +19,14 @@ return [
                 'activate'           => '激活',
                 'change_password'    => '更改密码',
                 'clear_session'      => '清除会话',
-                'confirm'             => '确认',
+                'confirm'            => '确认',
                 'deactivate'         => '停用',
                 'delete_permanently' => '永久删除',
                 'login_as'           => '登录为 :user',
                 'resend_email'       => '重新发送确认电子邮件',
                 'restore_user'       => '恢复用户',
-                'unconfirm'             => '取消确认',
-                'unlink' => '取消链接',
+                'unconfirm'          => '取消确认',
+                'unlink'             => '取消链接',
             ],
         ],
     ],
@@ -39,13 +39,14 @@ return [
     ],
 
     'general' => [
-        'cancel' => '取消',
+        'cancel'   => '取消',
         'continue' => '继续',
 
         'crud' => [
             'create' => '创建',
             'delete' => '删除',
             'edit'   => '编辑',
+            'reply'  => '回复',
             'update' => '更新',
             'view'   => '查看',
         ],

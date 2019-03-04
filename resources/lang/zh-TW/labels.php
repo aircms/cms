@@ -114,7 +114,7 @@ return [
             'remember_me' => '記住我',
         ],
 
-        'contact' => [
+        'ContactSeeder' => [
             'box_title' => 'Contact Us',
             'button' => 'Send Information',
         ],

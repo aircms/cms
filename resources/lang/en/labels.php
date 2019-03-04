@@ -127,7 +127,7 @@ return [
             'remember_me'        => 'Remember Me',
         ],
 
-        'contact' => [
+        'ContactSeeder' => [
             'box_title' => 'Contact Us',
             'button' => 'Send Information',
         ],

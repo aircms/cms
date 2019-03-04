@@ -63,6 +63,23 @@
 
             <li class="divider"></li>
 
+            <li class="nav-item nav-dropdown {{ active_class(Active::checkUriPattern('admin/utils/*'), 'open') }}">
+                <a class="nav-link nav-dropdown-toggle {{ active_class(Active::checkUriPattern('admin/utils/*')) }}" href="#">
+                    <i class="nav-icon icon-list"></i> @lang('labels.backend.system.utils')
+                </a>
+
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link {{ active_class(Active::checkUriPattern('admin/utils/contact/*')) }}" href="{{ route('admin.utils.contact.waiting') }}">
+                            @lang('labels.backend.contact.management')
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li class="divider"></li>
+
             <li class="nav-item nav-dropdown {{ active_class(Active::checkUriPattern('admin/setting/*'), 'open') }}">
                 <a class="nav-link nav-dropdown-toggle {{ active_class(Active::checkUriPattern('admin/setting/*')) }}" href="#">
                     <i class="nav-icon icon-list"></i> @lang('labels.backend.system.setting')

@@ -82,7 +82,7 @@ return [
             'click_to_confirm' => '點擊此處確認您的帳戶:',
         ],
 
-        'contact' => [
+        'ContactSeeder' => [
             'email_body_title' => 'You have a new contact form request: Below are the details:',
             'subject' => 'A new :app_name contact form submission!',
         ],

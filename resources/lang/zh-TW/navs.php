@@ -19,11 +19,11 @@ return [
     ],
 
     'frontend' => [
-        'contact' => 'Contact',
-        'dashboard' => '儀表板',
-        'login' => '登錄',
-        'macros' => '宏',
-        'register' => '註冊',
+        'ContactSeeder' => 'ContactSeeder',
+        'dashboard'     => '儀表板',
+        'login'         => '登錄',
+        'macros'        => '宏',
+        'register'      => '註冊',
 
         'user' => [
             'account' => '我的帳戶',

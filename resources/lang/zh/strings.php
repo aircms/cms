@@ -27,6 +27,10 @@ return [
             'welcome' => '欢迎',
         ],
 
+        'utils'     => [
+            'title' => '系统功能',
+        ],
+
         'general' => [
             'all_rights_reserved' => '保留所有权利。',
             'are_you_sure'        => '你确定这样做吗？',
@@ -82,7 +86,7 @@ return [
             'click_to_confirm' => '点击此处确认您的帐户:',
         ],
 
-        'contact' => [
+        'ContactSeeder' => [
             'email_body_title' => '你有一个新的联系请求， 详情如下：',
             'subject'          => '一个新提交的 :app_name 联系请求',
         ],

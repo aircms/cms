@@ -19,11 +19,11 @@ return [
     ],
 
     'frontend' => [
-        'contact' => 'Contact',
-        'dashboard' => 'Dashboard',
-        'login'     => 'Login',
-        'macros'    => 'Macros',
-        'register'  => 'Register',
+        'ContactSeeder' => 'ContactSeeder',
+        'dashboard'     => 'Dashboard',
+        'login'         => 'Login',
+        'macros'        => 'Macros',
+        'register'      => 'Register',
 
         'user' => [
             'account'         => 'My Account',
