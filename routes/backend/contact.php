@@ -12,8 +12,11 @@ Route::group(['prefix' => 'utils/', 'as' => 'utils.', 'namespace' => 'Utils'], f
         Route::get('replied', [ContactController::class, 'replied'])->name('replied');
         Route::get('waiting', [ContactController::class, 'waiting'])->name('waiting');
 
+
         Route::get('create', [ContactController::class, 'create'])->name('create');
         Route::post('store', [ContactController::class, 'store'])->name('store');
+
+        Route::get('{contact}/show', [ContactController::class, 'show'])->name('show');
 
         Route::get('{contact}/reply', [ContactController::class, 'reply'])->name('reply');
         Route::post('{contact}/send', [ContactController::class, 'send'])->name('send');

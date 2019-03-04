@@ -2,7 +2,6 @@
 
 @section('content')
 
-    {{ html()->form('POST', route('admin.utils.contact.send',$contact->id))->class('form-horizontal')->open() }}
     <div class="card">
 
         <div class="card-body">
@@ -13,7 +12,7 @@
                         @lang('labels.backend.contact.management')
 
                         <small class="text-muted">
-                            @lang('labels.backend.contact.reply')
+                            @lang('labels.backend.contact.view')
                         </small>
                     </h4>
                 </div><!--col-->
@@ -59,54 +58,18 @@
                             <th class="text-right">@lang('labels.backend.contact.message')</th>
                             <td>{{ $contact->message }}</td>
                         </tr>
+                        <tr>
+                            <th class="text-right">@lang('labels.backend.contact.reply')</th>
+                            <td>{{ $contact->reply }}</td>
+                        </tr>
+                        <tr>
+                            <th class="text-right">@lang('labels.backend.contact.reply_channel')</th>
+                            <td>{{ $contact->reply_channel_text }}</td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-
-            <hr>
-
-            <div class="row mt-4">
-                <div class="col">
-
-                    {{-- reply  --}}
-                    <div class="form-group row">
-                        {{ html()->label(__('validation.attributes.backend.contact.reply'))->class('col-md-2 form-control-label')->for('name') }}
-                        <div class="col-md-10">
-                            {{ html()->textarea('reply')->value($contact->reply)->class('form-control')->attribute('maxlength', 190) }}
-                        </div><!--col-->
-                    </div><!--form-group-->
-
-                    {{-- channel  --}}
-                    <div class="form-group row">
-                        {{ html()->label(__('validation.attributes.backend.contact.reply_channel'))->class('col-md-2 form-control-label')->for('description') }}
-                        <div class="col-md-10">
-
-                            @foreach($contact->channels() as $channelID =>$channelName)
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" name="reply_channel[]" type="checkbox"
-                                           id="channel-{{ $channelID }}" value="{{ $channelID }}">
-                                    <label class="form-check-label"
-                                           for="channel-{{ $channelID }}">{{ $channelName }}</label>
-                                </div>
-                            @endforeach
-                        </div><!--col-->
-                    </div><!--form-group-->
-
-
-                </div><!--col-->
-            </div><!--row-->
         </div><!--card-body-->
-
-        <div class="card-footer">
-            <div class="row">
-                <div class="col-md-10 offset-md-2">
-                    {{ form_submit(__('buttons.general.crud.edit'))->class('mr-2') }}
-                </div>
-            </div>
-        </div><!--card-footer-->
-
-
     </div><!--card-->
-    {{ html()->form()->close() }}
 @endsection

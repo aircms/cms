@@ -46,9 +46,7 @@
                                 <td>{{ $contact->created_at }}</td>
                                 <td>{{ $contact->updated_at }}</td>
                                 <td>
-                                    <a href="#" class="btn btn-primary btn-sm">
-                                        查看详情
-                                    </a>
+                                    <a href="{{ route('admin.utils.contact.show', $contact->id) }}" class="btn btn-primary btn-sm">查看详情</a>
                                 </td>
                             </tr>
                         @endforeach

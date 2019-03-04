@@ -25,4 +25,19 @@ class Contact extends Model
     {
         return ['女士', '先生'][$this->sex];
     }
+
+    public function getReplyChannelTextAttribute()
+    {
+        $channels = explode(',', $this->reply_channel);
+        return collect($channels)->map(function ($id) {
+            return $this->channels()[$id];
+        })->implode("/");
+    }
+
+    public function channels()
+    {
+        return ['网站', '短信', '电话', '邮箱', '快递', '传真'];
+    }
+
+
 }

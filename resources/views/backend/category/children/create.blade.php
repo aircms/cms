@@ -61,7 +61,6 @@
             <div class="row">
                 <div class="col-md-10 offset-md-2">
                     {{ form_submit(__('buttons.general.crud.create'))->class('mr-2') }}
-                    {{ form_cancel(route('admin.auth.role.index'), __('buttons.general.cancel')) }}
                 </div>
             </div>
         </div><!--card-footer-->

@@ -147,6 +147,17 @@ return [
     'attributes' => [
 
         'backend' => [
+            'contact'  => [
+                'name'          => '姓名',
+                'phone_number'  => '电话',
+                'email'         => '邮箱',
+                'sex'           => '性别',
+                'message'       => '留言',
+                'reply'         => '回复',
+                'reply_channel' => '回复渠道',
+                'title'         => '标题',
+                'address'       => '联系地址'
+            ],
             'post'     => [
                 'type'   => [
                     'name'        => '名称',

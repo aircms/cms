@@ -23,6 +23,12 @@ class ContactController extends Controller
         ]);
     }
 
+    public function show(Contact $contact)
+    {
+        return view("backend.utils.contact.show", [
+            'contact' => $contact,
+        ]);
+    }
 
     public function create()
     {
@@ -40,7 +46,7 @@ class ContactController extends Controller
         if ($contact->fill($params)->save()) {
             // todo: send messages to administrators;
 
-            return redirect()->route('admin.utils.contact.index');
+            return redirect()->route('admin.utils.contact.waiting');
         }
     }
 
@@ -53,12 +59,13 @@ class ContactController extends Controller
 
     public function send(Contact $contact, Request $request)
     {
-        $params = $request->only('reply', 'reply_channel');
+        $params = $request->only(['reply', 'reply_channel']);
+        $params['reply_channel'] = implode(",", $params['reply_channel']);
 
         if ($contact->fill($params)->save()) {
             // todo: reply messages to user;
 
-            return redirect()->route('admin.utils.contact.index');
+            return redirect()->route('admin.utils.contact.waiting');
         }
     }
 }
