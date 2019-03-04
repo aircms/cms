@@ -21,8 +21,8 @@
             <hr>
 
             <div class="form-group">
-                {{ html()->label(__('validation.attributes.backend.post.name'))->for('name') }}
-                {{ html()->text('name')->class('form-control')->attribute('maxlength', 190)->required()->autofocus() }}
+                {{ html()->label(__('validation.attributes.backend.post.title'))->for('title') }}
+                {{ html()->text('title')->class('form-control')->attribute('maxlength', 190)->required()->autofocus() }}
             </div>
 
             <div class="form-group">

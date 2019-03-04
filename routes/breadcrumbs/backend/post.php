@@ -52,3 +52,8 @@ Breadcrumbs::for('admin.post.create', function ($trail, $type) {
     $trail->parent('admin.post.index', $type);
     $trail->push(__('labels.general.create'), route('admin.post.index', $type));
 });
+
+Breadcrumbs::for('admin.post.edit', function ($trail, $type) {
+    $trail->parent('admin.post.index', $type);
+    $trail->push(__('labels.general.update'), route('admin.post.index', $type));
+});

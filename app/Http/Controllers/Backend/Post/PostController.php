@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Backend\Post;
 
 use App\Http\Controllers\Controller;
+use App\Models\Post\Content;
 use App\Models\Post\Post;
 use App\Models\Post\Type\Type;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -12,7 +15,7 @@ class PostController extends Controller
     {
         return view('backend.post.index', [
             'type'  => $type,
-            'posts' => $type->posts()->paginate(),
+            'posts' => $type->posts()->orderDesc()->paginate(),
         ]);
     }
 
@@ -23,9 +26,27 @@ class PostController extends Controller
         ]);
     }
 
-    public function store(Type $type, Post $post)
+    public function store(Type $type, Post $post, Request $request)
     {
-        return redirect()->route('admin.post.index', $type->id);
+        DB::beginTransaction();
+        try {
+            $fillable = ['title', 'slug', 'order'];
+            $post->fill($request->only($fillable));
+
+            $post->type_id = $type->id;
+            if (!$post->save()) {
+                throw new \Exception("post save fail");
+            }
+
+            $fillable[] = '_token';
+            $post->syncMeta($request->except($fillable));
+
+            DB::commit();
+            return redirect()->route('admin.post.index', $type->id);
+        } catch (\Exception $exception) {
+            DB::rollback();
+            report($exception);
+        }
     }
 
     public function edit(Type $type, Post $post)
@@ -36,9 +57,26 @@ class PostController extends Controller
         ]);
     }
 
-    public function update(Type $type, Post $post)
+    public function update(Type $type, Post $post, Request $request)
     {
-        return redirect()->route('admin.post.index', $type->id);
+        DB::beginTransaction();
+        try {
+            $fillable = ['title', 'slug', 'order'];
+            $post->fill($request->only($fillable));
+
+            if (!$post->save()) {
+                throw new \Exception("post save fail");
+            }
+
+            $fillable[] = '_token';
+            $post->syncMeta($request->except($fillable));
+
+            DB::commit();
+            return redirect()->route('admin.post.index', $type->id);
+        } catch (\Exception $exception) {
+            DB::rollback();
+            report($exception);
+        }
     }
 
     public function delete(Type $type, Post $post)

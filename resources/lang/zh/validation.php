@@ -159,8 +159,8 @@ return [
                 'address'       => '联系地址'
             ],
             'post'     => [
-                'name' => '名称',
-                'slug' => '别名',
+                'title' => '标题',
+                'slug'  => '别名',
 
                 'type'   => [
                     'name'        => '名称',

@@ -3,6 +3,7 @@
 namespace App\Models\Post;
 
 use App\Models\Post\Type\Type;
+use App\Traites\QueryOrder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Plank\Metable\Metable;
@@ -16,15 +17,13 @@ class Post extends Model
     use HasSlug;
     use SoftDeletes;
     use Categorizable;
+    use QueryOrder;
+
+    protected $fillable = ['title', 'slug', 'order'];
 
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()->saveSlugsTo('slug')->generateSlugsFrom('title');
-    }
-
-    public function content()
-    {
-        return $this->hasOne(Content::class);
     }
 
     public function type()

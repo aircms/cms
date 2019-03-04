@@ -1,15 +1,18 @@
-<!-- form field -->
-{{ html()->div()->attributes(\Illuminate\Support\Arr::get($wrapper,'all',[]))->open() }}
+@include('includes.post.field.common.header')
 
-    {{ html()->label(\Illuminate\Support\Arr::get($label,'name'))->attributes(\Illuminate\Support\Arr::get($label,'attributes',[])) }}
+@isset($post)
+    {{
+    html()
+    ->textarea(array_get($input,'name',""),$post->getMeta(array_get($input,'name',"")))
+    ->attributes(array_get($input,'attributes',[]))
+    }}
+@else
+    {{
+    html()
+    ->textarea(array_get($input,'name',""),array_get($input,'value',""))
+    ->attributes(array_get($input,'attributes',[]))
+    }}
+@endisset
 
-    {{ html()->div()->attributes(\Illuminate\Support\Arr::get($wrapper,'input',[]))->open() }}
+@include('includes.post.field.common.footer')
 
-        {{
-        html()
-        ->textarea(\Illuminate\Support\Arr::get($input,'name',""),\Illuminate\Support\Arr::get($input,'value',""))
-        ->attributes(\Illuminate\Support\Arr::get($input,'attributes',[]))
-        }}
-
-    {{ html()->div()->close() }}
-{{ html()->div()->close() }}
