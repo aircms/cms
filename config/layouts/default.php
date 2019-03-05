@@ -9,7 +9,7 @@ return [
             'label'   => ['name' => 'Category-1'],
             'input'   => [
                 'name'       => 'category-1',
-                'group'      => 'voluptas-voluptas-aliquid-quos-illum-aut-enim-voluptas-sit',
+                'group'      => 'consequatur-non-reprehenderit-sed-laborum-exercitationem-optio',
                 'attributes' => ['class' => 'form-check-input'],
             ],
             'wrapper' => [
