@@ -36,11 +36,11 @@ return [
     ],
 
     'backend' => [
-        'system'   => [
+        'system'    => [
             'setting' => '系统设置',
             'utils'   => '系统功能',
         ],
-        'access'   => [
+        'access'    => [
             'roles' => [
                 'create'     => '新建角色',
                 'edit'       => '编辑角色',
@@ -109,7 +109,14 @@ return [
                 'view' => '查看用户',
             ],
         ],
-        'post'     => [
+        'configure' => [
+            'management' => '配置管理',
+            'name'       => '名称',
+            'slug'       => '别名',
+            'type'       => '类型',
+            'category'   => '分组',
+        ],
+        'post'      => [
             'management' => '发布管理',
             'title'      => '标题',
             'slug'       => '别名',
@@ -148,7 +155,10 @@ return [
                 'updated_at' => '更新日期',
             ],
         ],
-        'contact'  => [
+        'configure' => [
+            'management' => '参数配置',
+        ],
+        'contact'   => [
             'management'        => '联系我们',
             'waiting_for_reply' => '等待回复',
             'replied'           => '已回复',
@@ -169,7 +179,7 @@ return [
             'created_at'        => '创建日期',
             'updated_at'        => '回复日期',
         ],
-        'category' => [
+        'category'  => [
             'children' => [
                 'management'   => '子分类管理',
                 'list'         => '所有分类',

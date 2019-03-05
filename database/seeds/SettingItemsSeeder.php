@@ -47,21 +47,21 @@ class SettingItemsSeeder extends Seeder
 
             ['name' => '阿里OSS', 'type' => 'split'],
             ['name' => 'App Id', 'slug' => 'alioss_app_id', 'type' => 'string', 'meta' => ['value' => '']],
-            ['name' => 'App Secret', 'slug' => 'alioss_app_secret', 'type' => 'hide', 'meta' => ['value' => '']],
+            ['name' => 'App Secret', 'slug' => 'alioss_app_secret', 'type' => 'password', 'meta' => ['value' => '']],
             ['name' => 'Bucket', 'slug' => 'alioss_bucket', 'type' => 'string', 'meta' => ['value' => '']],
             ['name' => 'CDN 域名', 'slug' => 'alioss_cdn', 'type' => 'string', 'meta' => ['value' => '']],
             ['name' => '内网模式', 'slug' => 'alioss_internal', 'type' => 'boolean', 'meta' => ['value' => false]],
 
             ['name' => '七牛', 'type' => 'split'],
             ['name' => 'App Id', 'slug' => 'qiniu_app_id', 'type' => 'string', 'meta' => ['value' => '']],
-            ['name' => 'App Secret', 'slug' => 'qiniu_app_secret', 'type' => 'hide', 'meta' => ['value' => '']],
+            ['name' => 'App Secret', 'slug' => 'qiniu_app_secret', 'type' => 'password', 'meta' => ['value' => '']],
             ['name' => 'Bucket', 'slug' => 'qiniu_bucket', 'type' => 'string', 'meta' => ['value' => '']],
             ['name' => 'CDN 域名', 'slug' => 'qiniu_cdn', 'type' => 'string', 'meta' => ['value' => '']],
             ['name' => '内网模式', 'slug' => 'qiniu_internal', 'type' => 'boolean', 'meta' => ['value' => false]],
 
             ['name' => '又拍云', 'type' => 'split'],
             ['name' => 'App Id', 'slug' => 'upyun_app_id', 'type' => 'string', 'meta' => ['value' => '']],
-            ['name' => 'App Secret', 'slug' => 'upyun_app_secret', 'type' => 'hide', 'meta' => ['value' => '']],
+            ['name' => 'App Secret', 'slug' => 'upyun_app_secret', 'type' => 'password', 'meta' => ['value' => '']],
             ['name' => 'Bucket', 'slug' => 'upyun_bucket', 'type' => 'string', 'meta' => ['value' => '']],
             ['name' => 'CDN 域名', 'slug' => 'upyun_cdn', 'type' => 'string', 'meta' => ['value' => '']],
             ['name' => '内网模式', 'slug' => 'upyun_internal', 'type' => 'boolean', 'meta' => ['value' => false]],
@@ -77,7 +77,7 @@ class SettingItemsSeeder extends Seeder
         return [
             ['name' => '类型', 'slug' => 'wechat_mp_type', 'type' => 'single', 'meta' => ['value' => 'dingyuehao', 'items' => $type]],
             ['name' => 'App Id', 'slug' => 'wechat_mp_app_id', 'type' => 'string', 'meta' => ['value' => '']],
-            ['name' => 'App Secret', 'slug' => 'wechat_mp_app_secret', 'type' => 'hide', 'meta' => ['value' => '']],
+            ['name' => 'App Secret', 'slug' => 'wechat_mp_app_secret', 'type' => 'password', 'meta' => ['value' => '']],
             ['name' => 'App Token', 'slug' => 'wechat_mp_app_token', 'type' => 'string', 'meta' => ['value' => '']],
         ];
     }
@@ -95,12 +95,12 @@ class SettingItemsSeeder extends Seeder
             ['name' => '缓存方式', 'type' => 'single', 'meta' => ['value' => 'file', 'items' => $methods]],
 
             ['name' => '文件', 'type' => 'split'],
-            ['name' => '缓存目录', 'type' => 'file_path', 'meta' => ['value' => '']],
+            ['name' => '缓存目录', 'slug' => 'file_path', 'type' => 'string', 'meta' => ['value' => '']],
 
             ['name' => 'Redis', 'type' => 'split'],
             ['name' => '主机', 'slug' => 'redis_host', 'type' => 'string', 'meta' => ['value' => '127.0.0.1']],
             ['name' => '端口', 'slug' => 'redis_port', 'type' => 'string', 'meta' => ['value' => '6379']],
-            ['name' => '密码', 'slug' => 'redis_password', 'type' => 'hide', 'meta' => ['value' => '']],
+            ['name' => '密码', 'slug' => 'redis_password', 'type' => 'password', 'meta' => ['value' => '']],
             ['name' => '库', 'slug' => 'redis_db', 'type' => 'string', 'meta' => ['value' => 0]],
 
             ['name' => 'Memcache', 'type' => 'split'],
@@ -118,10 +118,10 @@ class SettingItemsSeeder extends Seeder
             ['name' => '邮件方式', 'type' => 'single', 'meta' => ['value' => 'smtp', 'items' => $methods]],
             ['name' => 'SMTP', 'type' => 'split'],
             ['name' => '发件人名称', 'type' => 'string', 'meta' => ['value' => '']],
-            ['name' => '主机', 'type' => 'smtp_host', 'meta' => ['value' => '']],
+            ['name' => '主机', 'type' => 'string', 'meta' => ['value' => '']],
             ['name' => '端口', 'type' => 'string', 'meta' => ['value' => '']],
             ['name' => '用户名', 'type' => 'string', 'meta' => ['value' => '']],
-            ['name' => '密码', 'type' => 'hide', 'meta' => ['value' => '']],
+            ['name' => '密码', 'type' => 'password', 'meta' => ['value' => '']],
         ];
     }
 
@@ -172,15 +172,15 @@ class SettingItemsSeeder extends Seeder
 
             ['name' => '系统生成', 'type' => 'split'],
             ['name' => '字体', 'type' => 'string', 'meta' => ['value' => 'system']],
-            ['name' => '长度', 'type' => 'integer', 'meta' => ['value' => '4']],
+            ['name' => '长度', 'type' => 'string', 'meta' => ['value' => '4']],
 
             ['name' => 'No Captcha', 'type' => 'split'],
             ['name' => 'AppID', 'slug' => 'no_captcha_app_id', 'type' => 'string', 'meta' => ['value' => '']],
-            ['name' => 'AppKey', 'slug' => 'no_captcha_app_key', 'type' => 'integer', 'meta' => ['value' => '']],
+            ['name' => 'AppKey', 'slug' => 'no_captcha_app_key', 'type' => 'string', 'meta' => ['value' => '']],
 
             ['name' => '极验', 'type' => 'split'],
             ['name' => 'AppID', 'slug' => 'jiyan_app_id', 'type' => 'string', 'meta' => ['value' => '']],
-            ['name' => 'AppKey', 'slug' => 'jiyan_app_key', 'type' => 'integer', 'meta' => ['value' => '']],
+            ['name' => 'AppKey', 'slug' => 'jiyan_app_key', 'type' => 'string', 'meta' => ['value' => '']],
         ];
     }
 
@@ -213,11 +213,11 @@ class SettingItemsSeeder extends Seeder
 
             ['name' => '微信支付', 'type' => 'split'],
             ['name' => 'APPID', 'slug' => 'wechatpay_mp_appid', 'type' => 'string', 'meta' => ['value' => '']],
-            ['name' => '公众号AppSecret', 'slug' => 'wechatpay_mp_secret', 'type' => 'hide', 'meta' => ['value' => '']],
+            ['name' => '公众号AppSecret', 'slug' => 'wechatpay_mp_secret', 'type' => 'password', 'meta' => ['value' => '']],
             ['name' => '商户号', 'slug' => 'wechatpay_mch_id', 'type' => 'string', 'meta' => ['value' => '']],
             ['name' => '支付证书KEY', 'slug' => 'wechatpay_cert_key', 'type' => 'text', 'meta' => ['value' => '']],
             ['name' => '支付证书', 'slug' => 'wechatpay_cert', 'type' => 'text', 'meta' => ['value' => '']],
-            ['name' => 'API Token', 'slug' => 'wechatpay_api_token', 'type' => 'hide', 'meta' => ['value' => '']],
+            ['name' => 'API Token', 'slug' => 'wechatpay_api_token', 'type' => 'password', 'meta' => ['value' => '']],
             ['name' => '同步回调地址', 'slug' => 'wechatpay_callback_sync', 'type' => 'string', 'meta' => ['value' => '']],
             ['name' => '异步回调地址', 'slug' => 'wechatpay_callback_async', 'type' => 'string', 'meta' => ['value' => '']],
 

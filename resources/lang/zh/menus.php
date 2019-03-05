@@ -43,6 +43,7 @@ return [
         ],
 
         'configure'  => [
+            'items'      => '配置参数项目',
             'management' => '参数配置',
         ],
         'log-viewer' => [
