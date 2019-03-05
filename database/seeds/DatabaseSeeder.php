@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AuthTableSeeder::class);
         $this->call(CategorySeeder::class);
         $this->call(PostSeeder::class);
+        $this->call(SettingItemsSeeder::class);
 
         Model::reguard();
     }

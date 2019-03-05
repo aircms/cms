@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traites;
+namespace App\Traits;
 
 
 trait QueryOrder

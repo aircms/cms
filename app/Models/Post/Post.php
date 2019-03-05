@@ -3,7 +3,7 @@
 namespace App\Models\Post;
 
 use App\Models\Post\Type\Type;
-use App\Traites\QueryOrder;
+use App\Traits\QueryOrder;
 use Cviebrock\EloquentTaggable\Taggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;

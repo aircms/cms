@@ -48,6 +48,7 @@ class CategorySeeder extends Seeder
                     ['name' => '短信', 'slug' => 'sms', 'description' => ''],
                     ['name' => '邮件', 'slug' => 'email', 'description' => ''],
                     ['name' => '缓存', 'slug' => 'cache', 'description' => ''],
+                    ['name' => '存储', 'slug' => 'storage', 'description' => ''],
                     ['name' => '微信公众号', 'slug' => 'wechat-mp', 'description' => ''],
                 ]
             ],

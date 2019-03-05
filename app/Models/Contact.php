@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Traites\QueryOrder;
+use App\Traits\QueryOrder;
 use Illuminate\Database\Eloquent\Model;
 
 class Contact extends Model

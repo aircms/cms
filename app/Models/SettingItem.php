@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Plank\Metable\Metable;
@@ -16,6 +16,8 @@ class SettingItem extends Model implements Sortable
     use Categorizable;
     use Metable;
     use HasSlug;
+
+    protected $fillable = ['name', 'slug', 'order', 'type'];
 
     public $sortable = [
         'order_column_name' => 'order',
