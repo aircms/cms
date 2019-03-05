@@ -7705,9 +7705,9 @@ $(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/rogee/Develop/websites/AirCms/resources/js/backend/before.js */"./resources/js/backend/before.js");
-__webpack_require__(/*! /Users/rogee/Develop/websites/AirCms/resources/js/backend/app.js */"./resources/js/backend/app.js");
-module.exports = __webpack_require__(/*! /Users/rogee/Develop/websites/AirCms/resources/js/backend/after.js */"./resources/js/backend/after.js");
+__webpack_require__(/*! /Users/rogee/Develop/websites/AirCMS/resources/js/backend/before.js */"./resources/js/backend/before.js");
+__webpack_require__(/*! /Users/rogee/Develop/websites/AirCMS/resources/js/backend/app.js */"./resources/js/backend/app.js");
+module.exports = __webpack_require__(/*! /Users/rogee/Develop/websites/AirCMS/resources/js/backend/after.js */"./resources/js/backend/after.js");
 
 
 /***/ })

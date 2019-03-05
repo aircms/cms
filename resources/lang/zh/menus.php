@@ -42,6 +42,9 @@ return [
             'waiting' => '待回复',
         ],
 
+        'configure'  => [
+            'management' => '参数配置',
+        ],
         'log-viewer' => [
             'main'      => '日志查看器',
             'dashboard' => '指示板',

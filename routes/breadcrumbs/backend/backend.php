@@ -9,3 +9,4 @@ require __DIR__.'/log-viewer.php';
 require __DIR__.'/category.php';
 require __DIR__.'/post.php';
 require __DIR__.'/utils.php';
+require __DIR__.'/configure.php';

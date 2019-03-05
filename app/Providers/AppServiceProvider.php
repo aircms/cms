@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Category;
 use App\Models\Post\Type\Type;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Schema;
@@ -86,5 +87,6 @@ class AppServiceProvider extends ServiceProvider
 
         \Illuminate\Support\Facades\View::share('request', app('request'));
         \Illuminate\Support\Facades\View::share('postTypes', Type::ordered()->get());
+        \Illuminate\Support\Facades\View::share('settingCategories', Category::whereSlug('system-setup')->first()->descendants()->get());
     }
 }

@@ -30,6 +30,9 @@ return [
         'utils'     => [
             'title' => '系统功能',
         ],
+        'setting'     => [
+            'configure' => '参数设置',
+        ],
 
         'general' => [
             'all_rights_reserved' => '保留所有权利。',

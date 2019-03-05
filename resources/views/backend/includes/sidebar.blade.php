@@ -103,6 +103,22 @@
                             @lang('labels.backend.post.field.management')
                         </a>
                     </li>
+
+                    <li class="nav-item nav-dropdown {{ active_class(Active::checkUriPattern('admin/setting/configure/*'), 'open') }}">
+                        <a class="nav-link nav-dropdown-toggle {{ active_class(Active::checkUriPattern('admin/setting/configure/*')) }}" href="#">
+                            @lang('menus.backend.configure.management')
+                        </a>
+
+                        <ul class="nav-dropdown-items">
+                            @foreach($settingCategories as $category)
+                            <li class="nav-item">
+                                <a class="nav-link {{ active_class(Active::checkUriPattern('admin/setting/configure/'.$category->id)) }}" href="{{ route('admin.setting.configure.category',$category->id) }}">
+                                    {{ $category->name }}
+                                </a>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </li>
                 </ul>
             </li>
 
