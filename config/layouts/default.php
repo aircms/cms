@@ -21,7 +21,7 @@ return [
             'label'   => ['name' => 'Category-1'],
             'input'   => [
                 'name'       => 'category-1',
-                'group'      => 'consequatur-non-reprehenderit-sed-laborum-exercitationem-optio',
+                'group'      => 'systematic-articles',
                 'attributes' => ['class' => 'form-check-input'],
             ],
             'wrapper' => [

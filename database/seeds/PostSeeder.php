@@ -16,14 +16,19 @@ class PostSeeder extends Seeder
         $this->truncateMultiple([
             'post_types',
             'post_layouts',
-            'post_contents',
             'posts',
         ]);
 
-        factory(\App\Models\Post\Type\Type::class, 3)->create()->each(function (\App\Models\Post\Type\Type $type) {
-            $type->posts()->saveMany(factory(\App\Models\Post\Post::class, 30)->create());
+        /** @var \App\Models\Post\Type\Type $typeModel */
+        $typeModel = \App\Models\Post\Type\Type::create([
+            'name' => '默认文章',
+        ]);
 
-            $type->layout()->save(factory(\App\Models\Post\Type\Layout::class)->make());
-        });
+        $typeModel->layout()->save(new \App\Models\Post\Type\Layout(['layout' => 'default']));
+
+        $typeModel->posts()->save(new \App\Models\Post\Post([
+            'title'  => '感谢您使用AirCMS系统发布管理文章',
+            'status' => \App\Models\Post\PostStatus::STATUS_PUBLISH,
+        ]));
     }
 }

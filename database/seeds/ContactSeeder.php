@@ -11,5 +11,4 @@ class ContactSeeder extends Seeder
         $this->truncate('contacts');
         factory(\App\Models\Contact::class, 25)->create();
     }
-
 }

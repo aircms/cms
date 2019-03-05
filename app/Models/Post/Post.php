@@ -25,7 +25,13 @@ class Post extends Model
 
     public function getSlugOptions(): SlugOptions
     {
-        return SlugOptions::create()->saveSlugsTo('slug')->generateSlugsFrom('title');
+        return SlugOptions::create()
+            ->doNotGenerateSlugsOnUpdate()
+            ->generateSlugsFrom(function () {
+                $translate = \ShaoZeMing\LaravelTranslate\Facade\Translate::translate($this->title);
+                return str_slug($translate);
+            })
+            ->saveSlugsTo('slug');
     }
 
     public function type()

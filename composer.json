@@ -35,6 +35,7 @@
         "plank/laravel-metable": "^1.1",
         "predis/predis": "^1.1",
         "rinvex/laravel-categories": "^1.0",
+        "shaozeming/laravel-translate": "^1.0",
         "spatie/eloquent-sortable": "^3.4",
         "spatie/laravel-html": "^2.4",
         "spatie/laravel-permission": "^2.5",

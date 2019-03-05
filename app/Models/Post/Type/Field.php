@@ -21,10 +21,14 @@ class Field extends Model implements Sortable
         'order_column_name' => 'order',
     ];
 
-
     public function getSlugOptions(): SlugOptions
     {
-        return SlugOptions::create()->generateSlugsFrom('name')
+        return SlugOptions::create()
+            ->doNotGenerateSlugsOnUpdate()
+            ->generateSlugsFrom(function () {
+                $translate = \ShaoZeMing\LaravelTranslate\Facade\Translate::translate($this->name);
+                return str_slug($translate);
+            })
             ->saveSlugsTo('slug');
     }
 }
