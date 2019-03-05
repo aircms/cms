@@ -4,6 +4,7 @@
 
 <div class="row">
     <div class="col">
+        @include('includes.post.field.tag',config('layouts.default.fields.tags'))
     </div>
 </div>
 

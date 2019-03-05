@@ -5,6 +5,18 @@ return [
         'vendor.ueditor.assets',
     ],
     'fields'   => [
+        'tags'        => [
+            'label'   => ['name' => 'Tags'],
+            'input'   => [
+                'name'       => 'tags',
+                'attributes' => ['class' => 'form-control'],
+                'value'      => ['aaa', 'bbbb', 'cccc']
+            ],
+            'wrapper' => [
+                'all'   => ['class' => 'form-group'],
+                'input' => []
+            ]
+        ],
         'category'    => [
             'label'   => ['name' => 'Category-1'],
             'input'   => [

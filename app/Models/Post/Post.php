@@ -4,6 +4,7 @@ namespace App\Models\Post;
 
 use App\Models\Post\Type\Type;
 use App\Traites\QueryOrder;
+use Cviebrock\EloquentTaggable\Taggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Plank\Metable\Metable;
@@ -14,6 +15,7 @@ use Spatie\Sluggable\SlugOptions;
 class Post extends Model
 {
     use Metable;
+    use Taggable;
     use HasSlug;
     use SoftDeletes;
     use Categorizable;

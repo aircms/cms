@@ -38,7 +38,27 @@ class PostController extends Controller
                 throw new \Exception("post save fail");
             }
 
-            $fillable[] = '_token';
+            $modifier = $request->get('modifier');
+            foreach ($modifier as $key => $value) {
+                switch ($key) {
+                    case "tag":
+                        $fieldValue = $request->get($value);
+                        $value = strtr($fieldValue, [
+                            '、' => ',',
+                            '，' => ',',
+                            '。' => ',',
+                            ';' => ',',
+                            '|' => ',',
+                        ]);
+                        $tags = collect(explode(',', $value))->filter()->map(function ($item) {
+                            return trim($item);
+                        })->unique()->all();
+                        $post->tag($tags);
+                        break;
+                }
+            }
+
+            $fillable = array_merge($fillable, ['_token', 'modifier']);
             $post->syncMeta($request->except($fillable));
 
             DB::commit();
@@ -68,7 +88,27 @@ class PostController extends Controller
                 throw new \Exception("post save fail");
             }
 
-            $fillable[] = '_token';
+            $modifier = $request->get('modifier');
+            foreach ($modifier as $key => $value) {
+                switch ($key) {
+                    case "tag":
+                        $fieldValue = $request->get($value);
+                        $value = strtr($fieldValue, [
+                            '、' => ',',
+                            '，' => ',',
+                            '。' => ',',
+                            '|' => ',',
+                            ';' => ',',
+                        ]);
+                        $tags = collect(explode(',', $value))->filter()->map(function ($item) {
+                            return trim($item);
+                        })->unique()->all();
+                        $post->retag($tags);
+                        break;
+                }
+            }
+
+            $fillable = array_merge($fillable, ['_token'], array_keys($modifier));
             $post->syncMeta($request->except($fillable));
 
             DB::commit();
