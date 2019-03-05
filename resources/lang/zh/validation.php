@@ -158,6 +158,15 @@ return [
                 'title'         => '标题',
                 'address'       => '联系地址'
             ],
+            'setting'  => [
+                'item' => [
+                    'category' => '分组',
+                    'name'     => '名称',
+                    'slug'     => '别名',
+                    'type'     => '类型',
+                    'items'    => '选项列表',
+                ]
+            ],
             'post'     => [
                 'title' => '标题',
                 'slug'  => '别名',

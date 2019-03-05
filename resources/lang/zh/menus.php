@@ -42,8 +42,10 @@ return [
             'waiting' => '待回复',
         ],
 
+        'item'       => [
+            'index' => '参数项目',
+        ],
         'configure'  => [
-            'items'      => '配置参数项目',
             'management' => '参数配置',
         ],
         'log-viewer' => [

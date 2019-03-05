@@ -41,4 +41,12 @@ class SettingItem extends Model implements Sortable
             })
             ->saveSlugsTo('slug');
     }
+
+    public function getItemsAttribute()
+    {
+        $items = $this->getMeta("items", []);
+        return collect($items)->map(function ($value, $key) {
+            return "$key:$value";
+        })->implode("\n");
+    }
 }

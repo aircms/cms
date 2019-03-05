@@ -32,6 +32,9 @@ return [
         ],
         'setting'     => [
             'configure' => '参数设置',
+            'item'=>[
+                'management'=>'配置项目',
+            ]
         ],
 
         'general' => [

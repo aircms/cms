@@ -105,8 +105,8 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link {{ active_class(Active::checkUriPattern('admin/setting/configure/')) }}" href="{{ route('admin.setting.configure.index') }}">
-                            @lang('menus.backend.configure.items')
+                        <a class="nav-link {{ active_class(Active::checkUriPattern('admin/setting/item/*')) }}" href="{{ route('admin.setting.item.index') }}">
+                            @lang('menus.backend.item.index')
                         </a>
                     </li>
 

@@ -85,8 +85,10 @@ class AppServiceProvider extends ServiceProvider
         \Illuminate\Pagination\AbstractPaginator::defaultSimpleView('pagination::simple-bootstrap-4');
 
 
-        \Illuminate\Support\Facades\View::share('request', app('request'));
-        \Illuminate\Support\Facades\View::share('postTypes', Type::ordered()->get());
-        \Illuminate\Support\Facades\View::share('settingCategories', Category::whereSlug('system-setup')->first()->descendants()->get());
+        if (!$this->app->runningInConsole()) {
+            \Illuminate\Support\Facades\View::share('request', app('request'));
+            \Illuminate\Support\Facades\View::share('postTypes', Type::ordered()->get());
+            \Illuminate\Support\Facades\View::share('settingCategories', Category::whereSlug('system-setup')->first()->descendants()->get());
+        }
     }
 }
