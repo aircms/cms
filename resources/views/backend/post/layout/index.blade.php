@@ -10,7 +10,7 @@
             </h4>
         </div>
         <div class="card-body">
-            <div class="border">
+            <div>
                 <textarea class="hide" name="layout" id="layout">{{ $layout }}</textarea>
             </div>
 
@@ -29,31 +29,5 @@
 
 @endsection
 
+@include('backend.includes.components.yaml',['component'=>'layout'])
 
-@push("after-styles")
-    <link rel="stylesheet" href="{{ asset("js/codemirror-5.44.0/lib/codemirror.css") }}">
-
-    <style>
-        .CodeMirror {
-            height: auto;
-        }
-    </style>
-@endpush
-
-@push('after-scripts')
-    <script src="{{ asset("js/codemirror-5.44.0/lib/codemirror.js") }}"></script>
-    <script src="{{ asset("js/codemirror-5.44.0/mode/yaml/yaml.js") }}"></script>
-    <script>
-      var editor = CodeMirror.fromTextArea(document.getElementById('layout'), {
-        lineNumbers: true,
-        viewportMargin: Infinity,
-        tabSize: 2,
-      })
-      editor.setOption('extraKeys', {
-        Tab: function (cm) {
-          var spaces = Array(cm.getOption('indentUnit') + 1).join(' ')
-          cm.replaceSelection(spaces)
-        },
-      })
-    </script>
-@endpush
