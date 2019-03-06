@@ -21,7 +21,7 @@ class Post extends Model
     use Categorizable;
     use QueryOrder;
 
-    protected $fillable = ['title', 'slug', 'order'];
+    protected $fillable = ['title', 'slug', 'order', 'status'];
 
     public function getSlugOptions(): SlugOptions
     {

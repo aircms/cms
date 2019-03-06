@@ -11,6 +11,22 @@ use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        \Illuminate\Support\Facades\Request::macro('metaData', function () {
+            $fillable = array_merge((new Post())->getFillable(), ['_token', 'modifier'], $this->get('modifier', []));
+            return $this->except($fillable);
+        });
+
+        \Illuminate\Support\Facades\Request::macro('tagModifier', function ($field) {
+            $modifier = $this->get($field);
+            $value = strtr($modifier, ['、' => ',', '，' => ',', '。' => ',', ';' => ',', '|' => ',']);
+            return collect(explode(',', $value))->filter()->map(function ($item) {
+                return trim($item);
+            })->unique()->all();
+        });
+    }
+
     public function index(Type $type)
     {
         return view('backend.post.index', [
@@ -22,7 +38,7 @@ class PostController extends Controller
     public function create(Type $type)
     {
         return view('backend.post.create', [
-            'type'   => $type,
+            'type' => $type,
         ]);
     }
 
@@ -30,36 +46,17 @@ class PostController extends Controller
     {
         DB::beginTransaction();
         try {
-            $fillable = ['title', 'slug', 'order'];
-            $post->fill($request->only($fillable));
-
             $post->type_id = $type->id;
-            if (!$post->save()) {
+            if (!$post->fill($request->all())->save()) {
                 throw new \Exception("post save fail");
             }
 
-            $modifier = $request->get('modifier');
-            foreach ($modifier as $key => $value) {
-                switch ($key) {
-                    case "tag":
-                        $fieldValue = $request->get($value);
-                        $value = strtr($fieldValue, [
-                            '、' => ',',
-                            '，' => ',',
-                            '。' => ',',
-                            ';' => ',',
-                            '|' => ',',
-                        ]);
-                        $tags = collect(explode(',', $value))->filter()->map(function ($item) {
-                            return trim($item);
-                        })->unique()->all();
-                        $post->tag($tags);
-                        break;
-                }
-            }
+            collect($request->modifier)->each(function ($field, $modifier) use ($request, $post) {
+                $macroMethod = "{$modifier}Modifier";
+                $post->{$modifier}($request->{$macroMethod}($field));
+            });
 
-            $fillable = array_merge($fillable, ['_token', 'modifier']);
-            $post->syncMeta($request->except($fillable));
+            $post->syncMeta($request->metaData());
 
             DB::commit();
             return redirect()->route('admin.post.index', $type->id);
@@ -82,35 +79,16 @@ class PostController extends Controller
     {
         DB::beginTransaction();
         try {
-            $fillable = ['title', 'slug', 'order'];
-            $post->fill($request->only($fillable));
-
-            if (!$post->save()) {
+            if (!$post->fill($request->all())->save()) {
                 throw new \Exception("post save fail");
             }
 
-            $modifier = $request->get('modifier');
-            foreach ($modifier as $key => $value) {
-                switch ($key) {
-                    case "tag":
-                        $fieldValue = $request->get($value);
-                        $value = strtr($fieldValue, [
-                            '、' => ',',
-                            '，' => ',',
-                            '。' => ',',
-                            '|' => ',',
-                            ';' => ',',
-                        ]);
-                        $tags = collect(explode(',', $value))->filter()->map(function ($item) {
-                            return trim($item);
-                        })->unique()->all();
-                        $post->retag($tags);
-                        break;
-                }
-            }
+            collect($request->modifier)->each(function ($field, $modifier) use ($request, $post) {
+                $macroMethod = "{$modifier}Modifier";
+                $post->{$modifier}($request->{$macroMethod}($field));
+            });
 
-            $fillable = array_merge($fillable, ['_token'], array_keys($modifier));
-            $post->syncMeta($request->except($fillable));
+            $post->syncMeta($request->metaData());
 
             DB::commit();
             return redirect()->route('admin.post.index', $type->id);

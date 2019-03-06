@@ -27,7 +27,6 @@ class Field extends Model implements Sortable
     {
         return SlugOptions::create()
             ->doNotGenerateSlugsOnUpdate()
-            ->allowDuplicateSlugs()
             ->generateSlugsFrom(function () {
                 $translate = \ShaoZeMing\LaravelTranslate\Facade\Translate::translate($this->name);
                 return str_slug($translate);
@@ -39,8 +38,13 @@ class Field extends Model implements Sortable
     {
         $configure = $this->getMeta("configure", []);
 
-        array_set($configure, 'label.name', $this->name);
-        array_set($configure, 'input.name', $this->slug);
+        if (!array_get($configure, 'label.name')) {
+            array_set($configure, 'label.name', $this->name);
+        }
+
+        if (!array_get($configure, 'input.name')) {
+            array_set($configure, 'input.name', $this->slug);
+        }
 
         $items = array_get($configure, 'input.items.callback');
         if ($items && is_callable($items)) {
