@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Backend\Post;
 
 use App\Http\Controllers\Controller;
-use App\Models\Post\Type\Layout;
 use App\Models\Post\Type\Type;
 use Illuminate\Http\Request;
+use Symfony\Component\Yaml\Yaml;
 
 class LayoutController extends Controller
 {
@@ -13,24 +13,15 @@ class LayoutController extends Controller
     {
         return view('backend.post.layout.index', [
             'type'   => $type,
-            'layout' => $type->layout,
+            'layout' => $type->getMeta('layout', []),
         ]);
     }
 
-    public function store(Type $type, Layout $layout, Request $request)
+    public function store(Type $type, Request $request)
     {
-        $params = $request->only(['layout']);
-        if ($layout->save($params)) {
-            return redirect()->route('admin.post.layout.index', $type->id);
-        }
-    }
+        Yaml::parse($request->layout);
 
-    public function preview(Type $type, Layout $layout, Request $request)
-    {
-        $params = $request->only(['layout']);
-        if ($layout->save($params)) {
-            return redirect()->route('admin.post.layout.index', $type->id);
-        }
+        $type->setMeta("layout", $request->layout);
+        return redirect()->route('admin.post.layout.index', $type->id);
     }
-
 }

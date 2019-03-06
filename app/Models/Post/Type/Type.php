@@ -4,6 +4,7 @@ namespace App\Models\Post\Type;
 
 use App\Models\Post\Post;
 use Illuminate\Database\Eloquent\Model;
+use Plank\Metable\Metable;
 use Spatie\EloquentSortable\Sortable;
 use Spatie\EloquentSortable\SortableTrait;
 use Spatie\Sluggable\HasSlug;
@@ -13,6 +14,7 @@ class Type extends Model implements Sortable
 {
     use HasSlug;
     use SortableTrait;
+    use Metable;
 
     protected $table    = 'post_types';
     protected $fillable = ['name', 'slug', 'description', 'order'];
@@ -50,8 +52,4 @@ class Type extends Model implements Sortable
         return $this->hasMany(Post::class);
     }
 
-    public function layout()
-    {
-        return $this->hasOne(Layout::class);
-    }
 }

@@ -63,9 +63,9 @@ Route::group(['prefix' => 'setting/'], function () {
         Route::group(['prefix' => 'type/{type}/layout', 'as' => 'layout.'], function () {
             Route::get('/', [LayoutController::class, 'index'])->name('index');
 
-            Route::post('{layout}/store', [LayoutController::class, 'store'])->name('store');
+            Route::post('store', [LayoutController::class, 'store'])->name('store');
 
-            Route::post('{layout}/preview', [LayoutController::class, 'preview'])->name('preview');
+            Route::post('preview', [LayoutController::class, 'preview'])->name('preview');
         });
 
     });
