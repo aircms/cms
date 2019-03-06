@@ -11,9 +11,13 @@ class LayoutController extends Controller
 {
     public function index(Type $type)
     {
+        $metaData = $type->getMeta('layout', []);
+        $dumpYaml = Yaml::dump($metaData, 10, 2);
+        $dumpYaml = preg_replace('/(-\s+)/m', '- $2', $dumpYaml);
+
         return view('backend.post.layout.index', [
             'type'   => $type,
-            'layout' => Yaml::dump($type->getMeta('layout', []), 10, 2),
+            'layout' => $dumpYaml,
         ]);
     }
 

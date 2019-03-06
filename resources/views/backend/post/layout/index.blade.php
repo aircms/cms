@@ -10,8 +10,8 @@
             </h4>
         </div>
         <div class="card-body">
-            <div class="border p-3">
-                <textarea name="layout" id="layout" cols="30" rows="50">{{ $layout }}</textarea>
+            <div class="border">
+                <textarea class="hide" name="layout" id="layout">{{ $layout }}</textarea>
             </div>
 
             <div class="text-muted">
@@ -21,24 +21,39 @@
         </div>
 
         <div class="card-footer">
-            {{ form_submit(__('buttons.general.crud.create'))->class('mr-2') }}
+            {{ form_submit(__('buttons.general.save'))->class('mr-2') }}
         </div>
 
     </div><!--card-->
     {{ html()->form()->close() }}
 
-    <div class="card-body">
-    </div>
 @endsection
+
 
 @push("after-styles")
     <link rel="stylesheet" href="{{ asset("js/codemirror-5.44.0/lib/codemirror.css") }}">
+
+    <style>
+        .CodeMirror {
+            height: auto;
+        }
+    </style>
 @endpush
 
 @push('after-scripts')
     <script src="{{ asset("js/codemirror-5.44.0/lib/codemirror.js") }}"></script>
     <script src="{{ asset("js/codemirror-5.44.0/mode/yaml/yaml.js") }}"></script>
     <script>
-      CodeMirror.fromTextArea(document.getElementById('layout'), {})
+      var editor = CodeMirror.fromTextArea(document.getElementById('layout'), {
+        lineNumbers: true,
+        viewportMargin: Infinity,
+        tabSize: 2,
+      })
+      editor.setOption('extraKeys', {
+        Tab: function (cm) {
+          var spaces = Array(cm.getOption('indentUnit') + 1).join(' ')
+          cm.replaceSelection(spaces)
+        },
+      })
     </script>
 @endpush
