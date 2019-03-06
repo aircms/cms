@@ -33,4 +33,21 @@ class Field extends Model implements Sortable
             })
             ->saveSlugsTo('slug');
     }
+
+    public function configure()
+    {
+        $configure = $this->getMeta("configure", []);
+
+        array_set($configure, 'label.name', $this->name);
+        array_set($configure, 'input.name', $this->slug);
+
+        $items = array_get($configure, 'input.items.callback');
+        if ($items && is_callable($items)) {
+            $itemParams = array_get($configure, 'input.items.params', []);
+            $itemResult = call_user_func_array($items, $itemParams);
+            array_set($configure, 'input.items', $itemResult);
+        }
+
+        return $configure;
+    }
 }

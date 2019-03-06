@@ -23,7 +23,7 @@ class FieldController extends Controller
     public function store(Field $field, Request $request)
     {
         if ($field->fill($request->all())->save()) {
-            $field->setMeta("configure", $request->configure);
+            $field->setMeta("configure", \GuzzleHttp\json_decode($request->configure, true));
 
             return redirect()->route('admin.post.field.index');
         }
@@ -39,7 +39,7 @@ class FieldController extends Controller
     public function update(Field $field, Request $request)
     {
         if ($field->fill($request->all())->save()) {
-            $field->setMeta("configure", $request->configure);
+            $field->setMeta("configure", \GuzzleHttp\json_decode($request->configure, true));
 
             return redirect()->route('admin.post.field.index');
         }
