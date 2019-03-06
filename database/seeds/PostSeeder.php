@@ -112,7 +112,7 @@ class PostSeeder extends Seeder
             [
                 'name'      => '分类', 'slug' => 'category', 'type' => 'category', 'description' => '',
                 'configure' => [
-                    'wrapper' => ['all' => ['class' => 'form-group'], 'input' => []],
+                    'wrapper' => ['all' => ['class' => 'form-group'], 'input' => ['class'=>'border p-2','style'=>'border-color: #e4e7ea!important;font-size: 1rem;']],
                     'label'   => ['attributes' => []],
                     'input'   => [
                         'attributes' => ['class' => 'form-check-input'],
@@ -121,7 +121,7 @@ class PostSeeder extends Seeder
                 ],
             ],
             [
-                'name'      => '文章状态', 'slug' => 'status', 'type' => 'select', 'description' => '',
+                'name'      => '文章状态', 'slug' => 'status', 'type' => 'radio_list', 'description' => '',
                 'configure' => [
                     'wrapper' => ['all' => ['class' => 'form-group'], 'input' => []],
                     'label'   => ['attributes' => []],

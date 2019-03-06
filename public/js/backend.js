@@ -7484,20 +7484,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _coreui_coreui__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @coreui/coreui */ "./node_modules/@coreui/coreui/dist/js/coreui.js");
 /* harmony import */ var _coreui_coreui__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_coreui_coreui__WEBPACK_IMPORTED_MODULE_0__);
 
-$(function () {
-  $('body').on('click', '.load-field-demo', function (e) {
-    e.preventDefault();
-    var url = $('.load-field-demo').attr('data-url').replace('--demo--', $('#type').val());
-    console.log('url:', url);
-    axios.get(url).then(function (response) {
-      console.log(response);
-      $("#configure").val(response.data.string);
-    }).catch(function (error) {
-      console.error(error);
-    });
-    return false;
-  });
-});
+$(function () {});
 
 /***/ }),
 
@@ -7719,9 +7706,9 @@ $(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/rogee/Develop/websites/AirCMS/resources/js/backend/before.js */"./resources/js/backend/before.js");
-__webpack_require__(/*! /Users/rogee/Develop/websites/AirCMS/resources/js/backend/app.js */"./resources/js/backend/app.js");
-module.exports = __webpack_require__(/*! /Users/rogee/Develop/websites/AirCMS/resources/js/backend/after.js */"./resources/js/backend/after.js");
+__webpack_require__(/*! /Users/rogee/Develop/websites/AirCms/resources/js/backend/before.js */"./resources/js/backend/before.js");
+__webpack_require__(/*! /Users/rogee/Develop/websites/AirCms/resources/js/backend/app.js */"./resources/js/backend/app.js");
+module.exports = __webpack_require__(/*! /Users/rogee/Develop/websites/AirCms/resources/js/backend/after.js */"./resources/js/backend/after.js");
 
 
 /***/ })

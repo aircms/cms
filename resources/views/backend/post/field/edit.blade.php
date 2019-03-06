@@ -23,6 +23,13 @@
 
             <div class="row mt-4">
                 <div class="col">
+                    {{-- type  --}}
+                    <div class="form-group row">
+                        {{ html()->label(__('validation.attributes.backend.post.field.type'))->class('col-md-2 form-control-label')->for('type') }}
+                        <div class="col-md-10">
+                            {{ html()->select('type', \App\Models\Post\Type\Fields::all(),$field->type)->class('form-control') }}
+                        </div><!--col-->
+                    </div><!--form-group-->
 
                     {{-- name  --}}
                     <div class="form-group row">
@@ -48,6 +55,19 @@
                         </div><!--col-->
                     </div><!--form-group-->
 
+                    {{-- configure  --}}
+                    <div class="form-group row">
+                        {{ html()->label(__('validation.attributes.backend.post.field.configure'))->class('col-md-2 form-control-label')->for('configure') }}
+                        <div class="col-md-10">
+                            {{ html()->textarea('configure',$configure)->class('form-control')->attribute('rows',10) }}
+
+                            <div class="mt-2">
+                                <a href="#" class="btn btn-info load-field-demo"
+                                   data-url="{{ route('admin.post.field.demo','--demo--') }}">加载示例</a>
+                            </div>
+                        </div><!--col-->
+                    </div><!--form-group-->
+
 
                 </div><!--col-->
             </div><!--row-->
@@ -65,3 +85,51 @@
     </div><!--card-->
     {{ html()->form()->close() }}
 @endsection
+
+@push("after-styles")
+    <link rel="stylesheet" href="{{ asset("js/codemirror-5.44.0/lib/codemirror.css") }}">
+
+    <style>
+        .CodeMirror {
+            border: 1px solid #e4e7ea;
+            height: auto;
+        }
+    </style>
+@endpush
+
+@push('after-scripts')
+    <script src="{{ asset("js/codemirror-5.44.0/lib/codemirror.js") }}"></script>
+    <script src="{{ asset("js/codemirror-5.44.0/mode/yaml/yaml.js") }}"></script>
+    <script>
+      var editor = CodeMirror.fromTextArea(document.getElementById('configure'), {
+        lineNumbers: true,
+        viewportMargin: Infinity,
+        tabSize: 2,
+      })
+      editor.setOption('extraKeys', {
+        Tab: function (cm) {
+          var spaces = Array(cm.getOption('indentUnit') + 1).join(' ')
+          cm.replaceSelection(spaces)
+        },
+      })
+
+      $('body').on('click', '.load-field-demo', function (e) {
+        e.preventDefault()
+
+        let url = $('.load-field-demo').
+          attr('data-url').
+          replace('--demo--', $('#type').val())
+
+        console.log('url:', url)
+        axios.get(url).then(function (response) {
+          console.log(response)
+          editor.setValue(response.data.string)
+        }).catch(function (error) {
+          console.error(error)
+        })
+
+        return false
+      })
+    </script>
+
+@endpush

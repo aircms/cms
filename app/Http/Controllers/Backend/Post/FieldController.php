@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\Post;
 use App\Http\Controllers\Controller;
 use App\Models\Post\Type\Field;
 use Illuminate\Http\Request;
+use Symfony\Component\Yaml\Yaml;
 
 class FieldController extends Controller
 {
@@ -23,7 +24,7 @@ class FieldController extends Controller
     public function store(Field $field, Request $request)
     {
         if ($field->fill($request->all())->save()) {
-            $field->setMeta("configure", \GuzzleHttp\json_decode($request->configure, true));
+            $field->setMeta("configure", Yaml::parse($request->configure));
 
             return redirect()->route('admin.post.field.index');
         }
@@ -31,15 +32,20 @@ class FieldController extends Controller
 
     public function edit(Field $field)
     {
+        $metaData = $field->getMeta('configure', []);
+        $dumpYaml = Yaml::dump($metaData, 10, 2);
+        $dumpYaml = preg_replace('/(-\s+)/m', '- $2', $dumpYaml);
+
         return view('backend.post.field.edit', [
-            'field' => $field,
+            'field'     => $field,
+            'configure' => $dumpYaml,
         ]);
     }
 
     public function update(Field $field, Request $request)
     {
         if ($field->fill($request->all())->save()) {
-            $field->setMeta("configure", \GuzzleHttp\json_decode($request->configure, true));
+            $field->setMeta("configure", Yaml::parse($request->configure));
 
             return redirect()->route('admin.post.field.index');
         }
@@ -65,9 +71,12 @@ class FieldController extends Controller
 
     public function demo($name)
     {
+        $metaData = config("post.fields.{$name}", []);
+        $dumpYaml = Yaml::dump($metaData, 10, 2);
+        $dumpYaml = preg_replace('/(-\s+)/m', '- $2', $dumpYaml);
+
         return [
-            'obj'    => config("post.fields.{$name}", []),
-            'string' => \GuzzleHttp\json_encode(config("post.fields.{$name}", []), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)
+            'string' => $dumpYaml,
         ];
     }
 }

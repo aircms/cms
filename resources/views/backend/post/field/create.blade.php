@@ -25,7 +25,7 @@
                 <div class="col">
                     {{-- type  --}}
                     <div class="form-group row">
-                        {{ html()->label(__('validation.attributes.backend.post.field.description'))->class('col-md-2 form-control-label')->for('type') }}
+                        {{ html()->label(__('validation.attributes.backend.post.field.type'))->class('col-md-2 form-control-label')->for('type') }}
                         <div class="col-md-10">
                             {{ html()->select('type', \App\Models\Post\Type\Fields::all())->class('form-control') }}
                         </div><!--col-->
@@ -82,6 +82,53 @@
 
     </div><!--card-->
     {{ html()->form()->close() }}
-
-
 @endsection
+
+@push("after-styles")
+    <link rel="stylesheet" href="{{ asset("js/codemirror-5.44.0/lib/codemirror.css") }}">
+
+    <style>
+        .CodeMirror {
+            border: 1px solid #e4e7ea;
+            height: auto;
+        }
+    </style>
+@endpush
+
+@push('after-scripts')
+    <script src="{{ asset("js/codemirror-5.44.0/lib/codemirror.js") }}"></script>
+    <script src="{{ asset("js/codemirror-5.44.0/mode/yaml/yaml.js") }}"></script>
+    <script>
+      var editor = CodeMirror.fromTextArea(document.getElementById('configure'), {
+        lineNumbers: true,
+        viewportMargin: Infinity,
+        tabSize: 2,
+      })
+      editor.setOption('extraKeys', {
+        Tab: function (cm) {
+          var spaces = Array(cm.getOption('indentUnit') + 1).join(' ')
+          cm.replaceSelection(spaces)
+        },
+      })
+
+      $('body').on('click', '.load-field-demo', function (e) {
+        e.preventDefault()
+
+        let url = $('.load-field-demo').
+          attr('data-url').
+          replace('--demo--', $('#type').val())
+
+        console.log('url:', url)
+        axios.get(url).then(function (response) {
+          console.log(response)
+          editor.setValue(response.data.string)
+        }).catch(function (error) {
+          console.error(error)
+        })
+
+        return false
+      })
+    </script>
+
+@endpush
+

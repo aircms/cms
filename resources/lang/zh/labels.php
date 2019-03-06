@@ -140,8 +140,8 @@ return [
             ],
             'field'  => [
                 'management'  => '发布字段',
-                'create'      => '创建发布字段',
-                'edit'        => '创建发布字段',
+                'create'      => '创建字段',
+                'edit'        => '编辑字段',
                 'name'        => '名称',
                 'slug'        => '别名',
                 'description' => '描述',
