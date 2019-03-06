@@ -43,7 +43,7 @@ class PostSeeder extends Seeder
                     [
                         'type'     => 'col',
                         'children' => [
-                            ['type' => 'field', 'children' => 'tags'],
+                            ['type' => 'field', 'children' => 'tag'],
                             ['type' => 'field', 'children' => 'keyword'],
                             ['type' => 'field', 'children' => 'description'],
                             ['type' => 'field', 'children' => 'category'],
@@ -88,7 +88,7 @@ class PostSeeder extends Seeder
     {
         return [
             [
-                'name'      => '关键字', 'slug' => 'keywords', 'type' => 'input', 'description' => '',
+                'name'      => '关键字', 'slug' => 'keyword', 'type' => 'input', 'description' => '',
                 'configure' => [
                     'wrapper' => ['all' => ['class' => 'form-group'], 'input' => []],
                     'label'   => ['attributes' => []],

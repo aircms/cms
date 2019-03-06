@@ -1,4 +1,5 @@
 @php
+@dump($layout);
     $field =  \App\Models\Post\Type\Field::whereSlug($layout)->first();
 @endphp
 
