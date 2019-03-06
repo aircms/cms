@@ -36,12 +36,14 @@ class PostSeeder extends Seeder
                 'children' => [
                     [
                         'type'     => 'col',
+                        'size'     => 'md-8',
                         'children' => [
                             ['type' => 'field', 'children' => 'content']
                         ],
                     ],
                     [
                         'type'     => 'col',
+                        'size'     => 'md-4',
                         'children' => [
                             ['type' => 'field', 'children' => 'tag'],
                             ['type' => 'field', 'children' => 'keyword'],
