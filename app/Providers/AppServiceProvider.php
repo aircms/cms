@@ -88,7 +88,7 @@ class AppServiceProvider extends ServiceProvider
         if (!$this->app->runningInConsole()) {
             \Illuminate\Support\Facades\View::share('request', app('request'));
             \Illuminate\Support\Facades\View::share('postTypes', Type::ordered()->get());
-            \Illuminate\Support\Facades\View::share('settingCategories', Category::whereSlug('system-setup')->first()->descendants()->get());
+            \Illuminate\Support\Facades\View::share('settingCategories', Category::whereSlug('system-settings')->first()->descendants()->get());
         }
     }
 }

@@ -21,7 +21,7 @@ return [
             'label'   => ['name' => 'Category-1'],
             'input'   => [
                 'name'       => 'category-1',
-                'group'      => 'systematic-articles',
+                'group'      => 'system-articles',
                 'attributes' => ['class' => 'form-check-input'],
             ],
             'wrapper' => [

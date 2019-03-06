@@ -108,13 +108,13 @@ class PostSeeder extends Seeder
                 ],
             ],
             [
-                'name'      => '分类', 'slug' => 'category', 'type' => 'textarea', 'description' => '',
+                'name'      => '分类', 'slug' => 'category', 'type' => 'category', 'description' => '',
                 'configure' => [
                     'wrapper' => ['all' => ['class' => 'form-group'], 'input' => []],
                     'label'   => ['attributes' => []],
                     'input'   => [
-                        'attributes' => ['class' => 'form-control'],
-                        'group'      => 'systematic-articles',
+                        'attributes' => ['class' => 'form-check-input'],
+                        'group'      => 'system-articles',
                     ],
                 ],
             ],

@@ -10,11 +10,11 @@ return [
                 'value'      => ['aaa', 'bbbb', 'cccc']
             ],
         ],
-        'category'      => [
+        'categories'      => [
             'wrapper' => ['all' => ['class' => 'form-group'], 'input' => []],
             'label'   => ['attributes' => []],
             'input'   => [
-                'group'      => 'systematic-articles',
+                'group'      => 'system-articles',
                 'attributes' => ['class' => 'form-check-input'],
             ],
         ],

@@ -14,11 +14,10 @@
 
     /** @var \App\Models\Category $rootCategory */
     $category = \App\Models\Category::whereSlug(array_get($input,'group',''))->whereIsRoot()->first();
-
-    $items = $category->flatIndentMap();
+    $categoryItems = $category->flatIndentMap();
 @endphp
 
-@foreach($items as $itemKey=>$itemLabel)
+@foreach($categoryItems as $itemKey=>$itemLabel)
     <div class="form-check {{ array_get($input,'inline',false) ?"form-check-inline":"" }}">
         {{ html()->checkbox($inputNames,in_array($itemKey,$value), $itemKey)->id($inputName."-".$itemKey)->attributes($inputAttributes) }}
         {{ html()->label($itemLabel)->class('form-check-label')->for($inputName.'-'.$itemKey) }}

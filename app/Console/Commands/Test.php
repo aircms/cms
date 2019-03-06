@@ -12,6 +12,12 @@ class Test extends Command
 
     public function handle()
     {
+        $category = \App\Models\Category::whereSlug('system-articles')->whereIsRoot()->first();
+        $items = $category->flatIndentMap();
+        dd($items);
+
+        $translate = \ShaoZeMing\LaravelTranslate\Facade\Translate::translate('你好');
+        dd($translate);
         dd(is_callable([Field::class,'configure']), ['a','b']);
 
         $data = [

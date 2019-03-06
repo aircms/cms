@@ -18,7 +18,7 @@ class CategorySeeder extends Seeder
 
         $defaultCategories = [
             [
-                'name'  => '系统文章', 'description' => '系统默认文章发布',
+                'name'  => '系统文章', 'description' => '系统默认文章发布', 'slug' => 'system-articles',
                 'items' => [
                     [
                         'name'  => '新闻',
@@ -39,6 +39,7 @@ class CategorySeeder extends Seeder
             [
                 'name'        => '系统设置',
                 'description' => '系统设置管理',
+                'slug'        => 'system-settings',
                 'items'       => [
                     ['name' => '全局', 'slug' => 'global', 'description' => '全局参数配置'],
                     ['name' => '支付', 'slug' => 'payment', 'description' => ''],
