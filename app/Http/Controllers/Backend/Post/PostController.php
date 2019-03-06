@@ -22,7 +22,7 @@ class PostController extends Controller
     public function create(Type $type)
     {
         return view('backend.post.create', [
-            'type' => $type,
+            'type'   => $type,
         ]);
     }
 
@@ -67,6 +67,7 @@ class PostController extends Controller
             DB::rollback();
             report($exception);
         }
+
     }
 
     public function edit(Type $type, Post $post)

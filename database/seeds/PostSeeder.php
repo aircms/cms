@@ -25,12 +25,35 @@ class PostSeeder extends Seeder
             'name' => '默认文章',
         ]);
 
-        $typeModel->layout()->save(new \App\Models\Post\Type\Layout(['layout' => 'default']));
-
         $typeModel->posts()->save(new \App\Models\Post\Post([
             'title'  => '感谢您使用AirCMS系统发布管理文章',
             'status' => \App\Models\Post\PostStatus::STATUS_PUBLISH,
         ]));
+
+        $layoutConfig = [
+            [
+                'type'     => 'row',
+                'children' => [
+                    [
+                        'type'     => 'col',
+                        'children' => [
+                            ['type' => 'field', 'children' => 'content']
+                        ],
+                    ],
+                    [
+                        'type'     => 'col',
+                        'children' => [
+                            ['type' => 'field', 'children' => 'tags'],
+                            ['type' => 'field', 'children' => 'keyword'],
+                            ['type' => 'field', 'children' => 'description'],
+                            ['type' => 'field', 'children' => 'category'],
+                            ['type' => 'field', 'children' => 'status'],
+                        ],
+                    ],
+                ],
+            ],
+        ];
+        $typeModel->setMeta('layout', $layoutConfig);
 
         $types = \App\Models\Post\Type\Fields::all();
         collect($types)->each(function ($name, $field) {
@@ -47,10 +70,77 @@ class PostSeeder extends Seeder
                 'name'        => $name,
                 'slug'        => $field,
                 'type'        => $field,
-                'description' => $name . ' 组件',
+                'description' => $name . ' (基础组件)',
             ]);
 
             $field->setMeta("configure", $configure);
         });
+
+        collect($this->customFields())->each(function ($field) {
+
+            $typeField = collect($field)->only(['name', 'slug', 'type', 'description'])->all();
+            $fieldModel = \App\Models\Post\Type\Field::create($typeField);
+            $fieldModel->setMeta("configure", $field['configure']);
+        });
+    }
+
+    private function customFields()
+    {
+        return [
+            [
+                'name'      => '关键字', 'slug' => 'keywords', 'type' => 'input', 'description' => '',
+                'configure' => [
+                    'wrapper' => ['all' => ['class' => 'form-group'], 'input' => []],
+                    'label'   => ['attributes' => []],
+                    'input'   => [
+                        'attributes' => ['class' => 'form-control'],
+                    ],
+                ],
+            ],
+            [
+                'name'      => '描述', 'slug' => 'description', 'type' => 'textarea', 'description' => '',
+                'configure' => [
+                    'wrapper' => ['all' => ['class' => 'form-group'], 'input' => []],
+                    'label'   => ['attributes' => []],
+                    'input'   => [
+                        'attributes' => ['class' => 'form-control'],
+                    ],
+                ],
+            ],
+            [
+                'name'      => '分类', 'slug' => 'category', 'type' => 'textarea', 'description' => '',
+                'configure' => [
+                    'wrapper' => ['all' => ['class' => 'form-group'], 'input' => []],
+                    'label'   => ['attributes' => []],
+                    'input'   => [
+                        'attributes' => ['class' => 'form-control'],
+                        'group'      => 'systematic-articles',
+                    ],
+                ],
+            ],
+            [
+                'name'      => '文章状态', 'slug' => 'status', 'type' => 'select', 'description' => '',
+                'configure' => [
+                    'wrapper' => ['all' => ['class' => 'form-group'], 'input' => []],
+                    'label'   => ['attributes' => []],
+                    'input'   => [
+                        'attributes' => ['class' => 'form-control'],
+                        'items'      => [
+                            'callback' => [\App\Models\Post\PostStatus::class, 'descriptions'],
+                        ]
+                    ],
+                ],
+            ],
+            [
+                'name'      => '内容', 'slug' => 'content', 'type' => 'ueditor', 'description' => '',
+                'configure' => [
+                    'wrapper' => ['all' => ['class' => 'form-group'], 'input' => []],
+                    'label'   => false,
+                    'input'   => [],
+                ],
+            ],
+
+        ];
+
     }
 }

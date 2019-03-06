@@ -1,6 +1,8 @@
 @extends('backend.layouts.app')
 
 @section('content')
+    @include('vendor.ueditor.assets')
+
     {{ html()->form('POST', route('admin.post.store',$type->id))->class('form-horizontal')->open() }}
     <div class="card">
 
@@ -30,7 +32,9 @@
                 {{ html()->text('slug')->class('form-control')->attribute('maxlength', 190) }}
             </div>
 
-            @include('includes.post.layout.'.$type->layout->layout)
+            @foreach($type->getMeta('layout', []) as $element)
+                @include('backend.post.layout.elements.'.$element['type'], ['layout'=>$element['children'], 'post'=>null])
+            @endforeach
         </div>
 
         <div class="card-footer">

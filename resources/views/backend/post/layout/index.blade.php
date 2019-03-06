@@ -27,11 +27,8 @@
     </div><!--card-->
     {{ html()->form()->close() }}
 
-    {{--<div class="card-body">--}}
-    {{--@foreach($layout as $element)--}}
-    {{--@include('backend.post.layout.elements.'.$element['type'], ['layout'=>$element['children']])--}}
-    {{--@endforeach--}}
-    {{--</div>--}}
+    <div class="card-body">
+    </div>
 @endsection
 
 @push("after-styles")

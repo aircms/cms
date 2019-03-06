@@ -27,6 +27,7 @@ class Field extends Model implements Sortable
     {
         return SlugOptions::create()
             ->doNotGenerateSlugsOnUpdate()
+            ->allowDuplicateSlugs()
             ->generateSlugsFrom(function () {
                 $translate = \ShaoZeMing\LaravelTranslate\Facade\Translate::translate($this->name);
                 return str_slug($translate);
@@ -34,7 +35,7 @@ class Field extends Model implements Sortable
             ->saveSlugsTo('slug');
     }
 
-    public function configure()
+    public function getConfigure()
     {
         $configure = $this->getMeta("configure", []);
 
@@ -49,5 +50,14 @@ class Field extends Model implements Sortable
         }
 
         return $configure;
+    }
+
+    public static function fetchConfigure($slug)
+    {
+        if ($model = self::whereSlug($slug)->first()) {
+            return $model->getConfigure();
+        }
+        return [];
+
     }
 }

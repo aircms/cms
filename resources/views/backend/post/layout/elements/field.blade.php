@@ -1,3 +1,5 @@
-<div class="bg-secondary border p-5 text-center mb-2">
-    <strong>{{ $layout }}</strong>
-</div>
+@php
+    $field =  \App\Models\Post\Type\Field::whereSlug($layout)->first();
+@endphp
+
+@include('includes.post.field.'.$field->type, $field->getConfigure())

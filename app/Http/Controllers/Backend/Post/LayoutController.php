@@ -13,15 +13,13 @@ class LayoutController extends Controller
     {
         return view('backend.post.layout.index', [
             'type'   => $type,
-            'layout' => $type->getMeta('layout', []),
+            'layout' => Yaml::dump($type->getMeta('layout', []), 10, 2),
         ]);
     }
 
     public function store(Type $type, Request $request)
     {
-        Yaml::parse($request->layout);
-
-        $type->setMeta("layout", $request->layout);
+        $type->setMeta("layout", Yaml::parse($request->layout));
         return redirect()->route('admin.post.layout.index', $type->id);
     }
 }
