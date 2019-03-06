@@ -4,27 +4,24 @@ return [
     'fields' => [
         'tag'           => [
             'wrapper' => ['all' => ['class' => 'form-group'], 'input' => []],
-            'label'   => ['name' => 'Tags'],
+            'label'   => ['attributes' => []],
             'input'   => [
-                'name'       => 'tags',
                 'attributes' => ['class' => 'form-control'],
                 'value'      => ['aaa', 'bbbb', 'cccc']
             ],
         ],
         'category'      => [
             'wrapper' => ['all' => ['class' => 'form-group'], 'input' => []],
-            'label'   => ['name' => 'Category'],
+            'label'   => ['attributes' => []],
             'input'   => [
-                'name'       => 'category',
                 'group'      => 'systematic-articles',
                 'attributes' => ['class' => 'form-check-input'],
             ],
         ],
         'checkbox'      => [
             'wrapper' => ['all' => ['class' => 'form-group'], 'input' => ['class' => 'form-check']],
-            'label'   => ['name' => 'Can'],
+            'label'   => ['attributes' => []],
             'input'   => [
-                'name'       => 'can',
                 'value'      => 'OK',
                 'checked'    => true,
                 'attributes' => ['class' => 'form-check-input'],
@@ -32,9 +29,8 @@ return [
         ],
         'select_multi'  => [
             'wrapper' => ['all' => ['class' => 'form-group'], 'input' => []],
-            'label'   => ['name' => 'CheckBoxList'],
+            'label'   => ['attributes' => []],
             'input'   => [
-                'name'       => 'checkbox_list',
                 'value'      => ['a', 'b'],
                 'items'      => [
                     'a'         => 'AStatus',
@@ -48,10 +44,9 @@ return [
             ],
         ],
         'select'        => [
-            'label'   => ['name' => 'select'],
+            'label'   => ['attributes' => []],
             'wrapper' => ['all' => ['class' => 'form-group'], 'input' => []],
             'input'   => [
-                'name'       => 'select',
                 'value'      => 'c',
                 'items'      => [
                     'a'         => 'AStatus',
@@ -66,10 +61,9 @@ return [
             ],
         ],
         'radio'         => [
-            'label'   => ['name' => 'Radio'],
+            'label'   => ['attributes' => []],
             'wrapper' => ['all' => ['class' => 'form-group'], 'input' => []],
             'input'   => [
-                'name'       => 'radio',
                 'inline'     => true,
                 'value'      => 'a',
                 'items'      => [
@@ -85,10 +79,9 @@ return [
             ],
         ],
         'checkbox_list' => [
-            'label'   => ['name' => 'Items'],
+            'label'   => ['attributes' => []],
             'wrapper' => ['all' => ['class' => 'form-group'], 'input' => []],
             'input'   => [
-                'name'       => 'items',
                 'inline'     => true,
                 'value'      => ['a', 'c'],
                 'items'      => [
@@ -104,27 +97,24 @@ return [
             ],
         ],
         'input'         => [
-            'label'   => ['name' => 'Input',],
+            'label'   => ['attributes' => []],
             'wrapper' => ['all' => ['class' => 'form-group'], 'input' => []],
             'input'   => [
-                'name'       => 'input',
                 'attributes' => ['class' => 'form-control', 'required' => true,],
             ],
         ],
         'textarea'      => [
-            'label'   => ['name' => 'Textarea',],
+            'label'   => ['attributes' => []],
             'wrapper' => ['all' => ['class' => 'form-group'], 'input' => []],
             'input'   => [
-                'name'       => 'textarea',
                 'attributes' => ['class' => 'form-control', 'required' => true,],
             ],
         ],
 
         'ueditor' => [
-            'label'   => false,
+            'label'   => ['attributes' => []],
             'wrapper' => ['all' => ['class' => 'form-group'], 'input' => []],
             'input'   => [
-                'name'       => 'content',
                 'value'      => 'default content',
                 'attributes' => ['required' => true, 'rows' => 10, 'tabIndex' => -1],
             ],
