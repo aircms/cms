@@ -22,8 +22,9 @@ class FieldController extends Controller
 
     public function store(Field $field, Request $request)
     {
-        $params = $request->only(['name', 'slug', 'description']);
-        if ($field->create($params)) {
+        if ($field->fill($request->all())->save()) {
+            $field->setMeta("configure", $request->configure);
+
             return redirect()->route('admin.post.field.index');
         }
     }
@@ -37,8 +38,9 @@ class FieldController extends Controller
 
     public function update(Field $field, Request $request)
     {
-        $params = $request->only(['name', 'slug', 'description']);
-        if ($field->update($params)) {
+        if ($field->fill($request->all())->save()) {
+            $field->setMeta("configure", $request->configure);
+
             return redirect()->route('admin.post.field.index');
         }
     }
@@ -59,6 +61,14 @@ class FieldController extends Controller
     {
         $field->moveOrderDown();
         return redirect()->route('admin.post.field.index');
+    }
+
+    public function demo($name)
+    {
+        return [
+            'obj'    => config("post.fields.{$name}", []),
+            'string' => \GuzzleHttp\json_encode(config("post.fields.{$name}", []), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)
+        ];
     }
 }
 

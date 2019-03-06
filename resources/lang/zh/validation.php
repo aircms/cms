@@ -181,7 +181,9 @@ return [
                     'name'        => '名称',
                     'slug'        => '别名',
                     'description' => '描述',
+                    'type'        => '输入框类型',
                     'order'       => '排序',
+                    'configure'   => '输入框配置',
                 ],
                 'layout' => [
                     'layout' => '布局',

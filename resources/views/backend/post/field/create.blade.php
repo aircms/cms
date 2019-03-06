@@ -23,6 +23,13 @@
 
             <div class="row mt-4">
                 <div class="col">
+                    {{-- type  --}}
+                    <div class="form-group row">
+                        {{ html()->label(__('validation.attributes.backend.post.field.description'))->class('col-md-2 form-control-label')->for('type') }}
+                        <div class="col-md-10">
+                            {{ html()->select('type', \App\Models\Post\Type\Fields::all())->class('form-control') }}
+                        </div><!--col-->
+                    </div><!--form-group-->
 
                     {{-- name  --}}
                     <div class="form-group row">
@@ -40,12 +47,23 @@
                         </div><!--col-->
                     </div><!--form-group-->
 
-
                     {{-- description  --}}
                     <div class="form-group row">
                         {{ html()->label(__('validation.attributes.backend.post.field.description'))->class('col-md-2 form-control-label')->for('name') }}
                         <div class="col-md-10">
-                            {{ html()->textarea('description')->class('form-control')->attribute('maxlength', 190) }}
+                            {{ html()->textarea('description')->class('form-control') }}
+                        </div><!--col-->
+                    </div><!--form-group-->
+
+                    {{-- configure  --}}
+                    <div class="form-group row">
+                        {{ html()->label(__('validation.attributes.backend.post.field.configure'))->class('col-md-2 form-control-label')->for('configure') }}
+                        <div class="col-md-10">
+                            {{ html()->textarea('configure')->class('form-control')->attribute('rows',10) }}
+
+                            <div class="mt-2">
+                                <a href="#" class="btn btn-info load-field-demo" data-url="{{ route('admin.post.field.demo','--demo--') }}">加载示例</a>
+                            </div>
                         </div><!--col-->
                     </div><!--form-group-->
 
@@ -64,4 +82,6 @@
 
     </div><!--card-->
     {{ html()->form()->close() }}
+
+
 @endsection

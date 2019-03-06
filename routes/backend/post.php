@@ -54,6 +54,8 @@ Route::group(['prefix' => 'setting/'], function () {
 
             Route::get('{field}/move-up', [FieldController::class, 'up'])->name('up');
             Route::get('{field}/move-down', [FieldController::class, 'down'])->name('down');
+
+            Route::get('{name}/demo', [FieldController::class, 'demo'])->name('demo');
         });
 
 

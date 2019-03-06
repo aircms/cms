@@ -8,7 +8,7 @@
 
         <div class="card-body border-bottom mb-5">
             <h4 class="card-title mb-0">
-                @lang('labels.backend.configure.management')
+                @lang('labels.backend.setting.management')
 
                 <small class="text-muted">
                     {{ $category->name }}

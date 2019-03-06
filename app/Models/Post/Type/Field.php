@@ -3,6 +3,7 @@
 namespace App\Models\Post\Type;
 
 use Illuminate\Database\Eloquent\Model;
+use Plank\Metable\Metable;
 use Spatie\EloquentSortable\Sortable;
 use Spatie\EloquentSortable\SortableTrait;
 use Spatie\Sluggable\HasSlug;
@@ -12,10 +13,11 @@ class Field extends Model implements Sortable
 {
     use HasSlug;
     use SortableTrait;
+    use Metable;
 
     protected $table = 'post_fields';
 
-    protected $fillable = ['name', 'slug', 'description', 'order'];
+    protected $fillable = ['name', 'slug', 'description', 'order', 'type'];
 
     public $sortable = [
         'order_column_name' => 'order',
