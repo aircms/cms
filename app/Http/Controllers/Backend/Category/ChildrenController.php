@@ -52,7 +52,7 @@ class ChildrenController extends Controller
 
         if ($category->fill($request->all())->save()) {
             $ancestor->appendNode($category);
-            $category->syncMeta($request->metaFields());
+            $category->syncMeta($request->metaFields($category));
 
             return redirect()->route('admin.category.children.index', $ancestor->id);
         }
@@ -72,7 +72,7 @@ class ChildrenController extends Controller
 
         if ($category->fill($request->all())->save()) {
             $parent->appendNode($category);
-            $category->syncMeta($request->metaFields());
+            $category->syncMeta($request->metaFields($category));
 
             return redirect()->route('admin.category.children.index', $ancestor->id);
         }
@@ -89,7 +89,7 @@ class ChildrenController extends Controller
     public function update(Category $ancestor, Category $category, Request $request)
     {
         if ($category->fill($request->all())->save()) {
-            $category->syncMeta($request->metaFields());
+            $category->syncMeta($request->metaFields($category));
 
             return redirect()->route('admin.category.children.index', $ancestor->id);
         }
