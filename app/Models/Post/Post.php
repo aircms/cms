@@ -43,4 +43,14 @@ class Post extends Model
     {
         return PostStatus::description($this->status);
     }
+
+    public function getFromAttributeOrMeta($key, $default = null)
+    {
+        $value = $this->getAttribute($key);
+        if ($value) {
+            return $value;
+        }
+
+        return $this->getMeta($key, $default);
+    }
 }

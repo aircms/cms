@@ -12,7 +12,7 @@
 
     $items = array_get($input,'items');
 
-    $value = isset($post) ? $post->getMeta($inputName,[]) : $inputValue;
+    $value = isset($post) ? $post->getFromAttributeOrMeta($inputName,[]) : $inputValue;
 @endphp
 
 @foreach($items as $itemKey=>$itemLabel)

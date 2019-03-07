@@ -20,6 +20,7 @@
 
             {{--@include('includes.post.layout.'.$type->layout->layout,['post'=>$post])--}}
 
+            @dump($post->toArray())
             @foreach($type->getMeta('layout', []) as $element)
                 @include('backend.post.layout.elements.'.$element['type'], ['layout'=>$element['children'], 'post'=>$post])
             @endforeach

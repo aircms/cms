@@ -10,7 +10,7 @@
     $labelName = array_get($label, 'name', "");
     $labelAttributes = array_get($label, 'attributes', []);
 
-    $value = isset($post) ? $post->getMeta($inputName,$inputValue) : $inputValue;
+    $value = isset($post) ? $post->getFromAttributeOrMeta($inputName,$inputValue) : $inputValue;
 
     /** @var \App\Models\Category $rootCategory */
     $category = \App\Models\Category::whereSlug(array_get($input,'group',''))->whereIsRoot()->first();

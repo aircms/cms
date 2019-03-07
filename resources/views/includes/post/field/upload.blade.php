@@ -8,7 +8,7 @@
     $labelName = array_get($label, 'name', "");
     $labelAttributes = array_get($label, 'attributes', []);
 
-    $value = isset($post) ? $post->getMeta($inputName,$inputValue) : $inputValue;
+    $value = isset($post) ? $post->getFromAttributeOrMeta($inputName,$inputValue) : $inputValue;
 
     $items = array_get($input,'items');
 @endphp
