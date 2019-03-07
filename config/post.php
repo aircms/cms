@@ -7,7 +7,7 @@ return [
             'label'   => ['attributes' => []],
             'input'   => [
                 'attributes' => ['class' => 'form-control'],
-                'value'      => ['aaa', 'bbbb', 'cccc']
+                'value'      => []
             ],
         ],
         'categories'      => [

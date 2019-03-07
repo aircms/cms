@@ -90,6 +90,16 @@ class PostSeeder extends Seeder
     {
         return [
             [
+                'name'      => '标签', 'slug' => 'tag', 'type' => 'tag', 'description' => '',
+                'configure' => [
+                    'wrapper' => ['all' => ['class' => 'form-group'], 'input' => []],
+                    'label'   => ['attributes' => []],
+                    'input'   => [
+                        'attributes' => ['class' => 'form-control'],
+                    ],
+                ],
+            ],
+            [
                 'name'      => '关键字', 'slug' => 'keyword', 'type' => 'input', 'description' => '',
                 'configure' => [
                     'wrapper' => ['all' => ['class' => 'form-group'], 'input' => []],
