@@ -43,7 +43,7 @@ class RegisterRequest extends FormRequest
     public function messages()
     {
         return [
-            'g-recaptcha-response.required_if' => __('validation.required', ['attribute' => 'captcha']),
+            'g-recaptcha-response.required_if' => getFromAttributeOrMeta'validation.required', ['attribute' => 'captcha']),
         ];
     }
 }

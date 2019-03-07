@@ -196,6 +196,9 @@ return [
                     'slug'        => '别名',
                     'description' => '描述',
                     'parent'      => '父分类',
+                    'layout'      => '页面模板',
+                    'link'        => '链接地址',
+                    'link_mode'   => '链接打开方式',
                 ],
                 'group'    => [
                     'name'        => '名称',

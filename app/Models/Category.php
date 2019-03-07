@@ -2,16 +2,19 @@
 
 namespace App\Models;
 
+use Plank\Metable\Metable;
 use Spatie\Sluggable\SlugOptions;
 
 class Category extends \Rinvex\Categories\Models\Category
 {
-    public function depthPrefix($char = "┇┄", $ignoreRoot = true)
+    use Metable;
+
+    public function depthPrefix($char = "|---", $ignoreRoot = true)
     {
         return str_repeat($char, ($this->depth - 1)) . ' ';
     }
 
-    public function flatIndentMap($char = '┇┄')
+    public function flatIndentMap($char = '|---')
     {
         return $this->descendants()->defaultOrder()->withDepth()->get()->flatMap(function (Category $category) use ($char) {
             return [

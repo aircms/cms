@@ -4,10 +4,19 @@ namespace App\Http\Controllers\Backend\Category;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 class ChildrenController extends Controller
 {
+    public function __construct()
+    {
+        \Illuminate\Support\Facades\Request::macro("metaFields", function (Model $model) {
+            $exceptFields = array_merge($model->getFillable(), ['_token']);
+            return $this->except($exceptFields);
+        });
+    }
+
     public function index(Category $ancestor)
     {
 //        dd($ancestor->descendants()->defaultOrder()->withDepth()->get()->toArray());
@@ -41,9 +50,9 @@ class ChildrenController extends Controller
     {
         $category = new Category();
 
-        $params = $request->only(['name', 'slug', 'description']);
-        if ($category->fill($params)->save()) {
+        if ($category->fill($request->all())->save()) {
             $ancestor->appendNode($category);
+            $category->syncMeta($request->metaFields());
 
             return redirect()->route('admin.category.children.index', $ancestor->id);
         }
@@ -61,9 +70,9 @@ class ChildrenController extends Controller
     {
         $category = new Category();
 
-        $params = $request->only(['name', 'slug', 'description']);
-        if ($category->fill($params)->save()) {
+        if ($category->fill($request->all())->save()) {
             $parent->appendNode($category);
+            $category->syncMeta($request->metaFields());
 
             return redirect()->route('admin.category.children.index', $ancestor->id);
         }
@@ -79,8 +88,9 @@ class ChildrenController extends Controller
 
     public function update(Category $ancestor, Category $category, Request $request)
     {
-        $params = $request->only(['name', 'slug', 'description']);
-        if ($category->update($params)) {
+        if ($category->fill($request->all())->save()) {
+            $category->syncMeta($request->metaFields());
+
             return redirect()->route('admin.category.children.index', $ancestor->id);
         }
     }

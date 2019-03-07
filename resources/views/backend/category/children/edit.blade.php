@@ -47,6 +47,30 @@
                         </div><!--col-->
                     </div><!--form-group-->
 
+                    {{-- layout  --}}
+                    <div class="form-group row">
+                        {{ html()->label(__('validation.attributes.backend.category.children.layout'))->class('col-md-2 form-control-label')->for('layout') }}
+                        <div class="col-md-10">
+                            {{ html()->input('layout')->value($category->getMeta('layout',''))->class('form-control') }}
+                        </div>
+                    </div>
+
+                    {{-- link  --}}
+                    <div class="form-group row">
+                        {{ html()->label(__('validation.attributes.backend.category.children.link'))->class('col-md-2 form-control-label')->for('link') }}
+                        <div class="col-md-10">
+                            {{ html()->input('link')->value($category->getMeta('link',''))->class('form-control') }}
+                        </div>
+                    </div>
+
+                    {{-- link mode --}}
+                    <div class="form-group row">
+                        {{ html()->label(__('validation.attributes.backend.category.children.link_mode'))->class('col-md-2 form-control-label')->for('link_mode') }}
+                        <div class="col-md-10">
+                            {{ html()->select('link_mode', \App\Models\LinkModes::all())->value($category->getMeta('link_mode',''))->class('form-control') }}
+                        </div>
+                    </div>
+
 
                 </div><!--col-->
             </div><!--row-->

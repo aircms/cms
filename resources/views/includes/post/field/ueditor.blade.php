@@ -7,6 +7,7 @@
     <script type="text/javascript">
       var ue = UE.getEditor('{{ array_get($input,'name') }}', {
         initialFrameHeight: 500,
+        autoHeightEnabled: false,
       })
       ue.ready(function () {
         ue.execCommand('serverparam', '_token', '{{ csrf_token() }}')
