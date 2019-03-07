@@ -36,11 +36,11 @@ return [
     ],
 
     'backend' => [
-        'system'   => [
+        'system'  => [
             'setting' => '系统设置',
             'utils'   => '系统功能',
         ],
-        'access'   => [
+        'access'  => [
             'roles' => [
                 'create'     => '新建角色',
                 'edit'       => '编辑角色',
@@ -109,7 +109,7 @@ return [
                 'view' => '查看用户',
             ],
         ],
-        'setting'  => [
+        'setting' => [
             'management' => '配置管理',
             'name'       => '名称',
             'slug'       => '别名',
@@ -119,6 +119,31 @@ return [
             'item' => [
                 'management' => '参数配置',
             ]
+        ],
+        'fragment' => [
+            'management'  => '组件管理',
+            'create'      => '创建页面组件',
+            'edit'        => '编辑页面组件',
+            'name'        => '名称',
+            'slug'        => '别名',
+            'description' => '描述',
+            'order'       => '排序',
+            'created_at'  => '创建日期',
+            'updated_at'  => '更新日期',
+            'code'        => '片段代码',
+        ],
+        'page'     => [
+            'management'  => '页面管理',
+            'create'      => '创建页面',
+            'edit'        => '编辑页面',
+            'name'        => '名称',
+            'slug'        => '别名',
+            'description' => '描述',
+            'order'       => '排序',
+            'code'        => '布局',
+            'created_at'  => '创建日期',
+            'updated_at'  => '更新日期',
+            'layout'      => '继承模板',
         ],
         'post'     => [
             'management' => '发布管理',
@@ -179,6 +204,13 @@ return [
             'view'              => '查看详情',
             'created_at'        => '创建日期',
             'updated_at'        => '回复日期',
+        ],
+        'page'     => [
+            'root'       => '页面',
+            'management' => '页面管理',
+        ],
+        'fragment' => [
+            'management' => '页面组件',
         ],
         'category' => [
             'children' => [

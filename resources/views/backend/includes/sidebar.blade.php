@@ -110,6 +110,25 @@
                         </a>
                     </li>
 
+                    <li class="nav-item nav-dropdown {{ active_class(Active::checkUriPattern('admin/setting/pages/*'), 'open') }}">
+                        <a class="nav-link nav-dropdown-toggle {{ active_class(Active::checkUriPattern('admin/setting/pages/*')) }}" href="#">
+                            @lang('menus.backend.pages.management')
+                        </a>
+
+                        <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a class="nav-link {{ active_class(Active::checkUriPattern('admin/setting/pages/page/*')) }}" href="{{ route('admin.pages.page.index') }}">
+                                    @lang('menus.backend.pages.page.management')
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ active_class(Active::checkUriPattern('admin/setting/pages/fragment/*')) }}" href="{{ route('admin.pages.fragment.index') }}">
+                                    @lang('menus.backend.pages.fragment.management')
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
                     <li class="nav-item nav-dropdown {{ active_class(Active::checkUriPattern('admin/setting/configure/*/category'), 'open') }}">
                         <a class="nav-link nav-dropdown-toggle {{ active_class(Active::checkUriPattern('admin/setting/configure/*/category')) }}" href="#">
                             @lang('menus.backend.configure.management')

@@ -43,7 +43,18 @@ return [
         ],
 
         'item'       => [
-            'index' => '参数项目',
+            'index' => '参数管理',
+        ],
+        'pages'      => [
+            'management' => '页面管理',
+
+            'page'       => [
+                'management' => '页面模板',
+            ],
+
+            'fragment'   => [
+                'management' => '页面组件',
+            ],
         ],
         'configure'  => [
             'management' => '参数配置',
