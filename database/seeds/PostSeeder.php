@@ -70,7 +70,7 @@ class PostSeeder extends Seeder
 
             $field = \App\Models\Post\Type\Field::create([
                 'name'        => $name,
-                'slug'        => $field,
+                'slug'        => "base_input_" . $field,
                 'type'        => $field,
                 'description' => $name . ' (基础组件)',
             ]);
@@ -115,7 +115,7 @@ class PostSeeder extends Seeder
                     'wrapper' => ['all' => ['class' => 'form-group'], 'input' => []],
                     'label'   => ['attributes' => []],
                     'input'   => [
-                        'attributes' => ['class' => 'form-control','rows'=>5],
+                        'attributes' => ['class' => 'form-control', 'rows' => 5],
                     ],
                 ],
             ],

@@ -24,15 +24,17 @@
 
             <hr>
 
-            <div class="form-group">
-                {{ html()->label(__('validation.attributes.backend.post.title'))->for('title') }}
-                {{ html()->text('title')->class('form-control')->attribute('maxlength', 190)->required()->autofocus() }}
+            <div class="row">
+                <div class="col form-group">
+                    {{ html()->label(__('validation.attributes.backend.post.title'))->for('title') }}
+                    {{ html()->text('title')->class('form-control')->attribute('maxlength', 190)->required()->autofocus() }}
+                </div>
+                <div class="form-group col">
+                    {{ html()->label(__('validation.attributes.backend.post.slug'))->for('name') }}
+                    {{ html()->text('slug')->class('form-control')->attribute('maxlength', 190) }}
+                </div>
             </div>
 
-            <div class="form-group">
-                {{ html()->label(__('validation.attributes.backend.post.slug'))->for('name') }}
-                {{ html()->text('slug')->class('form-control')->attribute('maxlength', 190) }}
-            </div>
 
             @foreach($type->getMeta('layout', []) as $element)
                 @include('backend.post.layout.elements.'.$element['type'], ['layout'=>$element['children'], 'post'=>null])
