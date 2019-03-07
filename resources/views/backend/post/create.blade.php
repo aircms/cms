@@ -1,8 +1,10 @@
 @extends('backend.layouts.app')
 
-@section('content')
+@push('after-styles')
     @include('vendor.ueditor.assets')
+@endpush
 
+@section('content')
     {{ html()->form('POST', route('admin.post.store',$type->id))->class('form-horizontal')->open() }}
     <div class="card">
 

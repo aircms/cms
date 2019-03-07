@@ -1,8 +1,10 @@
 @extends('backend.layouts.app')
 
-@section('content')
+@push('after-styles')
     @include('vendor.ueditor.assets')
+@endpush
 
+@section('content')
     {{ html()->form('POST', route('admin.post.update',[$type->id,$post->id]))->class('form-horizontal')->open() }}
     <div class="card">
 
@@ -20,7 +22,6 @@
 
             {{--@include('includes.post.layout.'.$type->layout->layout,['post'=>$post])--}}
 
-            @dump($post->toArray())
             @foreach($type->getMeta('layout', []) as $element)
                 @include('backend.post.layout.elements.'.$element['type'], ['layout'=>$element['children'], 'post'=>$post])
             @endforeach
