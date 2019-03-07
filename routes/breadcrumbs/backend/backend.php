@@ -10,4 +10,4 @@ require __DIR__ . '/category.php';
 require __DIR__ . '/post.php';
 require __DIR__ . '/utils.php';
 require __DIR__ . '/configure.php';
-//require __DIR__ . '/page.php';
+require __DIR__ . '/page.php';

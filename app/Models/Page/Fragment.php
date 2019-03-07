@@ -33,4 +33,9 @@ class Fragment extends Model
             })
             ->saveSlugsTo('slug');
     }
+
+    public function getDefaultCodeAttribute()
+    {
+        return file_get_contents(storage_path("app/default.fragment.yaml"));
+    }
 }

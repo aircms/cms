@@ -10,10 +10,10 @@
             <div class="row">
                 <div class="col-sm-5">
                     <h4 class="card-title mb-0">
-                        @lang('labels.backend.post.type.management')
+                        @lang('labels.backend.fragment.management')
 
                         <small class="text-muted">
-                            @lang('labels.backend.post.type.create')
+                            @lang('labels.general.create')
                         </small>
                     </h4>
                 </div><!--col-->
@@ -21,36 +21,31 @@
 
             <hr>
 
-            <div class="row mt-4">
-                <div class="col">
+            <div class="row">
+                {{-- name  --}}
+                <div class="form-group col">
+                    {{ html()->label(__('validation.attributes.backend.fragment.name'))->class('form-control-label')->for('name') }}
+                    {{ html()->text('name')->class('form-control')->attribute('maxlength', 190)->required()->autofocus() }}
+                </div>
 
-                    {{-- name  --}}
-                    <div class="form-group row">
-                        {{ html()->label(__('validation.attributes.backend.post.type.name'))->class('col-md-2 form-control-label')->for('name') }}
-                        <div class="col-md-10">
-                            {{ html()->text('name')->class('form-control')->attribute('maxlength', 190)->required()->autofocus() }}
-                        </div><!--col-->
-                    </div><!--form-group-->
+                {{-- slug  --}}
+                <div class="form-group col">
+                    {{ html()->label(__('validation.attributes.backend.fragment.slug'))->class('form-control-label')->for('slug') }}
+                    {{ html()->text('slug')->class('form-control')->attribute('maxlength', 190) }}
+                </div>
+            </div>
 
-                    {{-- slug  --}}
-                    <div class="form-group row">
-                        {{ html()->label(__('validation.attributes.backend.post.type.slug'))->class('col-md-2 form-control-label')->for('name') }}
-                        <div class="col-md-10">
-                            {{ html()->text('slug')->class('form-control')->attribute('maxlength', 190) }}
-                        </div><!--col-->
-                    </div><!--form-group-->
+            {{-- description  --}}
+            <div class="form-group">
+                {{ html()->label(__('validation.attributes.backend.fragment.description'))->class('form-control-label')->for('description') }}
+                {{ html()->textarea('description')->class('form-control') }}
+            </div>
 
-
-                    {{-- description  --}}
-                    <div class="form-group row">
-                        {{ html()->label(__('validation.attributes.backend.post.type.description'))->class('col-md-2 form-control-label')->for('name') }}
-                        <div class="col-md-10">
-                            {{ html()->textarea('description')->class('form-control')->attribute('maxlength', 190) }}
-                        </div><!--col-->
-                    </div><!--form-group-->
-
-                </div><!--col-->
-            </div><!--row-->
+            {{-- code  --}}
+            <div class="form-group">
+                {{ html()->label(__('validation.attributes.backend.fragment.code'))->class('form-control-label')->for('code') }}
+                {{ html()->textarea('code',(new \App\Models\Page\Fragment())->default_code)->class('form-control') }}
+            </div>
         </div><!--card-body-->
 
         <div class="card-footer">
@@ -65,3 +60,5 @@
     </div><!--card-->
     {{ html()->form()->close() }}
 @endsection
+
+@include('backend.includes.components.yaml',['component'=>'code'])

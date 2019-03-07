@@ -36,41 +36,11 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($posts as $post)
-                            <tr>
-                                <td>
-                                    <div>{{ $post->title }}</div>
-                                    <small class="text-muted">{{ $post->slug }}</small>
-                                </td>
-                                <td>{{ $post->status_text }}</td>
-                                <td>
-                                    <div>{{ $post->created_at }}</div>
-                                    <div>{{ $post->updated_at }}</div>
-                                </td>
-                                <td>
-                                    <a href="{{ route('admin.post.edit', [$type->id,$post->id]) }}"
-                                       class="btn btn-primary btn-sm">
-                                        @lang('buttons.general.crud.edit')
-                                    </a>
-
-                                    <a href="{{ route('admin.post.delete', [$type->id,$post->id]) }}"
-                                       class="btn btn-danger btn-sm">
-                                        @lang('buttons.general.crud.delete')
-                                    </a>
-                                </td>
-                            </tr>
-                        @endforeach
                         </tbody>
                     </table>
                 </div>
             </div><!--col-->
         </div><!--row-->
-
-        @if ($posts->hasMorePages())
-            <div class="card-footer">
-                {!! $posts->links() !!}
-            </div>
-        @endif
     </div><!--card-->
 
 @endsection

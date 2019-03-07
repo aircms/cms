@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\Post\Post;
 use App\Models\Post\Type\Field;
+use App\Models\YAML2Blade\Parser;
 use Illuminate\Console\Command;
 
 class Test extends Command
@@ -12,13 +13,17 @@ class Test extends Command
 
     public function handle()
     {
+        $yamlContent = file_get_contents(storage_path('app/default.fragment.yaml'));
+        $file = storage_path("framework/cache/views/abc");
+        dd(Parser::parse2File($yamlContent, $file));
+
         $category = \App\Models\Category::whereSlug('system-articles')->whereIsRoot()->first();
         $items = $category->flatIndentMap();
         dd($items);
 
         $translate = \ShaoZeMing\LaravelTranslate\Facade\Translate::translate('你好');
         dd($translate);
-        dd(is_callable([Field::class,'configure']), ['a','b']);
+        dd(is_callable([Field::class, 'configure']), ['a', 'b']);
 
         $data = [
             'label'   => ['name' => 'Keywords',],

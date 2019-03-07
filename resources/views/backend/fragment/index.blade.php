@@ -6,12 +6,12 @@
             <div class="row">
                 <div class="col-sm-5">
                     <h4 class="card-title mb-0">
-                        @lang('labels.backend.post.type.management')
+                        @lang('labels.backend.fragment.management')
                     </h4>
                 </div><!--col-->
 
                 <div class="col-sm-7 pull-right">
-                    @include('backend.post.type.includes.header-buttons')
+                    @include('backend.fragment.includes.header-buttons')
                 </div><!--col-->
             </div><!--row-->
 
@@ -33,44 +33,6 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($types as $type)
-                            <tr>
-                                <td>{{ $type->name }}</td>
-                                <td>{{ $type->slug }}</td>
-                                <td>{{ $type->description }}</td>
-                                <td>
-                                    <div>{{ $type->created_at }}</div>
-                                    <div>{{ $type->updated_at }}</div>
-                                </td>
-                                <td>
-                                    <a href="{{ route('admin.post.type.up', $type->id) }}"
-                                       class="btn btn-info btn-sm">
-                                        <i class="icon-arrow-up"></i>
-                                    </a>
-                                    <a href="{{ route('admin.post.type.down', $type->id) }}"
-                                       class="btn btn-info btn-sm">
-                                        <i class="icon-arrow-down"></i>
-                                    </a>
-
-                                    <a href="{{ route('admin.post.layout.index', $type->id) }}"
-                                       class="btn btn-info btn-sm">
-                                        @lang('labels.backend.post.type.manage_layout')
-                                    </a>
-                                </td>
-
-                                <td>
-                                    <a href="{{ route('admin.post.type.edit', $type->id) }}"
-                                       class="btn btn-primary btn-sm">
-                                        @lang('buttons.general.crud.edit')
-                                    </a>
-
-                                    <a href="{{ route('admin.post.type.delete', $type->id) }}"
-                                       class="btn btn-danger btn-sm">
-                                        @lang('buttons.general.crud.delete')
-                                    </a>
-                                </td>
-                            </tr>
-                        @endforeach
                         </tbody>
                     </table>
                 </div>

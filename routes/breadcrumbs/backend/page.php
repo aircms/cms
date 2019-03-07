@@ -2,11 +2,11 @@
 
 Breadcrumbs::for('admin.pages.root', function ($trail) {
     $trail->parent('admin.system.management');
-    $trail->push(__('labels.backend.page.root'));
+    $trail->push(__('labels.backend.pages.management'));
 });
 
 Breadcrumbs::for('admin.pages.page.index', function ($trail) {
-    $trail->parent('admin.system.management');
+    $trail->parent('admin.pages.root');
     $trail->push(__('labels.backend.page.management'), route('admin.pages.page.index'));
 });
 
@@ -23,7 +23,7 @@ Breadcrumbs::for('admin.pages.page.edit', function ($trail, $id) {
 
 
 Breadcrumbs::for('admin.pages.fragment.index', function ($trail) {
-    $trail->parent('admin.system.management');
+    $trail->parent('admin.pages.root');
     $trail->push(__('labels.backend.fragment.management'), route('admin.pages.fragment.index'));
 });
 
