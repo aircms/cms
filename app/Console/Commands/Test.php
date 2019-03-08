@@ -13,6 +13,7 @@ class Test extends Command
 
     public function handle()
     {
+        dd(today()->format('Y/m/d'));
         $yamlContent = file_get_contents(storage_path('app/default.fragment.yaml'));
         $file = storage_path("framework/cache/views/abc");
         dd(Parser::parse2File($yamlContent, $file));
