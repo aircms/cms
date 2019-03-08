@@ -30,11 +30,6 @@
                     {{ html()->label(__('validation.attributes.backend.page.slug'))->for('slug') }}
                     {{ html()->text('slug',$page->slug)->class('form-control')->attribute('maxlength', 190) }}
                 </div>
-
-                <div class="form-group col">
-                    {{ html()->label(__('validation.attributes.backend.page.layout'))->for('layout') }}
-                    {{ html()->text('layout',$page->slug)->class('form-control')->attribute('maxlength', 190) }}
-                </div>
             </div>
 
             <div class="form-group">

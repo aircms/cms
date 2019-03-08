@@ -1,0 +1,31 @@
+- type: extends
+  extends: frontend.layouts.base
+
+- type: section
+  section: body
+  content:
+    - type: fragment
+      fragment: header
+
+    - type: fragment
+      fragment: navbar
+
+    - type: node
+      node: div
+      attributes:
+        class: container
+      content:
+        - type: node
+          node: div
+          attributes:
+            class: row
+          content:
+            - type: node
+              node: div
+              attributes:
+                class: col
+              content: |
+                @yield('main')
+
+    - type: fragment
+      fragment: footer

@@ -1,4 +1,3 @@
 *
-!public/
-!resource/
+!public
 !.gitignore

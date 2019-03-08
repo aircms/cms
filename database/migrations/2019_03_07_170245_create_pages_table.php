@@ -18,7 +18,6 @@ class CreatePagesTable extends Migration
             $table->string("name");
             $table->string("slug");
             $table->string("description")->nullable();
-            $table->string("layout")->nullable();
             $table->longText("code");
             $table->integer("order");
             $table->timestamps();

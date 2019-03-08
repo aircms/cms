@@ -15,7 +15,7 @@ class Page extends Model implements Sortable
     use HasSlug;
     use SortableTrait;
 
-    protected $fillable = ['name', 'slug', 'description', 'order', 'layout', 'code'];
+    protected $fillable = ['name', 'slug', 'description', 'order', 'code'];
 
     public $sortable = [
         'order_column_name' => 'order',
@@ -35,7 +35,7 @@ class Page extends Model implements Sortable
 
     public function getDefaultCodeAttribute()
     {
-        return file_get_contents(storage_path("app/resource/default.page.yaml"));
+        return file_get_contents(storage_path("resource/default.page.yaml"));
     }
 
     public function filepath()

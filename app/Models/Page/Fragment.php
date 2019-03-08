@@ -37,7 +37,7 @@ class Fragment extends Model implements Sortable
 
     public function getDefaultCodeAttribute()
     {
-        return file_get_contents(storage_path("app/resource/default.fragment.yaml"));
+        return file_get_contents(storage_path("resource/default.fragment.yaml"));
     }
 
     public function filepath()
