@@ -14738,9 +14738,9 @@ $(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/rogee/Develop/websites/AirCms/resources/js/frontend/app.js */"./resources/js/frontend/app.js");
-__webpack_require__(/*! /Users/rogee/Develop/websites/AirCms/resources/sass/frontend/app.scss */"./resources/sass/frontend/app.scss");
-module.exports = __webpack_require__(/*! /Users/rogee/Develop/websites/AirCms/resources/sass/backend/app.scss */"./resources/sass/backend/app.scss");
+__webpack_require__(/*! /Users/rogee/Develop/websites/AirCMS/resources/js/frontend/app.js */"./resources/js/frontend/app.js");
+__webpack_require__(/*! /Users/rogee/Develop/websites/AirCMS/resources/sass/frontend/app.scss */"./resources/sass/frontend/app.scss");
+module.exports = __webpack_require__(/*! /Users/rogee/Develop/websites/AirCMS/resources/sass/backend/app.scss */"./resources/sass/backend/app.scss");
 
 
 /***/ })

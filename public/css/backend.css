@@ -9,14 +9,6 @@
  */
 
 /*!
- * CoreUI - Open Source Dashboard UI Kit
- * @version v2.1.6
- * @link https://coreui.io
- * Copyright (c) 2018 creativeLabs Łukasz Holeczek
- * Licensed under MIT (https://coreui.io/license)
- */
-
-/*!
  * Bootstrap v4.2.1 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
  * Copyright 2011-2018 Twitter, Inc.
@@ -13145,8 +13137,8 @@ canvas {
   display: flex;
   flex-direction: column;
   padding: 0;
-  color: #fff;
-  background: #2f353a;
+  color: rgba(255, 255, 255, 0.5);
+  background: #2c343f;
 }
 
 .sidebar .sidebar-close {
@@ -13157,7 +13149,7 @@ canvas {
   font-size: 24px;
   font-weight: 800;
   line-height: 55px;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.5);
   background: 0;
   border: 0;
   opacity: 0.8;
@@ -13245,7 +13237,7 @@ canvas {
 .sidebar .nav-link {
   display: block;
   padding: 0.75rem 1rem;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
   background: transparent;
 }
@@ -13266,7 +13258,6 @@ canvas {
 
 .sidebar .nav-link.active {
   color: #fff;
-  background: #3a4248;
 }
 
 .sidebar .nav-link.active .nav-icon {
@@ -13275,7 +13266,7 @@ canvas {
 
 .sidebar .nav-link:hover {
   color: #fff;
-  background: #20a8d8;
+  background: rgba(0, 0, 0, 0.15);
 }
 
 .sidebar .nav-link:hover .nav-icon {
@@ -13462,16 +13453,28 @@ canvas {
   margin-right: 16px;
 }
 
-.sidebar .nav-dropdown.open {
-  background: rgba(0, 0, 0, 0.2);
-}
-
 .sidebar .nav-dropdown.open > .nav-dropdown-items {
   max-height: 1500px;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.sidebar .nav-dropdown.open > .nav-dropdown-items > .nav-item > .nav-link {
+  padding-left: 2.59375rem;
+}
+
+.sidebar .nav-dropdown.open > .nav-dropdown-items > .nav-dropdown.open > .nav-dropdown-items > .nav-item > .nav-link {
+  padding-left: 3.59375rem;
+}
+
+.sidebar .nav-dropdown.open > .nav-dropdown-items > .nav-dropdown.open > .nav-dropdown-items > .nav-dropdown.open > .nav-dropdown-items > .nav-item > .nav-link {
+  padding-left: 4.59375rem;
+}
+
+.sidebar .nav-dropdown.open > .nav-dropdown-items > .nav-dropdown.open > .nav-dropdown-items > .nav-dropdown.open > .nav-dropdown-items > .nav-dropdown.open > .nav-dropdown-items > .nav-item > .nav-link {
+  padding-left: 5.59375rem;
 }
 
 .sidebar .nav-dropdown.open .nav-link {
-  color: #fff;
   border-left: 0;
 }
 
@@ -13504,7 +13507,7 @@ canvas {
 }
 
 .sidebar .nav-label:hover {
-  color: #fff;
+  color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
 }
 
@@ -13518,7 +13521,7 @@ canvas {
 }
 
 .sidebar .progress {
-  background-color: #515c64 !important;
+  background-color: #4b596c !important;
 }
 
 .sidebar .sidebar-footer {
@@ -13633,7 +13636,7 @@ canvas {
     bottom: 0;
     width: 50px;
     height: 50px;
-    background-color: #24282c;
+    background-color: #222830;
   }
 
   .sidebar-minimized .sidebar .sidebar-nav {
@@ -13657,7 +13660,7 @@ canvas {
   }
 
   .sidebar-minimized .sidebar .nav-item:hover > .nav-link {
-    background: #20a8d8;
+    background: rgba(0, 0, 0, 0.15);
   }
 
   .sidebar-minimized .sidebar .nav-item:hover > .nav-link .nav-icon {
@@ -13703,7 +13706,7 @@ canvas {
 
   .sidebar-minimized .sidebar .nav-link:hover {
     width: 250px;
-    background: #20a8d8;
+    background: rgba(0, 0, 0, 0.15);
   }
 
   .sidebar-minimized .sidebar .nav-link:hover .badge {
@@ -13725,11 +13728,11 @@ canvas {
   .sidebar-minimized .sidebar .nav > .nav-dropdown > .nav-dropdown-items {
     display: none;
     max-height: 1000px;
-    background: #2f353a;
+    background: #2c343f;
   }
 
   .sidebar-minimized .sidebar .nav > .nav-dropdown:hover {
-    background: #20a8d8;
+    background: rgba(0, 0, 0, 0.15);
   }
 
   .sidebar-minimized .sidebar .nav > .nav-dropdown:hover > .nav-dropdown-items {
@@ -13772,11 +13775,11 @@ canvas {
   *[dir=rtl] .sidebar-minimized .sidebar .nav > .nav-dropdown > .nav-dropdown-items {
     display: none;
     max-height: 1000px;
-    background: #2f353a;
+    background: #2c343f;
   }
 
   *[dir=rtl] .sidebar-minimized .sidebar .nav > .nav-dropdown:hover {
-    background: #20a8d8;
+    background: rgba(0, 0, 0, 0.15);
   }
 
   *[dir=rtl] .sidebar-minimized .sidebar .nav > .nav-dropdown:hover > .nav-dropdown-items {
