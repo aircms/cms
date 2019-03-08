@@ -10,13 +10,12 @@ class NodeParser extends AbstractParser implements IParser
     public function bladeBegin()
     {
         $node = $this->section[$this->getAccessor()];
-        $begin = html()->$node()->attributes(Arr::get($this->section, 'attributes'))->open();
+        $begin = html()->$node()->attributes(Arr::get($this->section, 'attributes', []))->open();
         return $this->line($begin);
     }
 
     public function bladeContent()
     {
-        dump($this->section['content']);
         return $this->section['content'];
     }
 

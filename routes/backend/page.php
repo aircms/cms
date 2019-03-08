@@ -15,10 +15,10 @@ Route::group(['prefix' => 'setting/pages/', 'as' => 'pages.'], function () {
         Route::get('create', [PageController::class, 'create'])->name('create');
         Route::post('store', [PageController::class, 'store'])->name('store');
 
-        Route::get('{post}/edit', [PageController::class, 'edit'])->name('edit');
-        Route::post('{post}/update', [PageController::class, 'update'])->name('update');
+        Route::get('{page}/edit', [PageController::class, 'edit'])->name('edit');
+        Route::post('{page}/update', [PageController::class, 'update'])->name('update');
 
-        Route::delete('{post}/delete', [PageController::class, 'delete'])->name('delete');
+        Route::delete('{page}/delete', [PageController::class, 'delete'])->name('delete');
     });
 
     Route::group(['prefix' => 'fragment/', 'as' => 'fragment.', 'namespace' => 'Page'], function () {
@@ -27,10 +27,10 @@ Route::group(['prefix' => 'setting/pages/', 'as' => 'pages.'], function () {
         Route::get('create', [FragmentController::class, 'create'])->name('create');
         Route::post('store', [FragmentController::class, 'store'])->name('store');
 
-        Route::get('{post}/edit', [FragmentController::class, 'edit'])->name('edit');
-        Route::post('{post}/update', [FragmentController::class, 'update'])->name('update');
+        Route::get('{fragment}/edit', [FragmentController::class, 'edit'])->name('edit');
+        Route::post('{fragment}/update', [FragmentController::class, 'update'])->name('update');
 
-        Route::delete('{post}/delete', [FragmentController::class, 'delete'])->name('delete');
+        Route::delete('{fragment}/delete', [FragmentController::class, 'delete'])->name('delete');
     });
 
 });

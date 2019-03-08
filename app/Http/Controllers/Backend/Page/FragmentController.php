@@ -22,7 +22,9 @@ class FragmentController extends Controller
 
     public function index()
     {
-        return view('backend.fragment.index');
+        return view('backend.fragment.index', [
+            'fragments' => Fragment::ordered()->get(),
+        ]);
     }
 
     public function create()

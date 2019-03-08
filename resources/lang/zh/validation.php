@@ -167,9 +167,10 @@ return [
                     'items'    => '选项列表',
                 ]
             ],
-            'fragment'     => [
+            'fragment' => [
                 'name'        => '名称',
                 'slug'        => '别名',
+                'tag'         => '标签',
                 'type'        => '类型',
                 'description' => '描述',
                 'layout'      => '模板',

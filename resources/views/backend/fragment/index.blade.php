@@ -20,18 +20,44 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th>@lang('labels.backend.post.type.name')</th>
-                            <th>@lang('labels.backend.post.type.slug')</th>
-                            <th>@lang('labels.backend.post.type.description')</th>
                             <th>
-                                @lang('labels.backend.post.type.created_at')
+                                @lang('labels.backend.fragment.name')
                                 <span class="text-muted">/</span>
-                                @lang('labels.backend.post.type.updated_at')
+                                @lang('labels.backend.fragment.slug')
+                            </th>
+                            <th>@lang('labels.backend.fragment.description')</th>
+                            <th>
+                                @lang('labels.backend.fragment.created_at')
+                                <span class="text-muted">/</span>
+                                @lang('labels.backend.fragment.updated_at')
                             </th>
                             <th>@lang('labels.general.actions')</th>
-                            <th>#</th>
                         </tr>
                         </thead>
+                        @foreach($fragments as $fragment)
+                            <tr>
+                                <th>
+                                    <div>{{ $fragment->name }}</div>
+                                    <small class="text-muted">{{ $fragment->slug }}</small>
+                                </th>
+                                <td>{{ $fragment->description }}</td>
+                                <td>
+                                    <div>{{ $fragment->created_at }}</div>
+                                    <div>{{ $fragment->updated_at }}</div>
+                                </td>
+                                <td>
+                                    <a href="{{ route('admin.pages.fragment.edit', $fragment->id) }}"
+                                       class="btn btn-primary btn-sm">
+                                        @lang('buttons.general.crud.edit')
+                                    </a>
+
+                                    <a href="{{ route('admin.pages.fragment.delete', $fragment->id) }}"
+                                       class="btn btn-danger btn-sm">
+                                        @lang('buttons.general.crud.delete')
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
                         <tbody>
                         </tbody>
                     </table>

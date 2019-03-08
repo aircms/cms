@@ -35,6 +35,6 @@ class Page extends Model implements Sortable
 
     public function getDefaultCodeAttribute()
     {
-        return file_get_contents(storage_path("app/default.page.yaml"));
+        return file_get_contents(storage_path("app/resource/default.page.yaml"));
     }
 }

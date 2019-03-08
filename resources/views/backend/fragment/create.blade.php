@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 
 @section('content')
-    {{ html()->form('POST', route('admin.post.type.store'))->class('form-horizontal')->open() }}
+    {{ html()->form('POST', route('admin.pages.fragment.store'))->class('form-horizontal')->open() }}
     <div class="card">
 
 
@@ -32,6 +32,12 @@
                 <div class="form-group col">
                     {{ html()->label(__('validation.attributes.backend.fragment.slug'))->class('form-control-label')->for('slug') }}
                     {{ html()->text('slug')->class('form-control')->attribute('maxlength', 190) }}
+                </div>
+
+                {{-- tags  --}}
+                <div class="form-group col">
+                    {{ html()->label(__('validation.attributes.backend.fragment.tag'))->class('form-control-label')->for('tag') }}
+                    {{ html()->text('tag')->class('form-control')->attribute('maxlength', 190) }}
                 </div>
             </div>
 

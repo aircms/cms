@@ -18,7 +18,7 @@ Breadcrumbs::for('admin.pages.page.create', function ($trail) {
 
 Breadcrumbs::for('admin.pages.page.edit', function ($trail, $id) {
     $trail->parent('admin.pages.page.index');
-    $trail->push(__('labels.general.update'), route('admin.page.edit', $id));
+    $trail->push(__('labels.general.update'), route('admin.pages.page.edit', $id));
 });
 
 
@@ -35,6 +35,6 @@ Breadcrumbs::for('admin.pages.fragment.create', function ($trail) {
 
 Breadcrumbs::for('admin.pages.fragment.edit', function ($trail, $id) {
     $trail->parent('admin.pages.fragment.index');
-    $trail->push(__('labels.general.update'), route('admin.fragment.edit', $id));
+    $trail->push(__('labels.general.update'), route('admin.pages.fragment.edit', $id));
 });
 

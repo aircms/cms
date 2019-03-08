@@ -5,6 +5,7 @@ namespace App\Models\YAML2Blade;
 
 use App\Models\YAML2Blade\parser\IParser;
 use App\Models\YAML2Blade\parser\TEMPLATEParser;
+use Illuminate\Support\Facades\File;
 use Symfony\Component\Yaml\Yaml;
 
 class Parser
@@ -18,7 +19,12 @@ class Parser
     public static function parse2File($yaml, $file)
     {
         $blade = self::parse($yaml);
-        return file_put_contents($file . ".blade.php", $blade);
+        $filePath = $file . ".blade.php";
+
+        if (!is_dir(dirname($filePath))) {
+            File::makeDirectory(File::dirname($filePath), 0755, true);
+        }
+        return File::put($filePath, $blade);
     }
 
     private static function array2Blade($arrayData, $indent = 0)
@@ -26,6 +32,11 @@ class Parser
         $templateClass = TEMPLATEParser::class;
         $items = "";
         foreach ($arrayData as $section) {
+            if (is_string($section)) {
+                $items .= $section;
+                continue;
+            }
+
             $parserClass = str_replace("TEMPLATE", ucfirst($section['type']), $templateClass);
 
             /** @var IParser $sectionParser */

@@ -5,11 +5,12 @@ namespace App\Models\Page;
 use Cviebrock\EloquentTaggable\Taggable;
 use Illuminate\Database\Eloquent\Model;
 use Plank\Metable\Metable;
+use Spatie\EloquentSortable\Sortable;
 use Spatie\EloquentSortable\SortableTrait;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class Fragment extends Model
+class Fragment extends Model implements Sortable
 {
     use Taggable;
     use Metable;
@@ -36,6 +37,6 @@ class Fragment extends Model
 
     public function getDefaultCodeAttribute()
     {
-        return file_get_contents(storage_path("app/default.fragment.yaml"));
+        return file_get_contents(storage_path("app/resource/default.fragment.yaml"));
     }
 }
