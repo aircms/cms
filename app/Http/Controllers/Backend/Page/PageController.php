@@ -24,8 +24,7 @@ class PageController extends Controller
     public function store(Page $page, Request $request)
     {
         if ($page->fill($request->all())->save()) {
-            $bladeFile = storage_path("framework/cache/views/layout/{$page->slug}");
-            Parser::parse2File($page->code, $bladeFile);
+            Parser::parse2File($page->code, $page->filepath());
 
             return redirect()->route('admin.pages.page.index');
         }
@@ -41,8 +40,7 @@ class PageController extends Controller
     public function update(Page $page, Request $request)
     {
         if ($page->fill($request->all())->save()) {
-            $bladeFile = storage_path("framework/cache/views/layout/{$page->slug}");
-            Parser::parse2File($page->code, $bladeFile);
+            Parser::parse2File($page->code, $page->filepath());
 
             return redirect()->route('admin.pages.page.index');
         }

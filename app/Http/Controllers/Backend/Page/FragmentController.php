@@ -38,9 +38,7 @@ class FragmentController extends Controller
     {
         if ($fragment->fill($request->all())->save()) {
             $fragment->tag($request->tags());
-
-            $bladeFile = storage_path("framework/cache/views/fragment/{$fragment->slug}");
-            Parser::parse2File($fragment->code, $bladeFile);
+            Parser::parse2File($fragment->code, $fragment->filepath());
 
             return redirect()->route('admin.pages.fragment.index');
         }
@@ -57,9 +55,7 @@ class FragmentController extends Controller
     {
         if ($fragment->fill($request->all())->save()) {
             $fragment->retag($request->tags());
-
-            $bladeFile = storage_path("framework/cache/views/fragment/{$fragment->slug}");
-            Parser::parse2File($fragment->code, $bladeFile);
+            Parser::parse2File($fragment->code, $fragment->filepath());
 
             return redirect()->route('admin.pages.fragment.index');
         }
@@ -68,8 +64,7 @@ class FragmentController extends Controller
     public function delete(Fragment $fragment)
     {
         $fragment->delete();
-        $bladeFile = storage_path("framework/cache/views/fragment/{$fragment->slug}");
-        unlink($bladeFile);
+        unlink($fragment->filepath());
 
         return redirect()->route('admin.pages.fragment.index');
     }

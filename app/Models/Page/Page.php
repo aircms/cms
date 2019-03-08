@@ -37,4 +37,15 @@ class Page extends Model implements Sortable
     {
         return file_get_contents(storage_path("app/resource/default.page.yaml"));
     }
+
+    public function filepath()
+    {
+        return storage_path("framework/cache/views/frontend/{$this->slug}");
+    }
+
+    public static function exists($slug)
+    {
+        $filepath = (new static(['slug' => $slug]))->filepath();
+        return is_file($filepath);
+    }
 }

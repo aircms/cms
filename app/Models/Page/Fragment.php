@@ -39,4 +39,9 @@ class Fragment extends Model implements Sortable
     {
         return file_get_contents(storage_path("app/resource/default.fragment.yaml"));
     }
+
+    public function filepath()
+    {
+        return storage_path("framework/cache/views/frontend/fragment/{$this->slug}");
+    }
 }
