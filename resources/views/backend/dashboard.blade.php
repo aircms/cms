@@ -11,30 +11,33 @@
     <script>
       $(function () {
         $('#file').change(function (e) {
-          loadImage(
-            e.target.files[0],
-            function (img) {
+          console.log(e)
+
+          $.each(e.target.files, function (index, file) {
+            loadImage(file, function (img) {
               $(img).attr('class', 'card-img-top')
-              $('.img-container').html('').append($(img))
-            },
-          )
+
+              var item = '<div class="col-3 image-item-container">'
+                + '<div class="card">'
+                + '<div class="image-placeholder"></div>'
+                + '<div class="image-input-placeholder" data-name="' + file.name + '"></div>'
+                + '</div></div>'
+
+              $('.image-uploader').before($(item))
+
+              $('.image-item-container:last .image-placeholder').replaceWith($(img))
+            })
+          })
         })
 
         $('#file').fileupload({
           url: "{{ route('admin.upload.image') }}",
           dataType: 'json',
           done: function (e, data) {
-            $('.progress').toggle()
-
-            $.each(data.files, function (index, file) {
-              $('<p/>').text(file.name).appendTo('.card-body')
+            $.each(data.result, function (index, file) {
+              var input = $('<input type=hidden name="images[]" value="' + file.path + '"/>')
+              $('.image-input-placeholder[data-name="' + file.name + '"]').replaceWith(input)
             })
-          },
-          progressall: function (e, data) {
-            $('.progress').toggle()
-
-            var progress = parseInt(data.loaded / data.total * 100, 10)
-            $('.progress .progress-bar').css('width', progress + '%')
           },
         })
       })
@@ -42,24 +45,16 @@
 @endpush
 
 @section('content')
-    <div class="row">
-        <div class="col-3">
-            <div class="card">
-                <input type="file" id="file" class="d-none">
+    <div class="row image-list">
 
-                <label class="m-0 bg-secondary click-to-upload img-container border p-2" for="file" style="cursor: pointer;">
+        <div class="col-3 image-uploader">
+            <div class="card">
+                <input type="file" id="file" class="d-none" multiple>
+                <label class="m-0 bg-light img-container" for="file" style="cursor: pointer;">
                     <div class="text-muted text-center align-middle py-3">
                         <i class="fa fa-plus fa-3x"></i>
                     </div>
                 </label>
-
-                <div class="progress d-none" style="height: 2px;">
-                    <div class="progress-bar"></div>
-                </div>
-                <div class="card-body d-none">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card </p>
-                </div>
             </div>
         </div>
     </div>
