@@ -1,24 +1,18 @@
-@extends('frontend.layouts.app')
+@extends('frontend.layouts.base')
 
-@section('title', app_name() . ' | ' . __('navs.general.home'))
+@section('title', app_name())
 
-@section('content')
+@section('body')
     <div class="row mb-4">
         <div class="col">
             <div class="card">
                 <div class="card-header">
-                    <i class="fas fa-home"></i> @lang('navs.general.home')
+                    <i class="fas fa-home"></i> Home
                 </div>
                 <div class="card-body">
-                    @lang('strings.frontend.welcome_to', ['place' => app_name()])
+                    Welcome
                 </div>
             </div><!--card-->
-        </div><!--col-->
-    </div><!--row-->
-
-    <div class="row mb-4">
-        <div class="col">
-            <example-component></example-component>
         </div><!--col-->
     </div><!--row-->
 
@@ -26,7 +20,7 @@
         <div class="col">
             <div class="card">
                 <div class="card-header">
-                    <i class="fab fa-font-awesome-flag"></i> Font Awesome @lang('strings.frontend.test')
+                    <i class="fab fa-font-awesome-flag"></i> Font Awesome
                 </div>
                 <div class="card-body">
                     <i class="fas fa-home"></i>

@@ -1,8 +1,8 @@
-@extends('frontend.layouts.app')
+@extends('frontend.layouts.base')
 
 @section('title', app_name() . ' | ' . __('navs.frontend.dashboard') )
 
-@section('content')
+@section('body')
     <div class="row mb-4">
         <div class="col">
             <div class="card">
