@@ -10,7 +10,7 @@ return [
                 'value'      => []
             ],
         ],
-        'categories'      => [
+        'categories'    => [
             'wrapper' => ['all' => ['class' => 'form-group'], 'input' => []],
             'label'   => ['attributes' => []],
             'input'   => [
@@ -101,6 +101,20 @@ return [
             'wrapper' => ['all' => ['class' => 'form-group'], 'input' => []],
             'input'   => [
                 'attributes' => ['class' => 'form-control', 'required' => true,],
+            ],
+        ],
+        'upload_image_single' => [
+            'label'   => ['attributes' => []],
+            'wrapper' => ['all' => ['class' => 'form-group'], 'input' => []],
+            'input'   => [
+                'attributes' => ['name' => 'image', 'class' => 'form-control'],
+            ],
+        ],
+        'upload_image_multi'  => [
+            'label'   => ['attributes' => []],
+            'wrapper' => ['all' => ['class' => 'form-group'], 'input' => []],
+            'input'   => [
+                'attributes' => ['name' => 'images', 'class' => 'form-control'],
             ],
         ],
         'textarea'      => [

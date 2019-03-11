@@ -36,7 +36,7 @@
           done: function (e, data) {
             $.each(data.result, function (index, file) {
               var input = $('<input type=hidden name="images[]" value="' + file.path + '"/>')
-              $('.image-input-placeholder[data-name="' + file.name + '"]').replaceWith(input)
+              $('.image-input-placeholder[data-name="' + file.name + ']').replaceWith(input)
             })
           },
         })

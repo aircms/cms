@@ -15,7 +15,6 @@ class PageSeeder extends Seeder
             'fragments',
             'pages',
         ]);
-        $filePath = storage_path('resource');
 
         $fragments = [
             [

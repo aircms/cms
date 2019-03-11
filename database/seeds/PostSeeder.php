@@ -45,11 +45,23 @@ class PostSeeder extends Seeder
                         'type'     => 'col',
                         'size'     => 'md-4',
                         'children' => [
+                            ['type' => 'field', 'children' => 'base_input_upload_image_single'],
                             ['type' => 'field', 'children' => 'tag'],
                             ['type' => 'field', 'children' => 'keyword'],
                             ['type' => 'field', 'children' => 'description'],
                             ['type' => 'field', 'children' => 'category'],
                             ['type' => 'field', 'children' => 'status'],
+                        ],
+                    ],
+                ],
+            ],
+            [
+                'type'     => 'row',
+                'children' => [
+                    [
+                        'type'     => 'col',
+                        'children' => [
+                            ['type' => 'field', 'children' => 'base_input_upload_image_multi']
                         ],
                     ],
                 ],
