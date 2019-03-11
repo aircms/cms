@@ -12,6 +12,7 @@ class UploadeController extends Controller
     {
         $files = [];
         collect($request->file('files'))->each(function (UploadedFile $file) use (&$files) {
+            //todo: limit file extension
             $files[] = [
                 'path' => $file->store(today()->format('Y/m/d'), 'public'),
                 'name' => $file->getClientOriginalName(),
