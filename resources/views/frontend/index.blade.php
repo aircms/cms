@@ -1,9 +1,9 @@
-@extends('frontend.layouts.base')
+@extends('frontend.single-column-layout')
 
 @section('title', app_name())
 
-@section('body')
-    <div class="row mb-4">
+@section('main')
+    <div class="row my-4">
         <div class="col">
             <div class="card">
                 <div class="card-header">

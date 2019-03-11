@@ -6,7 +6,7 @@
     - type: node
       node: div
       attributes:
-        class: "row mt-5 bg-secondary"
+        class: "row"
       content:
         - type: node
           node: div
@@ -26,7 +26,7 @@
     - type: node
       node: div
       attributes:
-        class: "row bg-info py-5"
+        class: "row"
       content:
         - type: node
           node: div
