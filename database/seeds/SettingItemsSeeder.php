@@ -7,15 +7,15 @@ class SettingItemsSeeder extends Seeder
     public function run()
     {
         $preSetting = [
-            'global'    => $this->globals(),
-            'payment'   => $this->payments(),
-            'user'      => $this->users(),
-            'captcha'   => $this->captchas(),
-            'contact'   => $this->contacts(),
-            'sms'       => $this->sms(),
-            'email'     => $this->email(),
-            'cache'     => $this->cache(),
-            'storage'   => $this->storage(),
+            'global' => $this->globals(),
+            'payment' => $this->payments(),
+            'user' => $this->users(),
+            'captcha' => $this->captchas(),
+            'contact' => $this->contacts(),
+            'sms' => $this->sms(),
+            'email' => $this->email(),
+            'cache' => $this->cache(),
+            'storage' => $this->storage(),
             'wechat-mp' => $this->wechatMP(),
         ];
 
@@ -33,10 +33,10 @@ class SettingItemsSeeder extends Seeder
     private function storage()
     {
         $type = [
-            'local'  => '本地',
+            'local' => '本地',
             'alioss' => '阿里OSS',
-            'qiniu'  => '七牛',
-            'upyun'  => '又拍云',
+            'qiniu' => '七牛',
+            'upyun' => '又拍云',
         ];
 
         return [
@@ -72,8 +72,9 @@ class SettingItemsSeeder extends Seeder
     {
         $type = [
             'dingyuehao' => '订阅号',
-            'fuwuhao'    => '服务号',
+            'fuwuhao' => '服务号',
         ];
+
         return [
             ['name' => '类型', 'slug' => 'wechat_mp_type', 'type' => 'single', 'meta' => ['value' => 'dingyuehao', 'items' => $type]],
             ['name' => 'App Id', 'slug' => 'wechat_mp_app_id', 'type' => 'string', 'meta' => ['value' => '']],
@@ -84,18 +85,18 @@ class SettingItemsSeeder extends Seeder
 
     public function cache()
     {
-
         $methods = [
-            'file'     => '文件',
-            'redis'    => 'Redis',
+            'file' => '文件',
+            'redis' => 'Redis',
             'memcache' => 'Memcache',
         ];
+
         return [
-            ['name' => '过期时长', 'type' => 'string', 'meta' => ['value' => '1']],
-            ['name' => '缓存方式', 'type' => 'single', 'meta' => ['value' => 'file', 'items' => $methods]],
+            ['name' => '过期时长', 'slug' => 'duration', 'type' => 'string', 'meta' => ['value' => '1']],
+            ['name' => '缓存方式', 'slug' => 'cache_driver', 'type' => 'single', 'meta' => ['value' => 'file', 'items' => $methods]],
 
             ['name' => '文件', 'type' => 'split'],
-            ['name' => '缓存目录', 'slug' => 'file_path', 'type' => 'string', 'meta' => ['value' => '']],
+            ['name' => '缓存目录', 'slug' => 'file_dir', 'slug' => 'file_path', 'type' => 'string', 'meta' => ['value' => '']],
 
             ['name' => 'Redis', 'type' => 'split'],
             ['name' => '主机', 'slug' => 'redis_host', 'type' => 'string', 'meta' => ['value' => '127.0.0.1']],
@@ -111,17 +112,18 @@ class SettingItemsSeeder extends Seeder
     private function email()
     {
         $methods = [
-            'smtp'     => 'SMTP',
+            'smtp' => 'SMTP',
             'Sendmail' => 'SendMail',
         ];
+
         return [
-            ['name' => '邮件方式', 'type' => 'single', 'meta' => ['value' => 'smtp', 'items' => $methods]],
+            ['name' => '邮件方式', 'slug' => 'mail_driver', 'type' => 'single', 'meta' => ['value' => 'smtp', 'items' => $methods]],
             ['name' => 'SMTP', 'type' => 'split'],
-            ['name' => '发件人名称', 'type' => 'string', 'meta' => ['value' => '']],
-            ['name' => '主机', 'type' => 'string', 'meta' => ['value' => '']],
-            ['name' => '端口', 'type' => 'string', 'meta' => ['value' => '']],
-            ['name' => '用户名', 'type' => 'string', 'meta' => ['value' => '']],
-            ['name' => '密码', 'type' => 'password', 'meta' => ['value' => '']],
+            ['name' => '发件人名称', 'slug' => 'smtp_from', 'type' => 'string', 'meta' => ['value' => '']],
+            ['name' => '主机', 'slug' => 'smtp_host', 'type' => 'string', 'meta' => ['value' => '']],
+            ['name' => '端口', 'slug' => 'smtp_port', 'type' => 'string', 'meta' => ['value' => '']],
+            ['name' => '用户名', 'slug' => 'smtp_username', 'type' => 'string', 'meta' => ['value' => '']],
+            ['name' => '密码', 'slug' => 'smtp_password', 'type' => 'password', 'meta' => ['value' => '']],
         ];
     }
 
@@ -135,37 +137,37 @@ class SettingItemsSeeder extends Seeder
     private function contacts()
     {
         return [
-            ['name' => 'QQ', 'type' => 'string', 'meta' => ['value' => '']],
-            ['name' => '微信', 'type' => 'string', 'meta' => ['value' => '']],
-            ['name' => '旺旺', 'type' => 'string', 'meta' => ['value' => '']],
-            ['name' => '固定电话', 'type' => 'string', 'meta' => ['value' => '']],
-            ['name' => '手机', 'type' => 'string', 'meta' => ['value' => '']],
-            ['name' => 'Skype', 'type' => 'string', 'meta' => ['value' => '']],
-            ['name' => '传真', 'type' => 'string', 'meta' => ['value' => '']],
-            ['name' => 'Email', 'type' => 'string', 'meta' => ['value' => '']],
-            ['name' => '地址', 'type' => 'string', 'meta' => ['value' => '']],
-            ['name' => '微博', 'type' => 'string', 'meta' => ['value' => '']],
-            ['name' => 'twitter', 'type' => 'string', 'meta' => ['value' => '']],
-            ['name' => 'Facebook', 'type' => 'string', 'meta' => ['value' => '']],
-            ['name' => '公司名称', 'type' => 'string', 'meta' => ['value' => '']],
-            ['name' => '公司简介', 'type' => 'rich_text', 'meta' => ['value' => '']],
-            ['name' => '公司介绍', 'type' => 'rich_text', 'meta' => ['value' => '']],
-
+            ['name' => 'QQ', 'slug' => 'contact_qq', 'type' => 'string', 'meta' => ['value' => '']],
+            ['name' => '微信', 'type' => 'string', 'meta' => ['value' => ''], 'slug' => 'contact_wechat'],
+            ['name' => '旺旺', 'type' => 'string', 'meta' => ['value' => ''], 'slug' => 'contact_wangwang'],
+            ['name' => '固定电话', 'type' => 'string', 'meta' => ['value' => ''], 'slug' => 'contact_phone'],
+            ['name' => '手机', 'type' => 'string', 'meta' => ['value' => ''], 'slug' => 'contact_mobile_phone'],
+            ['name' => 'Skype', 'type' => 'string', 'meta' => ['value' => ''], 'slug' => 'contact_skype'],
+            ['name' => '传真', 'type' => 'string', 'meta' => ['value' => ''], 'slug' => 'contact_fax'],
+            ['name' => 'Email', 'type' => 'string', 'meta' => ['value' => ''], 'slug' => 'contact_email'],
+            ['name' => '地址', 'type' => 'string', 'meta' => ['value' => ''], 'slug' => 'contact_address'],
+            ['name' => '微博', 'type' => 'string', 'meta' => ['value' => ''], 'slug' => 'contact_weibo'],
+            ['name' => 'twitter', 'type' => 'string', 'meta' => ['value' => ''], 'slug' => 'contact_twitter'],
+            ['name' => 'Facebook', 'type' => 'string', 'meta' => ['value' => ''], 'slug' => 'contact_facebook'],
+            ['name' => '公司名称', 'type' => 'string', 'meta' => ['value' => ''], 'slug' => 'contact_company_name'],
+            ['name' => '公司简介', 'type' => 'rich_text', 'meta' => ['value' => ''], 'slug' => 'contact_company_summary'],
+            ['name' => '公司介绍', 'type' => 'rich_text', 'meta' => ['value' => ''], 'slug' => 'contact_company_description'],
         ];
     }
 
     private function captchas()
     {
         $captchaProvider = [
-            'system'     => '系统生成',
-            'jiyan'      => '极验证',
+            'system' => '系统生成',
+            'jiyan' => '极验证',
             'no_captcha' => 'No Captcha',
         ];
         $showCaptchaPosition = [
-            'register'        => '注册',
-            'find_password'   => '找回密码',
+            'register' => '注册',
+            'find_password' => '找回密码',
             'modify_password' => '更改',
         ];
+
         return [
             ['name' => '展示位置', 'type' => 'multi', 'meta' => ['value' => ['register'], 'items' => $showCaptchaPosition]],
             ['name' => '验证模式', 'type' => 'single', 'meta' => ['value' => ['system'], 'items' => $captchaProvider]],
@@ -187,15 +189,16 @@ class SettingItemsSeeder extends Seeder
     private function users()
     {
         $checkMethods = [
-            'auto'   => '自动',
+            'auto' => '自动',
             'manual' => '手动',
-            'mail'   => '邮件',
-            'sms'    => '短信',
+            'mail' => '邮件',
+            'sms' => '短信',
         ];
+
         return [
-            ['name' => '验证方式', 'type' => 'single', 'meta' => ['value' => 'auto', 'items' => $checkMethods]],
-            ['name' => '使用注册协议', 'type' => 'boolean', 'meta' => ['value' => false]],
-            ['name' => '注册协议', 'type' => 'rich_text', 'meta' => ['value' => '']],
+            ['name' => '验证方式', 'slug' => 'verify_method', 'type' => 'single', 'meta' => ['value' => 'auto', 'items' => $checkMethods]],
+            ['name' => '使用注册协议', 'slug' => 'verify_use_register_protocol', 'type' => 'boolean', 'meta' => ['value' => false]],
+            ['name' => '注册协议', 'slug' => 'verify_register_protocol', 'type' => 'rich_text', 'meta' => ['value' => '']],
         ];
     }
 
@@ -220,40 +223,39 @@ class SettingItemsSeeder extends Seeder
             ['name' => 'API Token', 'slug' => 'wechatpay_api_token', 'type' => 'password', 'meta' => ['value' => '']],
             ['name' => '同步回调地址', 'slug' => 'wechatpay_callback_sync', 'type' => 'string', 'meta' => ['value' => '']],
             ['name' => '异步回调地址', 'slug' => 'wechatpay_callback_async', 'type' => 'string', 'meta' => ['value' => '']],
-
         ];
     }
 
     private function globals()
     {
         return [
-            ['name' => '网站名称', 'type' => 'string', 'meta' => ['value' => 'Air CMS']],
-            ['name' => '网站Slogan', 'type' => 'string', 'meta' => ['value' => 'Easy as Air']],
-            ['name' => 'LOGO', 'type' => 'string', 'meta' => ['value' => 'logo.png']],
-            ['name' => '网站描述', 'type' => 'text', 'meta' => ['value' => 'Easy as Air']],
-            ['name' => '网站关键字', 'type' => 'text', 'meta' => ['value' => 'Easy as Air']],
+            ['name' => '网站名称', 'slug' => 'site_name', 'type' => 'string', 'meta' => ['value' => 'Air CMS']],
+            ['name' => '网站Slogan', 'slug' => 'site_slogan', 'type' => 'string', 'meta' => ['value' => 'Easy as Air']],
+            ['name' => 'LOGO', 'slug' => 'site_logo', 'type' => 'string', 'meta' => ['value' => 'logo.png']],
+            ['name' => '网站描述', 'slug' => 'site_description', 'type' => 'text', 'meta' => ['value' => 'Easy as Air']],
+            ['name' => '网站关键字', 'slug' => 'site_keywords', 'type' => 'text', 'meta' => ['value' => 'Easy as Air']],
 
-            ['name' => '访问地址', 'type' => 'split'],
-            ['name' => '手机访问地址', 'type' => 'string', 'meta' => ['value' => 'http://air.local']],
-            ['name' => 'PC访问地址', 'type' => 'string', 'meta' => ['value' => 'http://m.air.local']],
+            ['name' => '访问地址', 'slug' => 'site_visit_url', 'type' => 'split'],
+            ['name' => '手机访问地址', 'slug' => 'site_url_mobile', 'type' => 'string', 'meta' => ['value' => 'http://air.local']],
+            ['name' => 'PC访问地址', 'slug' => 'site_url_pc', 'type' => 'string', 'meta' => ['value' => 'http://m.air.local']],
 
-            ['name' => '网站备案', 'type' => 'split'],
-            ['name' => '工信部备案', 'type' => 'string', 'meta' => ['value' => '京ICP备20190101']],
-            ['name' => '公安部备案', 'type' => 'string', 'meta' => ['value' => '公安网备20190101']],
+            ['name' => '网站备案', 'slug' => 'site_', 'type' => 'split'],
+            ['name' => '工信部备案', 'slug' => 'site_number_icp', 'type' => 'string', 'meta' => ['value' => '京ICP备20190101']],
+            ['name' => '公安部备案', 'slug' => 'site_number_police', 'type' => 'string', 'meta' => ['value' => '公安网备20190101']],
 
-            ['name' => '统计代码', 'type' => 'split'],
-            ['name' => '百度统计', 'type' => 'text', 'meta' => ['value' => '']],
-            ['name' => '站长统计', 'type' => 'text', 'meta' => ['value' => '']],
-            ['name' => '51.la', 'type' => 'text', 'meta' => ['value' => '']],
+            ['name' => '统计代码', 'slug' => 'site_statistics', 'type' => 'split'],
+            ['name' => '百度统计', 'slug' => 'site_statistics_baidu', 'type' => 'text', 'meta' => ['value' => '']],
+            ['name' => '站长统计', 'slug' => 'site_statistics_cnzz', 'type' => 'text', 'meta' => ['value' => '']],
+            ['name' => '51.la', 'slug' => 'site_statistics_51la', 'type' => 'text', 'meta' => ['value' => '']],
 
-            ['name' => '附加代码', 'type' => 'split'],
-            ['name' => '头部', 'type' => 'text', 'meta' => ['value' => '<!-- header -->']],
-            ['name' => '底部', 'type' => 'text', 'meta' => ['value' => '<!-- footer -->']],
+            ['name' => '附加代码', 'slug' => 'site_inject_code', 'type' => 'split'],
+            ['name' => '头部', 'slug' => 'site_inject_code_header', 'type' => 'text', 'meta' => ['value' => '<!-- header -->']],
+            ['name' => '底部', 'slug' => 'site_inject_code_footer', 'type' => 'text', 'meta' => ['value' => '<!-- footer -->']],
 
-            ['name' => 'SEO', 'type' => 'split'],
-            ['name' => '百度主动推送', 'type' => 'string', 'meta' => ['value' => '', 'help' => '请填写百度主动推送代码的Token']],
-            ['name' => '百度被动推送', 'type' => 'text', 'meta' => ['value' => '']],
-            ['name' => '360被动推送', 'type' => 'text', 'meta' => ['value' => '']],
+            ['name' => 'SEO', 'slug' => 'site_seo', 'type' => 'split'],
+            ['name' => '百度主动推送', 'slug' => 'site_seo_baidu_autopush', 'type' => 'string', 'meta' => ['value' => '', 'help' => '请填写百度主动推送代码的Token']],
+            ['name' => '百度被动推送', 'slug' => 'site_seo_baidu_visitpush', 'type' => 'text', 'meta' => ['value' => '']],
+            ['name' => '360被动推送', 'slug' => 'site_seo_360_push', 'type' => 'text', 'meta' => ['value' => '']],
         ];
     }
 }
