@@ -12,12 +12,12 @@
 @endphp
 
 @push('after-scripts')
-    @if(!isset($imageAjaxUploadIncluded)||!$imageAjaxUploadIncluded)
+    @if(!isset($globalVar['ajax_image_uploader'])||!$globalVar['ajax_image_uploader'])
         {{ script("/js/jquery.ui.widget.js") }}
         {{ script("/js/jquery.fileupload.js") }}
         {{ script("/js/load-image.js") }}
         @php
-            $imageAjaxUploadIncluded = true;
+            $globalVar['ajax_image_uploader'] = true;
         @endphp
     @endif
 
@@ -55,7 +55,7 @@
                 <i class="fa fa-plus fa-3x"></i>
             </div>
         @else
-            <img src="{{ $value }}" class="img-fluid">
+            <img src="{{ asset("storage/$image") }}" class="img-fluid">
         @endif
     </label>
 </div>
