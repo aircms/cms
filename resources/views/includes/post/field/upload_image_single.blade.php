@@ -55,7 +55,7 @@
                 <i class="fa fa-plus fa-3x"></i>
             </div>
         @else
-            <img src="{{ asset("storage/$image") }}" class="img-fluid">
+            <img src="{{ asset("storage/$value") }}" class="img-fluid">
         @endif
     </label>
 </div>
