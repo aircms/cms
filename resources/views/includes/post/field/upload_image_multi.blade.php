@@ -48,7 +48,7 @@
         })
 
         $('#file-{{$inputName}}').fileupload({
-          url: "{{ route('admin.upload.image') }}",
+          url: "{{ route('admin.upload') }}",
           paramName: 'files[]',
           dataType: 'json',
           done: function (e, data) {

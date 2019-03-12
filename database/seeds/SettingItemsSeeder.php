@@ -42,6 +42,8 @@ class SettingItemsSeeder extends Seeder
         return [
             ['name' => '方式', 'slug' => 'storage_location', 'type' => 'single', 'meta' => ['value' => 'local', 'items' => $type]],
 
+            ['name' => '图片后缀', 'slug' => 'storage_image_extensions', 'type' => 'string', 'meta' => ['value' => 'jpg,jpeg,png,gif,bmp,ico']],
+            ['name' => '文件后缀', 'slug' => 'storage_file_extensions', 'type' => 'string', 'meta' => ['value' => 'txt,doc,docx,dot,wps,wri,pdf,ppt,xls,xlsx,ett,xlt,xlsm,csv,jpg,jpeg,png,psd,gif,ico,bmp,swf,avi,rmvb,rm,mp3,mp4,3gp,flv,mov,movie,rar,zip,bz,bz2,tar,gz']],
             ['name' => '本地', 'type' => 'split'],
             ['name' => '路径', 'slug' => 'local_location', 'type' => 'string', 'meta' => ['value' => '']],
 

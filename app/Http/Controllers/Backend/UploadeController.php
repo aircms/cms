@@ -8,11 +8,10 @@ use Illuminate\Http\UploadedFile;
 
 class UploadeController extends Controller
 {
-    public function image(Request $request)
+    public function index(Request $request)
     {
         $files = [];
         collect($request->file('files'))->each(function (UploadedFile $file) use (&$files) {
-            //todo: limit file extension
             $files[] = [
                 'path' => $file->store(today()->format('Y/m/d'), 'public'),
                 'name' => $file->getClientOriginalName(),
