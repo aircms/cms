@@ -1,16 +1,22 @@
+@tailwind preflight;
+
+@tailwind components;
+
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 
 // Bootstrap
-@import '../../../node_modules/bootstrap/scss/bootstrap';
+// @import "../../../node_modules/bootstrap/scss/bootstrap";
 
 // Global
-@import 'global';
+@import "global";
 
 // Pages
-@import 'pages/dashboard';
+@import "pages/dashboard";
 
-// Bootstrap Overrides
-@import 'custom';
+//components
+@import "components/button";
 
 // Plugins
+
+@tailwind utilities;

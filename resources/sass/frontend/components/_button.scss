@@ -1,0 +1,21 @@
+.btn{
+    @apply py-2 px-2 inline-block;
+    line-height: 1.15 !important;
+    box-sizing: border-box;
+
+    &.btn-block{
+        @apply block;
+    }
+
+    &:hover{
+        @aply bg-blue-dark;
+    }
+
+    &.btn-blue{
+        @apply bg-blue text-white;
+
+        &:hover{
+            @apply bg-blue-dark;
+        }
+    }
+}

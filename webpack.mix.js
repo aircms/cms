@@ -1,5 +1,15 @@
 const mix = require('laravel-mix');
+const tailwindcss = require('tailwindcss');
+require('laravel-mix-purgecss');
 
+
+let tailWindCssOptions = {
+    processCssUrls: false,
+    postCss: [tailwindcss('./tailwind.js')],
+}
+let purgeCssOptions  = {
+    folders: ['resources', 'storage/framework/cache/views']
+}
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -13,8 +23,8 @@ const mix = require('laravel-mix');
 
 mix.setPublicPath('public');
 
-mix.sass('resources/sass/frontend/app.scss', 'css/frontend.css')
-    .sass('resources/sass/backend/app.scss', 'css/backend.css')
+mix.sass('resources/sass/frontend/app.scss', 'css/frontend.css').options(tailWindCssOptions).purgeCss(purgeCssOptions)
+    .sass('resources/sass/backend/app.scss', 'css/backend.css').options(tailWindCssOptions).purgeCss(purgeCssOptions)
     .js('resources/js/frontend/app.js', 'js/frontend.js')
     .js([
         'resources/js/backend/before.js',
