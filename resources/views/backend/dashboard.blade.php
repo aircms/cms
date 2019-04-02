@@ -2,48 +2,6 @@
 
 @section('title', app_name() . ' | ' . __('strings.backend.dashboard.title'))
 
-
-@push('after-scripts')
-    {{ script("/js/jquery.ui.widget.js") }}
-    {{ script("/js/jquery.fileupload.js") }}
-    {{ script("/js/load-image.js") }}
-
-    <script>
-      $(function () {
-        $('#file').change(function (e) {
-          console.log(e)
-
-          $.each(e.target.files, function (index, file) {
-            loadImage(file, function (img) {
-              $(img).attr('class', 'card-img-top')
-
-              var item = '<div class="col-3 image-item-container">'
-                + '<div class="card">'
-                + '<div class="image-placeholder"></div>'
-                + '<div class="image-input-placeholder" data-name="' + file.name + '"></div>'
-                + '</div></div>'
-
-              $('.image-uploader').before($(item))
-
-              $('.image-item-container:last .image-placeholder').replaceWith($(img))
-            })
-          })
-        })
-
-        $('#file').fileupload({
-          url: "{{ route('admin.upload.image') }}",
-          dataType: 'json',
-          done: function (e, data) {
-            $.each(data.result, function (index, file) {
-              var input = $('<input type=hidden name="images[]" value="' + file.path + '"/>')
-              $('.image-input-placeholder[data-name="' + file.name + ']').replaceWith(input)
-            })
-          },
-        })
-      })
-    </script>
-@endpush
-
 @section('content')
     <div class="row image-list">
 

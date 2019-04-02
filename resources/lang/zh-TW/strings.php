@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Strings Language Lines
@@ -82,7 +81,7 @@ return [
             'click_to_confirm' => '點擊此處確認您的帳戶:',
         ],
 
-        'ContactSeeder' => [
+        'contact' => [
             'email_body_title' => 'You have a new contact form request: Below are the details:',
             'subject' => 'A new :app_name contact form submission!',
         ],
@@ -118,13 +117,13 @@ return [
         ],
 
         'general' => [
-            'joined'        => 'Joined',
+            'joined' => 'Joined',
         ],
 
         'user' => [
             'change_email_notice' => 'If you change your e-mail you will be logged out until you confirm your new e-mail address.',
             'email_changed_notice' => 'You must confirm your new e-mail address before you can log in again.',
-            'profile_updated'  => 'Profile successfully updated.',
+            'profile_updated' => 'Profile successfully updated.',
             'password_updated' => 'Password successfully updated.',
         ],
 

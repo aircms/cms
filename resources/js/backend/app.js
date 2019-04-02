@@ -1,5 +1,1 @@
 import '@coreui/coreui'
-
-$(function () {
-
-})
