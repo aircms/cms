@@ -57,15 +57,15 @@
         <div class="row">
             <div class="col">
                 <div class="alert alert-info">
-                    <i class="fas fa-info-circle"></i> @lang('strings.frontend.user.change_email_notice')
+                    <i class="fas fa-info-circle"></i> 如果你更改你的邮件地址，你会被登出系统直到你确认你的新邮件地址。
                 </div>
 
                 <div class="form-group">
-                    {{ html()->label(__('validation.attributes.frontend.email'))->for('email') }}
+                    {{ html()->label('电子邮件')->for('email') }}
 
                     {{ html()->email('email')
                         ->class('form-control')
-                        ->placeholder(__('validation.attributes.frontend.email'))
+                        ->placeholder('电子邮件')
                         ->attribute('maxlength', 191)
                         ->required() }}
                 </div><!--form-group-->
@@ -76,7 +76,7 @@
     <div class="row">
         <div class="col">
             <div class="form-group mb-0 clearfix">
-                {{ form_submit(__('labels.general.buttons.update')) }}
+                {{ form_submit('更新') }}
             </div><!--form-group-->
         </div><!--col-->
     </div><!--row-->

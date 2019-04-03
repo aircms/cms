@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title',  __('labels.backend.category.group.management'))
+@section('title',  '分类管理')
 
 @section('content')
     <div class="card">
@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-sm-5">
                     <h4 class="card-title mb-0">
-                        @lang('labels.backend.category.group.management')
+                        分类管理
                     </h4>
                 </div><!--col-->
 
@@ -23,10 +23,10 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th>@lang('labels.backend.category.group.table.name')</th>
-                                <th>@lang('labels.backend.category.group.table.slug')</th>
-                                <th>@lang('labels.backend.category.group.table.description')</th>
-                                <th>@lang('labels.general.actions')</th>
+                                <th>名称</th>
+                                <th>别名</th>
+                                <th>描述</th>
+                                <th>操作</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -37,17 +37,17 @@
                                     <td>{{ $root->description }}</td>
                                     <td>
                                         <a href="{{ route('admin.category.group.edit', $root->id) }}" class="btn btn-primary">
-                                            @lang('buttons.general.crud.edit')
+                                            编辑
                                         </a>
 
                                         <a href="{{ route('admin.category.group.delete', $root->id) }}" class="btn btn-danger">
-                                            @lang('buttons.general.crud.delete')
+                                            删除
                                         </a>
 
                                         {{-- 子分类--}}
                                         <a href="{{ route('admin.category.children.index',$root->id) }}"
                                            class="btn btn-primary">
-                                            @lang('labels.backend.category.children.management')
+                                            子分类管理
                                         </a>
                                     </td>
                                 </tr>

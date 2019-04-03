@@ -9,10 +9,10 @@
             <div class="row">
                 <div class="col-sm-5">
                     <h4 class="card-title mb-0">
-                        @lang('labels.backend.page.management')
+                        页面模板
 
                         <small class="text-muted">
-                            @lang('labels.general.update')
+                            编辑
                         </small>
                     </h4>
                 </div><!--col-->
@@ -22,31 +22,31 @@
 
             <div class="row">
                 <div class="form-group col">
-                    {{ html()->label(__('validation.attributes.backend.page.name'))->for('name') }}
+                    {{ html()->label('名称')->for('name') }}
                     {{ html()->text('name',$page->name)->class('form-control')->attribute('maxlength', 190)->required()->autofocus() }}
                 </div>
 
                 <div class="form-group col">
-                    {{ html()->label(__('validation.attributes.backend.page.slug'))->for('slug') }}
+                    {{ html()->label('别名')->for('slug') }}
                     {{ html()->text('slug',$page->slug)->class('form-control')->attribute('maxlength', 190) }}
                 </div>
             </div>
 
             <div class="form-group">
-                {{ html()->label(__('validation.attributes.backend.page.description'))->for('description') }}
+                {{ html()->label('描述')->for('description') }}
                 {{ html()->textarea('description',$page->slug)->class('form-control')->attribute('maxlength', 190) }}
             </div>
 
 
             <div class="form-group">
-                {{ html()->label(__('validation.attributes.backend.page.code'))->for('code') }}
+                {{ html()->label('布局')->for('code') }}
                 {{ html()->textarea('code',$page->code)->class('form-control') }}
             </div>
 
         </div>
 
         <div class="card-footer">
-            {{ form_submit(__('buttons.general.crud.edit'))->class('mr-2') }}
+            {{ form_submit('编辑')->class('mr-2') }}
         </div>
 
     </div>

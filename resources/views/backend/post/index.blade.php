@@ -10,9 +10,9 @@
 
                 <div class="col-sm-7 pull-right">
                     <div class="btn-toolbar float-right" role="toolbar"
-                         aria-label="@lang('labels.general.toolbar_btn_groups')">
+                        >
                         <a href="{{ route('admin.post.create',$type->id) }}" class="btn btn-success ml-1"
-                           data-toggle="tooltip" title="@lang('labels.general.create')">
+                           data-toggle="tooltip" title="新建">
                             <i class="fas fa-plus-circle"></i>
                         </a>
                     </div>
@@ -25,17 +25,17 @@
                         <thead>
                         <tr>
                             <th>
-                                @lang('labels.backend.post.title')
+                                标题
                                 <span class="text-muted">/</span>
-                                @lang('labels.backend.post.slug')
+                                别名
                             </th>
-                            <th>@lang('labels.backend.post.status')</th>
+                            <th>状态</th>
                             <th>
-                                @lang('labels.backend.post.field.created_at')
+                                创建日期
                                 <span class="text-muted">/</span>
-                                @lang('labels.backend.post.field.updated_at')
+                                更新日期
                             </th>
-                            <th>@lang('labels.general.actions')</th>
+                            <th>操作</th>
                             <th>#</th>
                         </tr>
                         </thead>
@@ -54,12 +54,12 @@
                                 <td>
                                     <a href="{{ route('admin.post.edit', [$type->id,$post->id]) }}"
                                        class="btn btn-primary btn-sm">
-                                        @lang('buttons.general.crud.edit')
+                                        编辑
                                     </a>
 
                                     <a href="{{ route('admin.post.delete', [$type->id,$post->id]) }}"
                                        class="btn btn-danger btn-sm">
-                                        @lang('buttons.general.crud.delete')
+                                        删除
                                     </a>
                                 </td>
                             </tr>

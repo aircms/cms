@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-header">
                     <strong>
-                        @lang('navs.frontend.user.account')
+                        我的账户
                     </strong>
                 </div>
 
@@ -14,16 +14,16 @@
                     <div role="tabpanel">
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
-                                <a href="#profile" class="nav-link active" aria-controls="profile" role="tab" data-toggle="tab">@lang('navs.frontend.user.profile')</a>
+                                <a href="#profile" class="nav-link active" aria-controls="profile" role="tab" data-toggle="tab">个人资料</a>
                             </li>
 
                             <li class="nav-item">
-                                <a href="#edit" class="nav-link" aria-controls="edit" role="tab" data-toggle="tab">@lang('labels.frontend.user.profile.update_information')</a>
+                                <a href="#edit" class="nav-link" aria-controls="edit" role="tab" data-toggle="tab">更新信息</a>
                             </li>
 
                             @if($logged_in_user->canChangePassword())
                                 <li class="nav-item">
-                                    <a href="#password" class="nav-link" aria-controls="password" role="tab" data-toggle="tab">@lang('navs.frontend.user.change_password')</a>
+                                    <a href="#password" class="nav-link" aria-controls="password" role="tab" data-toggle="tab">更改密码</a>
                                 </li>
                             @endif
                         </ul>

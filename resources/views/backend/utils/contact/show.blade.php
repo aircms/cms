@@ -9,10 +9,10 @@
             <div class="row">
                 <div class="col-sm-5">
                     <h4 class="card-title mb-0">
-                        @lang('labels.backend.contact.management')
+                        联系我们
 
                         <small class="text-muted">
-                            @lang('labels.backend.contact.view')
+                            查看详情
                         </small>
                     </h4>
                 </div><!--col-->
@@ -25,45 +25,45 @@
                     <table class="table table-borderless">
                         <tbody>
                         <tr>
-                            <th class="text-right w-25">@lang('labels.backend.contact.name')</th>
+                            <th class="text-right w-25">姓名</th>
                             <td>{{ $contact->name }}</td>
                         </tr>
 
                         <tr>
-                            <th class="text-right w-25">@lang('labels.backend.contact.age')</th>
+                            <th class="text-right w-25">年龄</th>
                             <td>{{ $contact->age }}</td>
                         </tr>
 
                         <tr>
-                            <th class="text-right">@lang('labels.backend.contact.sex')</th>
+                            <th class="text-right">性别</th>
                             <td>{{ $contact->sex_text }}</td>
                         </tr>
                         <tr>
-                            <th class="text-right">@lang('labels.backend.contact.phone_number')</th>
+                            <th class="text-right">电话</th>
                             <td>{{ $contact->phone_number }}</td>
                         </tr>
                         <tr>
-                            <th class="text-right">@lang('labels.backend.contact.email')</th>
+                            <th class="text-right">邮箱</th>
                             <td>{{ $contact->email }}</td>
                         </tr>
                         <tr>
-                            <th class="text-right">@lang('labels.backend.contact.address')</th>
+                            <th class="text-right">地址</th>
                             <td>{{ $contact->address }}</td>
                         </tr>
                         <tr>
-                            <th class="text-right">@lang('labels.backend.contact.title')</th>
+                            <th class="text-right">咨询标题</th>
                             <td>{{ $contact->title }}</td>
                         </tr>
                         <tr>
-                            <th class="text-right">@lang('labels.backend.contact.message')</th>
+                            <th class="text-right">咨询内容</th>
                             <td>{{ $contact->message }}</td>
                         </tr>
                         <tr>
-                            <th class="text-right">@lang('labels.backend.contact.reply')</th>
+                            <th class="text-right">回复</th>
                             <td>{{ $contact->reply }}</td>
                         </tr>
                         <tr>
-                            <th class="text-right">@lang('labels.backend.contact.reply_channel')</th>
+                            <th class="text-right">消息通道</th>
                             <td>{{ $contact->reply_channel_text }}</td>
                         </tr>
                         </tbody>

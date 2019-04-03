@@ -1,6 +1,6 @@
 @extends('frontend.layouts.base')
 
-@section('title', app_name() . ' | ' . __('labels.frontend.auth.login_box_title'))
+@section('title', app_name() . ' | ' . '登录')
 
 @section('body')
     <div class="row justify-content-center align-items-center">
@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-header">
                     <strong>
-                        @lang('labels.frontend.auth.login_box_title')
+                        登录
                     </strong>
                 </div><!--card-header-->
 
@@ -17,11 +17,11 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.email'))->for('email') }}
+                                    {{ html()->label('电子邮件')->for('email') }}
 
                                     {{ html()->email('email')
                                         ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.email'))
+                                        ->placeholder('电子邮件')
                                         ->attribute('maxlength', 191)
                                         ->required() }}
                                 </div><!--form-group-->
@@ -31,11 +31,11 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.password'))->for('password') }}
+                                    {{ html()->label('密码')->for('password') }}
 
                                     {{ html()->password('password')
                                         ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.password'))
+                                        ->placeholder('密码')
                                         ->required() }}
                                 </div><!--form-group-->
                             </div><!--col-->
@@ -45,7 +45,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     <div class="checkbox">
-                                        {{ html()->label(html()->checkbox('remember', true, 1) . ' ' . __('labels.frontend.auth.remember_me'))->for('remember') }}
+                                        {{ html()->label(html()->checkbox('remember', true, 1) . ' ' . '记住我')->for('remember') }}
                                     </div>
                                 </div><!--form-group-->
                             </div><!--col-->
@@ -54,7 +54,7 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-group clearfix">
-                                    {{ form_submit(__('labels.frontend.auth.login_button')) }}
+                                    {{ form_submit('登录') }}
                                 </div><!--form-group-->
                             </div><!--col-->
                         </div><!--row-->
@@ -62,7 +62,7 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-group text-right">
-                                    <a href="{{ route('frontend.auth.password.reset') }}">@lang('labels.frontend.passwords.forgot_password')</a>
+                                    <a href="{{ route('frontend.auth.password.reset') }}">忘记密码了？</a>
                                 </div><!--form-group-->
                             </div><!--col-->
                         </div><!--row-->

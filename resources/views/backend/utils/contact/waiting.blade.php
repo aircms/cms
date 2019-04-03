@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-sm-5">
                     <h4 class="card-title mb-0">
-                        @lang('labels.backend.contact.waiting_for_reply')
+                        等待回复
                     </h4>
                 </div><!--col-->
 
@@ -25,13 +25,13 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th>@lang('labels.backend.contact.name')</th>
-                            <th>@lang('labels.backend.contact.sex')</th>
-                            <th>@lang('labels.backend.contact.age')</th>
-                            <th>@lang('labels.backend.contact.phone_number')</th>
-                            <th>@lang('labels.backend.contact.email')</th>
-                            <th>@lang('labels.backend.post.type.created_at')</th>
-                            <th>@lang('labels.general.actions')</th>
+                            <th>姓名</th>
+                            <th>性别</th>
+                            <th>年龄</th>
+                            <th>电话</th>
+                            <th>邮箱</th>
+                            <th>创建日期</th>
+                            <th>操作</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -47,7 +47,7 @@
                                 <td>
                                     <a href="{{ route('admin.utils.contact.reply', $contact->id) }}"
                                        class="btn btn-primary btn-sm">
-                                        @lang('buttons.general.crud.reply')
+                                        回复
                                     </a>
                                 </td>
                             </tr>

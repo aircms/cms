@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('labels.backend.access.users.management') . ' | ' . __('labels.backend.access.users.create'))
+@section('title', '用户管理' . ' | ' . '新建用户')
 
 @section('breadcrumb-links')
     @include('backend.auth.user.includes.breadcrumb-links')
@@ -13,8 +13,8 @@
                 <div class="row">
                     <div class="col-sm-5">
                         <h4 class="card-title mb-0">
-                            @lang('labels.backend.access.users.management')
-                            <small class="text-muted">@lang('labels.backend.access.users.create')</small>
+                            用户管理
+                            <small class="text-muted">新建用户</small>
                         </h4>
                     </div><!--col-->
                 </div><!--row-->
@@ -49,41 +49,41 @@
                         </div><!--form-group-->
 
                         <div class="form-group row">
-                            {{ html()->label(__('validation.attributes.backend.access.users.email'))->class('col-md-2 form-control-label')->for('email') }}
+                            {{ html()->label('电子邮件地址')->class('col-md-2 form-control-label')->for('email') }}
 
                             <div class="col-md-10">
                                 {{ html()->email('email')
                                     ->class('form-control')
-                                    ->placeholder(__('validation.attributes.backend.access.users.email'))
+                                    ->placeholder('电子邮件地址')
                                     ->attribute('maxlength', 191)
                                     ->required() }}
                             </div><!--col-->
                         </div><!--form-group-->
 
                         <div class="form-group row">
-                            {{ html()->label(__('validation.attributes.backend.access.users.password'))->class('col-md-2 form-control-label')->for('password') }}
+                            {{ html()->label('密码')->class('col-md-2 form-control-label')->for('password') }}
 
                             <div class="col-md-10">
                                 {{ html()->password('password')
                                     ->class('form-control')
-                                    ->placeholder(__('validation.attributes.backend.access.users.password'))
+                                    ->placeholder('密码')
                                     ->required() }}
                             </div><!--col-->
                         </div><!--form-group-->
 
                         <div class="form-group row">
-                            {{ html()->label(__('validation.attributes.backend.access.users.password_confirmation'))->class('col-md-2 form-control-label')->for('password_confirmation') }}
+                            {{ html()->label('确认密码')->class('col-md-2 form-control-label')->for('password_confirmation') }}
 
                             <div class="col-md-10">
                                 {{ html()->password('password_confirmation')
                                     ->class('form-control')
-                                    ->placeholder(__('validation.attributes.backend.access.users.password_confirmation'))
+                                    ->placeholder('确认密码')
                                     ->required() }}
                             </div><!--col-->
                         </div><!--form-group-->
 
                         <div class="form-group row">
-                            {{ html()->label(__('validation.attributes.backend.access.users.active'))->class('col-md-2 form-control-label')->for('active') }}
+                            {{ html()->label('激活')->class('col-md-2 form-control-label')->for('active') }}
 
                             <div class="col-md-10">
                                 <label class="switch switch-label switch-pill switch-primary">
@@ -94,7 +94,7 @@
                         </div><!--form-group-->
 
                         <div class="form-group row">
-                            {{ html()->label(__('validation.attributes.backend.access.users.confirmed'))->class('col-md-2 form-control-label')->for('confirmed') }}
+                            {{ html()->label('已确认')->class('col-md-2 form-control-label')->for('confirmed') }}
 
                             <div class="col-md-10">
                                 <label class="switch switch-label switch-pill switch-primary">
@@ -106,7 +106,7 @@
 
                         @if(! config('access.users.requires_approval'))
                             <div class="form-group row">
-                                {{ html()->label(__('validation.attributes.backend.access.users.send_confirmation_email') . '<br/>' . '<small>' .  __('strings.backend.access.users.if_confirmed_off') . '</small>')->class('col-md-2 form-control-label')->for('confirmation_email') }}
+                                {{ html()->label('发送确认电子邮件' . '<br/>' . '<small>' .  '(已确认则无效)' . '</small>')->class('col-md-2 form-control-label')->for('confirmation_email') }}
 
                                 <div class="col-md-10">
                                     <label class="switch switch-label switch-pill switch-primary">
@@ -125,8 +125,8 @@
                                     <table class="table">
                                         <thead>
                                         <tr>
-                                            <th>@lang('labels.backend.access.users.table.roles')</th>
-                                            <th>@lang('labels.backend.access.users.table.permissions')</th>
+                                            <th>角色</th>
+                                            <th>权限</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -154,10 +154,10 @@
                                                                             <i class="fas fa-dot-circle"></i> {{ ucwords($permission->name) }}
                                                                         @endforeach
                                                                     @else
-                                                                        @lang('labels.general.none')
+                                                                        空
                                                                     @endif
                                                                 @else
-                                                                    @lang('labels.backend.access.users.all_permissions')
+                                                                    所有权限
                                                                 @endif
                                                             </div>
                                                         </div><!--card-->
@@ -193,11 +193,11 @@
             <div class="card-footer clearfix">
                 <div class="row">
                     <div class="col">
-                        {{ form_cancel(route('admin.auth.user.index'), __('buttons.general.cancel')) }}
+                        {{ form_cancel(route('admin.auth.user.index'), '取消') }}
                     </div><!--col-->
 
                     <div class="col text-right">
-                        {{ form_submit(__('buttons.general.crud.create')) }}
+                        {{ form_submit('创建') }}
                     </div><!--col-->
                 </div><!--row-->
             </div><!--card-footer-->

@@ -6,7 +6,7 @@
 
         <div class="card-body border-bottom">
             <h4 class="card-title mb-0">
-                @lang('labels.backend.post.layout.management')
+                类型模板
             </h4>
         </div>
         <div class="card-body">
@@ -21,7 +21,7 @@
         </div>
 
         <div class="card-footer">
-            {{ form_submit(__('buttons.general.save'))->class('mr-2') }}
+            {{ form_submit('保存')->class('mr-2') }}
         </div>
 
     </div><!--card-->

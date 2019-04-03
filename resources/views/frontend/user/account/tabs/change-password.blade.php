@@ -2,11 +2,11 @@
     <div class="row">
         <div class="col">
             <div class="form-group">
-                {{ html()->label(__('validation.attributes.frontend.old_password'))->for('old_password') }}
+                {{ html()->label('旧密码')->for('old_password') }}
 
                 {{ html()->password('old_password')
                     ->class('form-control')
-                    ->placeholder(__('validation.attributes.frontend.old_password'))
+                    ->placeholder('旧密码')
                     ->autofocus()
                     ->required() }}
             </div><!--form-group-->
@@ -16,11 +16,11 @@
     <div class="row">
         <div class="col">
             <div class="form-group">
-                {{ html()->label(__('validation.attributes.frontend.password'))->for('password') }}
+                {{ html()->label('密码')->for('password') }}
 
                 {{ html()->password('password')
                     ->class('form-control')
-                    ->placeholder(__('validation.attributes.frontend.password'))
+                    ->placeholder('密码')
                     ->required() }}
             </div><!--form-group-->
         </div><!--col-->
@@ -29,11 +29,11 @@
     <div class="row">
         <div class="col">
             <div class="form-group">
-                {{ html()->label(__('validation.attributes.frontend.password_confirmation'))->for('password_confirmation') }}
+                {{ html()->label('确认密码')->for('password_confirmation') }}
 
                 {{ html()->password('password_confirmation')
                     ->class('form-control')
-                    ->placeholder(__('validation.attributes.frontend.password_confirmation'))
+                    ->placeholder('确认密码')
                     ->required() }}
             </div><!--form-group-->
         </div><!--col-->
@@ -42,7 +42,7 @@
     <div class="row">
         <div class="col">
             <div class="form-group mb-0 clearfix">
-                {{ form_submit(__('labels.general.buttons.update') . ' ' . __('validation.attributes.frontend.password')) }}
+                {{ form_submit('更新' . ' ' . '密码') }}
             </div><!--form-group-->
         </div><!--col-->
     </div><!--row-->

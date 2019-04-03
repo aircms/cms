@@ -1,6 +1,6 @@
 @extends('frontend.layouts.base')
 
-@section('title', app_name() . ' | ' . __('labels.frontend.passwords.expired_password_box_title'))
+@section('title', app_name() . ' | ' . '密码过期')
 
 @section('body')
     <div class="row justify-content-center align-items-center">
@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-header">
                     <strong>
-                        @lang('labels.frontend.passwords.expired_password_box_title')
+                        密码过期
                     </strong>
                 </div><!--card-header-->
 
@@ -18,11 +18,11 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.old_password'))->for('old_password') }}
+                                    {{ html()->label('旧密码')->for('old_password') }}
 
                                     {{ html()->password('old_password')
                                         ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.old_password'))
+                                        ->placeholder('旧密码')
                                         ->required() }}
                                 </div><!--form-group-->
                             </div><!--col-->
@@ -31,11 +31,11 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.password'))->for('password') }}
+                                    {{ html()->label('密码')->for('password') }}
 
                                     {{ html()->password('password')
                                         ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.password'))
+                                        ->placeholder('密码')
                                         ->required() }}
                                 </div><!--form-group-->
                             </div><!--col-->
@@ -44,11 +44,11 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.password_confirmation'))->for('password_confirmation') }}
+                                    {{ html()->label('确认密码')->for('password_confirmation') }}
 
                                     {{ html()->password('password_confirmation')
                                         ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.password_confirmation'))
+                                        ->placeholder('确认密码')
                                         ->required() }}
                                 </div><!--form-group-->
                             </div><!--col-->

@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-sm-5">
                     <h4 class="card-title mb-0">
-                        @lang('labels.backend.setting.item.management')
+                        参数配置
                     </h4>
                 </div><!--col-->
 
@@ -24,11 +24,11 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th>@lang('labels.backend.setting.name')</th>
-                    <th>@lang('labels.backend.setting.slug')</th>
-                    <th>@lang('labels.backend.setting.category')</th>
-                    <th>@lang('labels.backend.setting.type')</th>
-                    <th>@lang('labels.general.actions')</th>
+                    <th>名称</th>
+                    <th>别名</th>
+                    <th>分组</th>
+                    <th>类型</th>
+                    <th>操作</th>
                     <th>#</th>
                 </tr>
                 </thead>
@@ -44,11 +44,11 @@
                         <td>{{ \App\Traits\SettingItemType::typeDescription($item->type) }}</td>
                         <td>
                             <a href="{{ route('admin.setting.item.edit', $item->id) }}" class="btn btn-primary btn-sm">
-                                @lang('buttons.general.crud.edit')
+                                编辑
                             </a>
 
                             <a href="{{ route('admin.setting.item.delete', $item->id) }}" class="btn btn-danger btn-sm">
-                                @lang('buttons.general.crud.delete')
+                                删除
                             </a>
                         </td>
                         <td>

@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-sm-5">
                     <h4 class="card-title mb-0">
-                        @lang('labels.backend.contact.replied')
+                        已回复
                     </h4>
                 </div><!--col-->
 
@@ -25,13 +25,13 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th>@lang('labels.backend.contact.name')</th>
-                            <th>@lang('labels.backend.contact.sex')</th>
-                            <th>@lang('labels.backend.contact.age')</th>
-                            <th>@lang('labels.backend.contact.phone_number')</th>
-                            <th>@lang('labels.backend.contact.email')</th>
-                            <th>@lang('labels.backend.contact.created_at')</th>
-                            <th>@lang('labels.backend.contact.updated_at')</th>
+                            <th>姓名</th>
+                            <th>性别</th>
+                            <th>年龄</th>
+                            <th>电话</th>
+                            <th>邮箱</th>
+                            <th>创建日期</th>
+                            <th>回复日期</th>
                             <th>#</th>
                         </tr>
                         </thead>

@@ -1,6 +1,6 @@
 @extends('frontend.layouts.base')
 
-@section('title', app_name() . ' | ' . __('labels.frontend.passwords.reset_password_box_title'))
+@section('title', app_name() . ' | ' . '重置密码')
 
 @section('body')
     <div class="row justify-content-center align-items-center">
@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-header">
                     <strong>
-                        @lang('labels.frontend.passwords.reset_password_box_title')
+                        重置密码
                     </strong>
                 </div><!--card-header-->
 
@@ -24,11 +24,11 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.email'))->for('email') }}
+                                    {{ html()->label('电子邮件')->for('email') }}
 
                                     {{ html()->email('email')
                                         ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.email'))
+                                        ->placeholder('电子邮件')
                                         ->attribute('maxlength', 191)
                                         ->required()
                                         ->autofocus() }}
@@ -39,7 +39,7 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-group mb-0 clearfix">
-                                    {{ form_submit(__('labels.frontend.passwords.send_password_reset_link_button')) }}
+                                    {{ form_submit('发送密码重置链接') }}
                                 </div><!--form-group-->
                             </div><!--col-->
                         </div><!--row-->

@@ -10,10 +10,10 @@
             <div class="row">
                 <div class="col-sm-5">
                     <h4 class="card-title mb-0">
-                        @lang('labels.backend.post.field.management')
+                        发布字段
 
                         <small class="text-muted">
-                            @lang('labels.backend.post.field.create')
+                            创建字段
                         </small>
                     </h4>
                 </div><!--col-->
@@ -25,7 +25,7 @@
                 <div class="col">
                     {{-- type  --}}
                     <div class="form-group row">
-                        {{ html()->label(__('validation.attributes.backend.post.field.type'))->class('col-md-2 form-control-label')->for('type') }}
+                        {{ html()->label('输入框类型')->class('col-md-2 form-control-label')->for('type') }}
                         <div class="col-md-10">
                             {{ html()->select('type', \App\Models\Post\Type\Fields::all())->class('form-control') }}
                         </div><!--col-->
@@ -33,7 +33,7 @@
 
                     {{-- name  --}}
                     <div class="form-group row">
-                        {{ html()->label(__('validation.attributes.backend.post.field.name'))->class('col-md-2 form-control-label')->for('name') }}
+                        {{ html()->label('名称')->class('col-md-2 form-control-label')->for('name') }}
                         <div class="col-md-10">
                             {{ html()->text('name')->class('form-control')->attribute('maxlength', 190)->required()->autofocus() }}
                         </div><!--col-->
@@ -41,7 +41,7 @@
 
                     {{-- slug  --}}
                     <div class="form-group row">
-                        {{ html()->label(__('validation.attributes.backend.post.field.slug'))->class('col-md-2 form-control-label')->for('name') }}
+                        {{ html()->label('别名')->class('col-md-2 form-control-label')->for('name') }}
                         <div class="col-md-10">
                             {{ html()->text('slug')->class('form-control')->attribute('maxlength', 190) }}
                         </div><!--col-->
@@ -49,7 +49,7 @@
 
                     {{-- description  --}}
                     <div class="form-group row">
-                        {{ html()->label(__('validation.attributes.backend.post.field.description'))->class('col-md-2 form-control-label')->for('name') }}
+                        {{ html()->label('描述')->class('col-md-2 form-control-label')->for('name') }}
                         <div class="col-md-10">
                             {{ html()->textarea('description')->class('form-control') }}
                         </div><!--col-->
@@ -57,7 +57,7 @@
 
                     {{-- configure  --}}
                     <div class="form-group row">
-                        {{ html()->label(__('validation.attributes.backend.post.field.configure'))->class('col-md-2 form-control-label')->for('configure') }}
+                        {{ html()->label('输入框配置')->class('col-md-2 form-control-label')->for('configure') }}
                         <div class="col-md-10">
                             {{ html()->textarea('configure')->class('form-control')->attribute('rows',10) }}
 
@@ -74,7 +74,7 @@
         <div class="card-footer">
             <div class="row">
                 <div class="col-md-10 offset-md-2">
-                    {{ form_submit(__('buttons.general.crud.create'))->class('mr-2') }}
+                    {{ form_submit('创建')->class('mr-2') }}
                 </div>
             </div>
         </div><!--card-footer-->

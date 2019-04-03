@@ -17,7 +17,7 @@
                         {{ $parent->name }}
 
                         <small class="text-muted">
-                            @lang('labels.backend.category.children.create_child')
+                            添加子分类
                         </small>
                     </h4>
                 </div><!--col-->
@@ -30,7 +30,7 @@
 
                     {{-- name  --}}
                     <div class="form-group row">
-                        {{ html()->label(__('validation.attributes.backend.category.children.name'))->class('col-md-2 form-control-label')->for('name') }}
+                        {{ html()->label('名称')->class('col-md-2 form-control-label')->for('name') }}
                         <div class="col-md-10">
                             {{ html()->text('name')->class('form-control')->attribute('maxlength', 190)->required()->autofocus() }}
                         </div><!--col-->
@@ -38,7 +38,7 @@
 
                     {{-- slug  --}}
                     <div class="form-group row">
-                        {{ html()->label(__('validation.attributes.backend.category.children.slug'))->class('col-md-2 form-control-label')->for('name') }}
+                        {{ html()->label('别名')->class('col-md-2 form-control-label')->for('name') }}
                         <div class="col-md-10">
                             {{ html()->text('slug')->class('form-control')->attribute('maxlength', 190) }}
                         </div><!--col-->
@@ -46,7 +46,7 @@
 
                     {{-- description  --}}
                     <div class="form-group row">
-                        {{ html()->label(__('validation.attributes.backend.category.children.description'))->class('col-md-2 form-control-label')->for('description') }}
+                        {{ html()->label('描述')->class('col-md-2 form-control-label')->for('description') }}
                         <div class="col-md-10">
                             {{ html()->textarea('description')->class('form-control')->attribute('rows', 5) }}
                         </div><!--col-->
@@ -54,7 +54,7 @@
 
                     {{-- layout  --}}
                     <div class="form-group row">
-                        {{ html()->label(__('validation.attributes.backend.category.children.layout'))->class('col-md-2 form-control-label')->for('layout') }}
+                        {{ html()->label('页面模板')->class('col-md-2 form-control-label')->for('layout') }}
                         <div class="col-md-10">
                             {{ html()->text('layout')->class('form-control') }}
                         </div>
@@ -62,7 +62,7 @@
 
                     {{-- link  --}}
                     <div class="form-group row">
-                        {{ html()->label(__('validation.attributes.backend.category.children.link'))->class('col-md-2 form-control-label')->for('link') }}
+                        {{ html()->label('链接地址')->class('col-md-2 form-control-label')->for('link') }}
                         <div class="col-md-5">
                             {{ html()->text('link')->class('form-control') }}
                         </div>
@@ -78,7 +78,7 @@
         <div class="card-footer">
             <div class="row">
                 <div class="col-md-10 offset-md-2">
-                    {{ form_submit(__('buttons.general.crud.create'))->class('mr-2') }}
+                    {{ form_submit('创建')->class('mr-2') }}
                 </div>
             </div>
         </div><!--card-footer-->

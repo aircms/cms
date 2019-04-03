@@ -1,6 +1,6 @@
 @extends('frontend.layouts.base')
 
-@section('title', app_name() . ' | ' . __('navs.frontend.dashboard') )
+@section('title', app_name() . ' | ' . '指示板' )
 
 @section('body')
     <div class="row mb-4">
@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-header">
                     <strong>
-                        <i class="fas fa-tachometer-alt"></i> @lang('navs.frontend.dashboard')
+                        <i class="fas fa-tachometer-alt"></i> 指示板
                     </strong>
                 </div><!--card-header-->
 
@@ -26,19 +26,19 @@
                                     <p class="card-text">
                                         <small>
                                             <i class="fas fa-envelope"></i> {{ $logged_in_user->email }}<br/>
-                                            <i class="fas fa-calendar-check"></i> @lang('strings.frontend.general.joined') {{ timezone()->convertToLocal($logged_in_user->created_at, 'F jS, Y') }}
+                                            <i class="fas fa-calendar-check"></i> 加入 {{ timezone()->convertToLocal($logged_in_user->created_at, 'F jS, Y') }}
                                         </small>
                                     </p>
 
                                     <p class="card-text">
 
                                         <a href="{{ route('frontend.user.account')}}" class="btn btn-info btn-sm mb-1">
-                                            <i class="fas fa-user-circle"></i> @lang('navs.frontend.user.account')
+                                            <i class="fas fa-user-circle"></i> 我的账户
                                         </a>
 
                                         @can('view backend')
                                             &nbsp;<a href="{{ route('admin.dashboard')}}" class="btn btn-danger btn-sm mb-1">
-                                                <i class="fas fa-user-secret"></i> @lang('navs.frontend.user.administration')
+                                                <i class="fas fa-user-secret"></i> 管理
                                             </a>
                                         @endcan
                                     </p>

@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-sm-5">
                     <h4 class="card-title mb-0">
-                        @lang('labels.backend.category.children.management')
+                        子分类管理
 
                         <small class="text-muted">{{ $ancestor->name }}</small>
                     </h4>
@@ -23,13 +23,13 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th>@lang('labels.backend.category.group.table.name')</th>
+                                <th>名称</th>
                                 <th>
-                                    @lang('labels.backend.category.children.table.slug')
+                                    别名
                                     <span class="text-muted">/</span>
-                                    @lang('labels.backend.category.children.table.description')
+                                    描述
                                 </th>
-                                <th>@lang('labels.general.actions')</th>
+                                <th>操作</th>
                                 <th>#</th>
                             </tr>
                             </thead>
@@ -56,19 +56,19 @@
 
                                         <a href="{{ route('admin.category.children.create.child', [$request->ancestor,$child->id]) }}"
                                            class="btn btn-info btn-sm">
-                                            @lang('labels.backend.category.children.create_child')
+                                            添加子分类
                                         </a>
                                     </td>
 
                                     <td>
                                         <a href="{{ route('admin.category.children.edit', [$request->ancestor,$child->id]) }}"
                                            class="btn btn-primary btn-sm">
-                                            @lang('buttons.general.crud.edit')
+                                            编辑
                                         </a>
 
                                         <a href="{{ route('admin.category.children.delete', [$request->ancestor,$child->id]) }}"
                                            class="btn btn-danger btn-sm">
-                                            @lang('buttons.general.crud.delete')
+                                            删除
                                         </a>
                                     </td>
                                 </tr>

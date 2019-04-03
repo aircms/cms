@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', app_name() . ' | '. __('labels.backend.access.roles.management'))
+@section('title', app_name() . ' | '. '角色管理')
 
 @section('content')
 <div class="card">
@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-sm-5">
                 <h4 class="card-title mb-0">
-                    @lang('labels.backend.access.roles.management')
+                    角色管理
                 </h4>
             </div><!--col-->
 
@@ -23,10 +23,10 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th>@lang('labels.backend.access.roles.table.role')</th>
-                            <th>@lang('labels.backend.access.roles.table.permissions')</th>
-                            <th>@lang('labels.backend.access.roles.table.number_of_users')</th>
-                            <th>@lang('labels.general.actions')</th>
+                            <th>角色</th>
+                            <th>权限</th>
+                            <th>用户数</th>
+                            <th>操作</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -35,14 +35,14 @@
                                 <td>{{ ucwords($role->name) }}</td>
                                 <td>
                                     @if($role->id == 1)
-                                        @lang('labels.general.all')
+                                        全部
                                     @else
                                         @if($role->permissions->count())
                                             @foreach($role->permissions as $permission)
                                                 {{ ucwords($permission->name) }}
                                             @endforeach
                                         @else
-                                            @lang('labels.general.none')
+                                            空
                                         @endif
                                     @endif
                                 </td>

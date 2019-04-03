@@ -1,6 +1,6 @@
 <footer class="app-footer">
     <div>
-        <strong>@lang('labels.general.copyright') &copy; {{ date('Y') }} <a href="http://laravel-boilerplate.com">@lang('strings.backend.general.boilerplate_link')</a></strong> @lang('strings.backend.general.all_rights_reserved')
+        <strong>版权所属 &copy; {{ date('Y') }} <a href="http://laravel-boilerplate.com">Laravel 5 Boilerplate</a></strong> 保留所有权利。
     </div>
 
     <div class="ml-auto">Powered by <a href="http://coreui.io">CoreUI</a></div>

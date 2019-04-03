@@ -1,6 +1,7 @@
 <?php
 
 return [
+
     /*
     |--------------------------------------------------------------------------
     | Labels Language Lines
@@ -10,7 +11,7 @@ return [
     | Regardless where it is placed, a label can be listed here so it is easily
     | found in a intuitive way.
     |
-    */
+     */
 
     'general' => [
         'all' => '全部',
@@ -18,19 +19,28 @@ return [
         'no' => '否',
         'custom' => '自定义',
         'actions' => '操作',
+        'copyright' => '版权所属',
         'active' => '激活',
         'buttons' => [
             'save' => '保存',
             'update' => '更新',
+            'delete' => '删除',
         ],
         'hide' => '隐藏',
         'inactive' => '禁用',
         'none' => '空',
         'show' => '显示',
         'toggle_navigation' => '切换导航',
+        'create' => '新建',
+        'reply' => '回复',
+        'update' => '编辑',
     ],
 
     'backend' => [
+        'system' => [
+            'setting' => '系统设置',
+            'utils' => '系统功能',
+        ],
         'access' => [
             'roles' => [
                 'create' => '新建角色',
@@ -58,9 +68,12 @@ return [
                 'management' => '用户管理',
                 'no_permissions' => '没有权限',
                 'no_roles' => '没有角色可设置',
+                'no_deactivated' => '没有停用的用户',
                 'permissions' => '权限',
 
                 'table' => [
+                    'last_name' => 'Last Name',
+                    'first_name' => 'First Name',
                     'confirmed' => '确认',
                     'created' => '创建',
                     'email' => '电子邮件',
@@ -69,6 +82,8 @@ return [
                     'name' => '名称',
                     'no_deactivated' => '没有停用的用户',
                     'no_deleted' => '没有删除的用户',
+                    'other_permissions' => '其它权限',
+                    'permissions' => '权限',
                     'roles' => '角色',
                     'social' => 'Social',
                     'total' => '用户总计',
@@ -100,9 +115,138 @@ return [
                 'view' => '查看用户',
             ],
         ],
+        'setting' => [
+            'management' => '配置管理',
+            'name' => '名称',
+            'slug' => '别名',
+            'type' => '类型',
+            'category' => '分组',
+
+            'item' => [
+                'management' => '参数配置',
+            ],
+        ],
+        'fragment' => [
+            'management' => '页面组件',
+            'create' => '创建页面组件',
+            'edit' => '编辑页面组件',
+            'name' => '名称',
+            'slug' => '别名',
+            'description' => '描述',
+            'order' => '排序',
+            'created_at' => '创建日期',
+            'updated_at' => '更新日期',
+            'code' => '片段代码',
+        ],
+        'pages' => [
+            'management' => '页面管理',
+        ],
+        'page' => [
+            'management' => '页面模板',
+            'name' => '名称',
+            'slug' => '别名',
+            'description' => '描述',
+            'order' => '排序',
+            'code' => '布局',
+            'created_at' => '创建日期',
+            'updated_at' => '更新日期',
+            'layout' => '继承模板',
+        ],
+        'post' => [
+            'management' => '发布管理',
+            'title' => '标题',
+            'slug' => '别名',
+            'status' => '状态',
+
+            'type' => [
+                'management' => '发布类型',
+                'create' => '创建文章类型',
+                'edit' => '编辑文章类型',
+                'name' => '名称',
+                'slug' => '别名',
+                'description' => '描述',
+                'order' => '排序',
+                'created_at' => '创建日期',
+                'updated_at' => '更新日期',
+                'manage_layout' => '布局管理',
+            ],
+            'field' => [
+                'management' => '发布字段',
+                'create' => '创建字段',
+                'edit' => '编辑字段',
+                'name' => '名称',
+                'slug' => '别名',
+                'description' => '描述',
+                'order' => '排序',
+                'created_at' => '创建日期',
+                'updated_at' => '更新日期',
+            ],
+            'layout' => [
+                'management' => '类型模板',
+                'preview' => '预览',
+                'name' => '名称',
+                'slug' => '别名',
+                'order' => '排序',
+                'created_at' => '创建日期',
+                'updated_at' => '更新日期',
+            ],
+        ],
+        'contact' => [
+            'management' => '联系我们',
+            'waiting_for_reply' => '等待回复',
+            'replied' => '已回复',
+            'list' => '所有咨询',
+            'create' => '新建',
+            'reply' => '回复',
+            'phone_number' => '电话',
+            'email' => '邮箱',
+            'user' => '用户',
+            'address' => '地址',
+            'name' => '姓名',
+            'sex' => '性别',
+            'age' => '年龄',
+            'title' => '咨询标题',
+            'message' => '咨询内容',
+            'reply_channel' => '消息通道',
+            'view' => '查看详情',
+            'created_at' => '创建日期',
+            'updated_at' => '回复日期',
+        ],
+        'category' => [
+            'children' => [
+                'management' => '子分类管理',
+                'list' => '所有分类',
+                'create' => '新建分类',
+                'create_child' => '添加子分类',
+                'edit' => '编辑分类',
+
+                'table' => [
+                    'name' => '名称',
+                    'slug' => '别名',
+                    'description' => '描述',
+                    'sort' => '排序',
+                    'children' => '子分类',
+                ],
+            ],
+            'group' => [
+                'list' => '所有分类',
+                'management' => '分类管理',
+                'create' => '新建分类',
+                'edit' => '编辑分类',
+
+                'table' => [
+                    'name' => '名称',
+                    'slug' => '别名',
+                    'description' => '描述',
+                    'sort' => '排序',
+                    'children' => '子分类',
+                ],
+            ],
+        ],
     ],
 
     'frontend' => [
+
         'auth' => [
             'login_box_title' => '登录',
             'login_button' => '登录',
@@ -112,7 +256,7 @@ return [
             'remember_me' => '记住我',
         ],
 
-        'contact' => [
+        'ContactSeeder' => [
             'box_title' => 'Contact Us',
             'button' => 'Send Information',
         ],
@@ -122,6 +266,7 @@ return [
             'reset_password_box_title' => '重置密码',
             'reset_password_button' => '重置密码',
             'send_password_reset_link_button' => '发送密码重置链接',
+            'expired_password_box_title' => '密码过期',
         ],
 
         'macros' => [
@@ -165,5 +310,6 @@ return [
                 'update_information' => '更新信息',
             ],
         ],
+
     ],
 ];

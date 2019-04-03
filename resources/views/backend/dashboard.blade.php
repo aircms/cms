@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', app_name() . ' | ' . __('strings.backend.dashboard.title'))
+@section('title', app_name() . ' | ' . '管理仪表板')
 
 @section('content')
     <div class="row image-list">
@@ -22,10 +22,10 @@
         <div class="col">
             <div class="card">
                 <div class="card-header">
-                    <strong>@lang('strings.backend.dashboard.welcome') {{ $logged_in_user->name }}!</strong>
+                    <strong>欢迎 {{ $logged_in_user->name }}!</strong>
                 </div><!--card-header-->
                 <div class="card-body">
-                    {!! __('strings.backend.welcome') !!}
+                    {!! 'Welcome to the Dashboard' !!}
 
                 </div>
             </div>

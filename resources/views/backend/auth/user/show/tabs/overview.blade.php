@@ -2,37 +2,37 @@
     <div class="table-responsive">
         <table class="table table-hover">
             <tr>
-                <th>@lang('labels.backend.access.users.tabs.content.overview.avatar')</th>
+                <th>头像</th>
                 <td><img src="{{ $user->picture }}" class="user-profile-image" /></td>
             </tr>
 
             <tr>
-                <th>@lang('labels.backend.access.users.tabs.content.overview.name')</th>
+                <th>名称</th>
                 <td>{{ $user->name }}</td>
             </tr>
 
             <tr>
-                <th>@lang('labels.backend.access.users.tabs.content.overview.email')</th>
+                <th>电子邮件</th>
                 <td>{{ $user->email }}</td>
             </tr>
 
             <tr>
-                <th>@lang('labels.backend.access.users.tabs.content.overview.status')</th>
+                <th>状态</th>
                 <td>{!! $user->status_label !!}</td>
             </tr>
 
             <tr>
-                <th>@lang('labels.backend.access.users.tabs.content.overview.confirmed')</th>
+                <th>已确认</th>
                 <td>{!! $user->confirmed_label !!}</td>
             </tr>
 
             <tr>
-                <th>@lang('labels.backend.access.users.tabs.content.overview.timezone')</th>
+                <th>Timezone</th>
                 <td>{{ $user->timezone }}</td>
             </tr>
 
             <tr>
-                <th>@lang('labels.backend.access.users.tabs.content.overview.last_login_at')</th>
+                <th>Last Login At</th>
                 <td>
                     @if($user->last_login_at)
                         {{ timezone()->convertToLocal($user->last_login_at) }}
@@ -43,7 +43,7 @@
             </tr>
 
             <tr>
-                <th>@lang('labels.backend.access.users.tabs.content.overview.last_login_ip')</th>
+                <th>Last Login IP</th>
                 <td>{{ $user->last_login_ip ?? 'N/A' }}</td>
             </tr>
         </table>

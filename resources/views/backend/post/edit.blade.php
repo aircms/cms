@@ -12,11 +12,11 @@
 
             <div class="row">
                 <div class="col form-group">
-                    {{ html()->label(__('validation.attributes.backend.post.title'))->for('title') }}
+                    {{ html()->label('标题')->for('title') }}
                     {{ html()->text('title',$post->title)->class('form-control')->attribute('maxlength', 190)->required()->autofocus() }}
                 </div>
                 <div class="form-group col">
-                    {{ html()->label(__('validation.attributes.backend.post.slug'))->for('name') }}
+                    {{ html()->label('别名')->for('name') }}
                     {{ html()->text('slug',$post->slug)->class('form-control')->attribute('maxlength', 190) }}
                 </div>
             </div>
@@ -29,7 +29,7 @@
         </div>
 
         <div class="card-footer">
-            {{ form_submit(__('buttons.general.crud.update'))->class('mr-2') }}
+            {{ form_submit('更新')->class('mr-2') }}
         </div>
 
 

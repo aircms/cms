@@ -15,7 +15,7 @@
 
     <div class="card">
         <div class="card-header">
-            {{ __('menus.backend.log-viewer.logs') }}
+            {{ '日志' }}
         </div><!-- box-header -->
 
         <div class="card-body">

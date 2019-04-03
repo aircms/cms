@@ -16,7 +16,7 @@
                         {{ $type->name }}
 
                         <small class="text-muted">
-                            @lang('labels.general.create')
+                            新建
                         </small>
                     </h4>
                 </div><!--col-->
@@ -26,11 +26,11 @@
 
             <div class="row">
                 <div class="col form-group">
-                    {{ html()->label(__('validation.attributes.backend.post.title'))->for('title') }}
+                    {{ html()->label('标题')->for('title') }}
                     {{ html()->text('title')->class('form-control')->attribute('maxlength', 190)->required()->autofocus() }}
                 </div>
                 <div class="form-group col">
-                    {{ html()->label(__('validation.attributes.backend.post.slug'))->for('name') }}
+                    {{ html()->label('别名')->for('name') }}
                     {{ html()->text('slug')->class('form-control')->attribute('maxlength', 190) }}
                 </div>
             </div>
@@ -42,7 +42,7 @@
         </div>
 
         <div class="card-footer">
-            {{ form_submit(__('buttons.general.crud.create'))->class('mr-2') }}
+            {{ form_submit('创建')->class('mr-2') }}
         </div>
 
 

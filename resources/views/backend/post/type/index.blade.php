@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-sm-5">
                     <h4 class="card-title mb-0">
-                        @lang('labels.backend.post.type.management')
+                        发布类型
                     </h4>
                 </div><!--col-->
 
@@ -20,15 +20,15 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th>@lang('labels.backend.post.type.name')</th>
-                            <th>@lang('labels.backend.post.type.slug')</th>
-                            <th>@lang('labels.backend.post.type.description')</th>
+                            <th>名称</th>
+                            <th>别名</th>
+                            <th>描述</th>
                             <th>
-                                @lang('labels.backend.post.type.created_at')
+                                创建日期
                                 <span class="text-muted">/</span>
-                                @lang('labels.backend.post.type.updated_at')
+                                更新日期
                             </th>
-                            <th>@lang('labels.general.actions')</th>
+                            <th>操作</th>
                             <th>#</th>
                         </tr>
                         </thead>
@@ -54,19 +54,19 @@
 
                                     <a href="{{ route('admin.post.layout.index', $type->id) }}"
                                        class="btn btn-info btn-sm">
-                                        @lang('labels.backend.post.type.manage_layout')
+                                        布局管理
                                     </a>
                                 </td>
 
                                 <td>
                                     <a href="{{ route('admin.post.type.edit', $type->id) }}"
                                        class="btn btn-primary btn-sm">
-                                        @lang('buttons.general.crud.edit')
+                                        编辑
                                     </a>
 
                                     <a href="{{ route('admin.post.type.delete', $type->id) }}"
                                        class="btn btn-danger btn-sm">
-                                        @lang('buttons.general.crud.delete')
+                                        删除
                                     </a>
                                 </td>
                             </tr>

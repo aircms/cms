@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', app_name() . ' | ' . __('labels.backend.access.users.management'))
+@section('title', app_name() . ' | ' . '用户管理')
 
 @section('breadcrumb-links')
     @include('backend.auth.user.includes.breadcrumb-links')
@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-sm-5">
                 <h4 class="card-title mb-0">
-                    {{ __('labels.backend.access.users.management') }} <small class="text-muted">{{ __('labels.backend.access.users.active') }}</small>
+                    {{ '用户管理' }} <small class="text-muted">{{ '激活用户' }}</small>
                 </h4>
             </div><!--col-->
 
@@ -27,15 +27,15 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th>@lang('labels.backend.access.users.table.last_name')</th>
-                            <th>@lang('labels.backend.access.users.table.first_name')</th>
-                            <th>@lang('labels.backend.access.users.table.email')</th>
-                            <th>@lang('labels.backend.access.users.table.confirmed')</th>
-                            <th>@lang('labels.backend.access.users.table.roles')</th>
-                            <th>@lang('labels.backend.access.users.table.other_permissions')</th>
-                            <th>@lang('labels.backend.access.users.table.social')</th>
-                            <th>@lang('labels.backend.access.users.table.last_updated')</th>
-                            <th>@lang('labels.general.actions')</th>
+                            <th>Last Name</th>
+                            <th>First Name</th>
+                            <th>电子邮件</th>
+                            <th>确认</th>
+                            <th>角色</th>
+                            <th>其它权限</th>
+                            <th>Social</th>
+                            <th>最后更新</th>
+                            <th>操作</th>
                         </tr>
                         </thead>
                         <tbody>

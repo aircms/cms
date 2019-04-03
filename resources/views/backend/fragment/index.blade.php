@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-sm-5">
                     <h4 class="card-title mb-0">
-                        @lang('labels.backend.fragment.management')
+                        页面组件
                     </h4>
                 </div><!--col-->
 
@@ -21,17 +21,17 @@
                         <thead>
                         <tr>
                             <th>
-                                @lang('labels.backend.fragment.name')
+                                名称
                                 <span class="text-muted">/</span>
-                                @lang('labels.backend.fragment.slug')
+                                别名
                             </th>
-                            <th>@lang('labels.backend.fragment.description')</th>
+                            <th>描述</th>
                             <th>
-                                @lang('labels.backend.fragment.created_at')
+                                创建日期
                                 <span class="text-muted">/</span>
-                                @lang('labels.backend.fragment.updated_at')
+                                更新日期
                             </th>
-                            <th>@lang('labels.general.actions')</th>
+                            <th>操作</th>
                         </tr>
                         </thead>
                         @foreach($fragments as $fragment)
@@ -48,12 +48,12 @@
                                 <td>
                                     <a href="{{ route('admin.pages.fragment.edit', $fragment->id) }}"
                                        class="btn btn-primary btn-sm">
-                                        @lang('buttons.general.crud.edit')
+                                        编辑
                                     </a>
 
                                     <a href="{{ route('admin.pages.fragment.delete', $fragment->id) }}"
                                        class="btn btn-danger btn-sm">
-                                        @lang('buttons.general.crud.delete')
+                                        删除
                                     </a>
                                 </td>
                             </tr>

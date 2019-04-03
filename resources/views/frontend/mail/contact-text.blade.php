@@ -1,6 +1,6 @@
-@lang('strings.emails.contact.email_body_title')
+你有一个新的联系请求， 详情如下：
 
-@lang('validation.attributes.frontend.name'): {{ $request->name }}
-@lang('validation.attributes.frontend.email'): {{ $request->email }}
-@lang('validation.attributes.frontend.phone'): {{ $request->phone or "N/A" }}
-@lang('validation.attributes.frontend.message'): {{ $request->message }}
+用户名: {{ $request->name }}
+电子邮件: {{ $request->email }}
+电话: {{ $request->phone or "N/A" }}
+消息: {{ $request->message }}

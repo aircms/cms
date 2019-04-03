@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-sm-5">
                     <h4 class="card-title mb-0">
-                        @lang('labels.backend.post.field.management')
+                        发布字段
                     </h4>
                 </div><!--col-->
 
@@ -20,15 +20,15 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th>@lang('labels.backend.post.field.name')</th>
-                            <th>@lang('labels.backend.post.field.slug')</th>
-                            <th>@lang('labels.backend.post.field.description')</th>
+                            <th>名称</th>
+                            <th>别名</th>
+                            <th>描述</th>
                             <th>
-                                @lang('labels.backend.post.field.created_at')
+                                创建日期
                                 <span class="text-muted">/</span>
-                                @lang('labels.backend.post.field.updated_at')
+                                更新日期
                             </th>
-                            <th>@lang('labels.general.actions')</th>
+                            <th>操作</th>
                             <th>#</th>
                         </tr>
                         </thead>
@@ -56,12 +56,12 @@
                                 <td>
                                     <a href="{{ route('admin.post.field.edit', $field->id) }}"
                                        class="btn btn-primary btn-sm">
-                                        @lang('buttons.general.crud.edit')
+                                        编辑
                                     </a>
 
                                     <a href="{{ route('admin.post.field.delete', $field->id) }}"
                                        class="btn btn-danger btn-sm">
-                                        @lang('buttons.general.crud.delete')
+                                        删除
                                     </a>
                                 </td>
                             </tr>

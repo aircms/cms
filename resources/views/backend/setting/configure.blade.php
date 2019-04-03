@@ -8,7 +8,7 @@
 
         <div class="card-body border-bottom mb-5">
             <h4 class="card-title mb-0">
-                @lang('labels.backend.setting.management')
+                配置管理
 
                 <small class="text-muted">
                     {{ $category->name }}
@@ -45,7 +45,7 @@
                 {{--submit button --}}
                 <tr>
                     <th class="text-right w-25">&nbsp;</th>
-                    <td>{{ form_submit(__('buttons.general.save'))->class('mr-2') }}</td>
+                    <td>{{ form_submit('保存')->class('mr-2') }}</td>
                     <td class="w-25">&nbsp;</td>
                 </tr>
             </table>
