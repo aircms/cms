@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\LanguageController;
-
+use Illuminate\Routing\RouteSignatureParameters;
 /*
  * Global Routes
  * Routes that are used between both frontend and backend.

@@ -1,15 +1,16 @@
 <?php
 
-use App\Http\Controllers\Backend\Post\FieldController;
-use App\Http\Controllers\Backend\Post\LayoutController;
+use Illuminate\Routing\RouteSignatureParameters;
 use App\Http\Controllers\Backend\Post\PostController;
 use App\Http\Controllers\Backend\Post\TypeController;
+use App\Http\Controllers\Backend\Post\FieldController;
+use App\Http\Controllers\Backend\Post\LayoutController;
 
 /*
  * All route names are prefixed with 'admin.'.
  */
 Route::group(['prefix' => 'post/{type}', 'as' => 'post.', 'namespace' => 'Post'], function () {
-    Route::get('/', [PostController::class, 'index'])->name('index');
+    Route::get('/', 'PostController@index')->name('index');
 
     Route::get('create', [PostController::class, 'create'])->name('create');
     Route::post('store', [PostController::class, 'store'])->name('store');
