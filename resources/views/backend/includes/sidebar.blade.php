@@ -6,7 +6,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ active_class(Active::checkUriPattern('admin/dashboard')) }}" href="{{ route('admin.dashboard') }}">
-                    <i class="nav-icon fas fa-tachometer-alt"></i> 指示板
+                    指示板
                 </a>
             </li>
 
@@ -17,7 +17,7 @@
             @if ($logged_in_user->isAdmin())
                 <li class="nav-item nav-dropdown {{ active_class(Active::checkUriPattern('admin/auth*'), 'open') }}">
                     <a class="nav-link nav-dropdown-toggle {{ active_class(Active::checkUriPattern('admin/auth*')) }}" href="#">
-                        <i class="nav-icon far fa-user"></i> 权限管理
+                        权限管理
 
                         @if ($pending_approval > 0)
                             <span class="badge badge-danger">{{ $pending_approval }}</span>
@@ -47,7 +47,7 @@
 
             <li class="nav-item nav-dropdown {{ active_class(Active::checkUriPattern('admin/post/*'), 'open') }}">
                 <a class="nav-link nav-dropdown-toggle {{ active_class(Active::checkUriPattern('admin/post/*')) }}" href="#">
-                    <i class="nav-icon far fa-circle"></i> 发布管理
+                    发布管理
                 </a>
 
                 <ul class="nav-dropdown-items">
@@ -65,7 +65,7 @@
 
             <li class="nav-item nav-dropdown {{ active_class(Active::checkUriPattern('admin/utils/*'), 'open') }}">
                 <a class="nav-link nav-dropdown-toggle {{ active_class(Active::checkUriPattern('admin/utils/*')) }}" href="#">
-                    <i class="nav-icon far fa-circle"></i> 系统功能
+                    系统功能
                 </a>
 
                 <ul class="nav-dropdown-items">
@@ -82,7 +82,7 @@
 
             <li class="nav-item nav-dropdown {{ active_class(Active::checkUriPattern('admin/setting/*'), 'open') }}">
                 <a class="nav-link nav-dropdown-toggle {{ active_class(Active::checkUriPattern('admin/setting/*')) }}" href="#">
-                    <i class="nav-icon far fa-circle"></i> 系统设置
+                    系统设置
                 </a>
 
                 <ul class="nav-dropdown-items">
@@ -152,7 +152,7 @@
 
             <li class="nav-item nav-dropdown {{ active_class(Active::checkUriPattern('admin/log-viewer*'), 'open') }}">
                 <a class="nav-link nav-dropdown-toggle {{ active_class(Active::checkUriPattern('admin/log-viewer*')) }}" href="#">
-                    <i class="nav-icon far fa-circle"></i> 日志查看器
+                    日志查看器
                 </a>
 
                 <ul class="nav-dropdown-items">
