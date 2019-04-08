@@ -233,7 +233,7 @@ class SettingItemsSeeder extends Seeder
         return [
             ['name' => '网站名称', 'slug' => 'site_name', 'type' => 'string', 'meta' => ['value' => 'Air CMS']],
             ['name' => '网站Slogan', 'slug' => 'site_slogan', 'type' => 'string', 'meta' => ['value' => 'Easy as Air']],
-            ['name' => 'LOGO', 'slug' => 'site_logo', 'type' => 'string', 'meta' => ['value' => 'logo.png']],
+            ['name' => 'LOGO', 'slug' => 'site_logo', 'type' => 'image_single', 'meta' => ['value' => 'logo.png']],
             ['name' => '网站描述', 'slug' => 'site_description', 'type' => 'text', 'meta' => ['value' => 'Easy as Air']],
             ['name' => '网站关键字', 'slug' => 'site_keywords', 'type' => 'text', 'meta' => ['value' => 'Easy as Air']],
 
@@ -241,7 +241,7 @@ class SettingItemsSeeder extends Seeder
             ['name' => '手机访问地址', 'slug' => 'site_url_mobile', 'type' => 'string', 'meta' => ['value' => 'http://air.local']],
             ['name' => 'PC访问地址', 'slug' => 'site_url_pc', 'type' => 'string', 'meta' => ['value' => 'http://m.air.local']],
 
-            ['name' => '网站备案', 'slug' => 'site_', 'type' => 'split'],
+            ['name' => '网站备案', 'slug' => 'site_number', 'type' => 'split'],
             ['name' => '工信部备案', 'slug' => 'site_number_icp', 'type' => 'string', 'meta' => ['value' => '京ICP备20190101']],
             ['name' => '公安部备案', 'slug' => 'site_number_police', 'type' => 'string', 'meta' => ['value' => '公安网备20190101']],
 

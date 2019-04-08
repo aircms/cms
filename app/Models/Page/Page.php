@@ -2,13 +2,13 @@
 
 namespace App\Models\Page;
 
-use Plank\Metable\Metable;
-use Spatie\Sluggable\HasSlug;
 use App\Models\YAML2Blade\Parser;
-use Spatie\Sluggable\SlugOptions;
-use Spatie\EloquentSortable\Sortable;
 use Illuminate\Database\Eloquent\Model;
+use Plank\Metable\Metable;
+use Spatie\EloquentSortable\Sortable;
 use Spatie\EloquentSortable\SortableTrait;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class Page extends Model implements Sortable
 {
@@ -39,11 +39,6 @@ class Page extends Model implements Sortable
         return file_get_contents(storage_path('resource/default.page.yaml'));
     }
 
-    public function filepath()
-    {
-        return storage_path("framework/cache/views/frontend/{$this->slug}");
-    }
-
     public static function exists($slug)
     {
         $filepath = (new static(['slug' => $slug]))->filepath();
@@ -51,6 +46,10 @@ class Page extends Model implements Sortable
         return is_file($filepath);
     }
 
+    public function filepath()
+    {
+        return storage_path("views/frontend/{$this->slug}");
+    }
     public static function generateAll()
     {
         static::all()->each(function (Page $item) {

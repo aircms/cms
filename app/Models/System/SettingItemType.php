@@ -2,20 +2,21 @@
 
 namespace App\Traits;
 
-
 class SettingItemType
 {
     public static function types()
     {
         return [
-            'string'    => '字符串',
-            'password'  => '机密文本',
-            'text'      => '纯文本',
+            'string' => '字符串',
+            'password' => '机密文本',
+            'text' => '纯文本',
             'rich_text' => '富文本',
-            'boolean'   => '开关',
-            'split'     => '分割线',
-            'single'    => '单选',
-            'multi'     => '多选',
+            'boolean' => '开关',
+            'split' => '分割线',
+            'single' => '单选',
+            'multi' => '多选',
+            'image_single' => '图片（单）',
+            'image_multi' => '图片（多）',
         ];
     }
 

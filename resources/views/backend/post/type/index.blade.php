@@ -45,11 +45,11 @@
                                 <td>
                                     <a href="{{ route('admin.post.type.up', $type->id) }}"
                                        class="btn btn-info btn-sm">
-                                        <i class="icon-arrow-up"></i>
+                                        <i class="fas fa-chevron-up"></i>
                                     </a>
                                     <a href="{{ route('admin.post.type.down', $type->id) }}"
                                        class="btn btn-info btn-sm">
-                                        <i class="icon-arrow-down"></i>
+                                        <i class="fas fa-chevron-down"></i>
                                     </a>
 
                                     <a href="{{ route('admin.post.layout.index', $type->id) }}"

@@ -52,8 +52,8 @@ class UserConfirmationController extends Controller
      * @param ManageUserRequest $request
      * @param User              $user
      *
-     * @throws \App\Exceptions\GeneralException
      * @return mixed
+     * @throws \App\Exceptions\GeneralException
      */
     public function confirm(ManageUserRequest $request, User $user)
     {
@@ -66,8 +66,8 @@ class UserConfirmationController extends Controller
      * @param ManageUserRequest $request
      * @param User              $user
      *
-     * @throws \App\Exceptions\GeneralException
      * @return mixed
+     * @throws \App\Exceptions\GeneralException
      */
     public function unconfirm(ManageUserRequest $request, User $user)
     {

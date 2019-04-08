@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Console\Commands;
+namespace App\Console\Commands\theme;
 
 use App\Models\Page\Page;
 use App\Models\Page\Fragment;
 use Illuminate\Console\Command;
 
-class Theme extends Command
+class ThemeBuild extends Command
 {
     protected $signature = 'theme:build';
     protected $description = 'biuld theme files';

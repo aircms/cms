@@ -47,11 +47,11 @@
                                     <td>
                                         <a href="{{ route('admin.category.children.up', [$request->ancestor,$child->id]) }}"
                                            class="btn btn-info btn-sm">
-                                            <i class="icon-arrow-up"></i>
+                                            <i class="fas fa-chevron-up"></i>
                                         </a>
                                         <a href="{{ route('admin.category.children.down', [$request->ancestor,$child->id]) }}"
                                            class="btn btn-info btn-sm">
-                                            <i class="icon-arrow-down"></i>
+                                            <i class="fas fa-chevron-down"></i>
                                         </a>
 
                                         <a href="{{ route('admin.category.children.create.child', [$request->ancestor,$child->id]) }}"

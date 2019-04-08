@@ -60,8 +60,8 @@ class UserController extends Controller
     /**
      * @param StoreUserRequest $request
      *
-     * @throws \Throwable
      * @return mixed
+     * @throws \Throwable
      */
     public function store(StoreUserRequest $request)
     {
@@ -114,9 +114,9 @@ class UserController extends Controller
      * @param UpdateUserRequest $request
      * @param User              $user
      *
+     * @return mixed
      * @throws \App\Exceptions\GeneralException
      * @throws \Throwable
-     * @return mixed
      */
     public function update(UpdateUserRequest $request, User $user)
     {
@@ -135,8 +135,8 @@ class UserController extends Controller
      * @param ManageUserRequest $request
      * @param User              $user
      *
-     * @throws \Exception
      * @return mixed
+     * @throws \Exception
      */
     public function destroy(ManageUserRequest $request, User $user)
     {

@@ -53,10 +53,10 @@
                         </td>
                         <td>
                             <a href="{{ route('admin.setting.item.up', $item->id) }}" class="btn btn-info btn-sm">
-                                <i class="icon-arrow-up"></i>
+                                <i class="fas fa-chevron-up"></i>
                             </a>
                             <a href="{{ route('admin.setting.item.down', $item->id) }}" class="btn btn-info btn-sm">
-                                <i class="icon-arrow-down"></i>
+                                <i class="fas fa-chevron-down"></i>
                             </a>
                         </td>
                     </tr>
