@@ -168,6 +168,17 @@
                     </li>
                 </ul>
             </li>
+
+
+            <li class="divider"></li>
+
+            <li class="nav-item">
+                <a class="nav-link {{ active_class(Active::checkUriPattern('admin/finder')) }}" href="{{ route('admin.finder.dir') }}">
+                    文件管理
+                </a>
+            </li>
+
+
         </ul>
     </nav>
 
