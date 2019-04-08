@@ -26,10 +26,13 @@ class SettingItemsSeeder extends Seeder
                 $model = \App\Models\SettingItem::create(collect($item)->only(['name', 'slug', 'type'])->filter()->all());
                 $model->attachCategories($category);
                 $model->syncMeta(\Illuminate\Support\Arr::get($item, 'meta', []));
-
-                $groupIds = (new \App\Models\SettingItem())->withAnyCategories([$category])->get();
-                \App\Models\SettingItem::setNewOrder($groupIds, intval($category->id . "000"));
             }
+        }
+
+        foreach ($preSetting as $group => $items) {
+            $category = \App\Models\Category::whereSlug($group)->get();
+            $groupIds = (new \App\Models\SettingItem())->withAnyCategories($category)->get()->pluck('id');
+            \App\Models\SettingItem::setNewOrder($groupIds, intval($category->first()->id . "000"));
         }
     }
 

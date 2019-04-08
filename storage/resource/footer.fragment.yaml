@@ -1,0 +1,35 @@
+- type: node
+  node: div
+  attributes:
+    class: container
+  content:
+    - type: node
+      node: div
+      attributes:
+        class: "row"
+      content:
+        - type: node
+          node: div
+          attributes:
+            class: col
+          content: "<div>Links</div>"
+        - type: node
+          node: div
+          attributes:
+            class: col
+          content: "<div>Links</div>"
+        - type: node
+          node: div
+          attributes:
+            class: col
+          content: "<div>Links</div>"
+    - type: node
+      node: div
+      attributes:
+        class: "row"
+      content:
+        - type: node
+          node: div
+          attributes:
+            class: col
+          content: "京ICP备123123123"

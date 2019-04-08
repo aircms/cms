@@ -41,6 +41,9 @@ class ItemController extends Controller
             $item->setMeta('items', $request->getItems());
             $item->attachCategories([$request->group]);
 
+            $groupIds = (new SettingItem())->withAnyCategories($item->categories)->get()->pluck('id');
+            SettingItem::setNewOrder($groupIds, intval($item->categories()->first()->id . "000"));
+
             return redirect()->route("admin.setting.item.index");
         }
     }
