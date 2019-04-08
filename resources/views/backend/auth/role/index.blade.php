@@ -58,7 +58,7 @@
         <div class="row">
             <div class="col-7">
                 <div class="float-left">
-                    {!! $roles->total() !!} {{ trans_choice('labels.backend.access.roles.table.total', $roles->total()) }}
+                    角色数量：{{  $roles->total() }}
                 </div>
             </div><!--col-->
 

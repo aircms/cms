@@ -7,7 +7,6 @@
                 <div class="col-sm-5">
                     <h4 class="card-title mb-0">
                         子分类管理
-
                         <small class="text-muted">{{ $ancestor->name }}</small>
                     </h4>
                 </div><!--col-->
@@ -25,9 +24,7 @@
                             <tr>
                                 <th>名称</th>
                                 <th>
-                                    别名
-                                    <span class="text-muted">/</span>
-                                    描述
+                                    别名 <span class="text-muted">/</span> 描述
                                 </th>
                                 <th>操作</th>
                                 <th>#</th>
@@ -78,19 +75,7 @@
                     </div>
                 </div><!--col-->
             </div><!--row-->
-            <div class="row">
-                <div class="col-7">
-                    <div class="float-left">
-                        {{--{!! $roles->total() !!} {{ trans_choice('labels.backend.access.roles.table.total', $roles->total()) }}--}}
-                    </div>
-                </div><!--col-->
-
-                <div class="col-5">
-                    <div class="float-right">
-                        {{--{!! $roles->render() !!}--}}
-                    </div>
-                </div><!--col-->
-            </div><!--row-->
+            
         </div><!--card-body-->
     </div><!--card-->
 @endsection
