@@ -7,15 +7,15 @@ class SettingItemsSeeder extends Seeder
     public function run()
     {
         $preSetting = [
-            'global' => $this->globals(),
-            'payment' => $this->payments(),
-            'user' => $this->users(),
-            'captcha' => $this->captchas(),
-            'contact' => $this->contacts(),
-            'sms' => $this->sms(),
-            'email' => $this->email(),
-            'cache' => $this->cache(),
-            'storage' => $this->storage(),
+            'global'    => $this->globals(),
+            'payment'   => $this->payments(),
+            'user'      => $this->users(),
+            'captcha'   => $this->captchas(),
+            'contact'   => $this->contacts(),
+            'sms'       => $this->sms(),
+            'email'     => $this->email(),
+            'cache'     => $this->cache(),
+            'storage'   => $this->storage(),
             'wechat-mp' => $this->wechatMP(),
         ];
 
@@ -25,7 +25,10 @@ class SettingItemsSeeder extends Seeder
                 /** @var \App\Models\SettingItem $model */
                 $model = \App\Models\SettingItem::create(collect($item)->only(['name', 'slug', 'type'])->filter()->all());
                 $model->attachCategories($category);
-                $model->syncMeta(array_get($item, 'meta', []));
+                $model->syncMeta(\Illuminate\Support\Arr::get($item, 'meta', []));
+
+                $groupIds = (new \App\Models\SettingItem())->withAnyCategories([$category])->get();
+                \App\Models\SettingItem::setNewOrder($groupIds, intval($category->id . "000"));
             }
         }
     }
@@ -33,10 +36,10 @@ class SettingItemsSeeder extends Seeder
     private function storage()
     {
         $type = [
-            'local' => '本地',
+            'local'  => '本地',
             'alioss' => '阿里OSS',
-            'qiniu' => '七牛',
-            'upyun' => '又拍云',
+            'qiniu'  => '七牛',
+            'upyun'  => '又拍云',
         ];
 
         return [
@@ -74,7 +77,7 @@ class SettingItemsSeeder extends Seeder
     {
         $type = [
             'dingyuehao' => '订阅号',
-            'fuwuhao' => '服务号',
+            'fuwuhao'    => '服务号',
         ];
 
         return [
@@ -88,8 +91,8 @@ class SettingItemsSeeder extends Seeder
     public function cache()
     {
         $methods = [
-            'file' => '文件',
-            'redis' => 'Redis',
+            'file'     => '文件',
+            'redis'    => 'Redis',
             'memcache' => 'Memcache',
         ];
 
@@ -114,7 +117,7 @@ class SettingItemsSeeder extends Seeder
     private function email()
     {
         $methods = [
-            'smtp' => 'SMTP',
+            'smtp'     => 'SMTP',
             'Sendmail' => 'SendMail',
         ];
 
@@ -160,13 +163,13 @@ class SettingItemsSeeder extends Seeder
     private function captchas()
     {
         $captchaProvider = [
-            'system' => '系统生成',
-            'jiyan' => '极验证',
+            'system'     => '系统生成',
+            'jiyan'      => '极验证',
             'no_captcha' => 'No Captcha',
         ];
         $showCaptchaPosition = [
-            'register' => '注册',
-            'find_password' => '找回密码',
+            'register'        => '注册',
+            'find_password'   => '找回密码',
             'modify_password' => '更改',
         ];
 
@@ -191,10 +194,10 @@ class SettingItemsSeeder extends Seeder
     private function users()
     {
         $checkMethods = [
-            'auto' => '自动',
+            'auto'   => '自动',
             'manual' => '手动',
-            'mail' => '邮件',
-            'sms' => '短信',
+            'mail'   => '邮件',
+            'sms'    => '短信',
         ];
 
         return [

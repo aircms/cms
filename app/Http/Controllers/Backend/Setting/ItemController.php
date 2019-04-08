@@ -26,7 +26,7 @@ class ItemController extends Controller
     public function index()
     {
         return view('backend.setting.index', [
-            'items' => SettingItem::all(),
+            'items' => SettingItem::ordered()->get(),
         ]);
     }
 
@@ -73,12 +73,18 @@ class ItemController extends Controller
     public function up(SettingItem $item)
     {
         $item->moveOrderUp();
-        return redirect()->route("admin.setting.configure.index");
+
+        $groupIds = (new SettingItem())->withAnyCategories($item->categories)->get()->pluck('id');
+        SettingItem::setNewOrder($groupIds, intval($item->categories()->first()->id . "000"));
+        return redirect()->route("admin.setting.item.index");
     }
 
     public function down(SettingItem $item)
     {
         $item->moveOrderDown();
-        return redirect()->route("admin.setting.configure.index");
+
+        $groupIds = (new SettingItem())->withAnyCategories($item->categories)->get()->pluck('id');
+        SettingItem::setNewOrder($groupIds, intval($item->categories()->first()->id . "000"));
+        return redirect()->route("admin.setting.item.index");
     }
 }
