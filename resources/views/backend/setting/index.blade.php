@@ -24,8 +24,7 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th>名称</th>
-                    <th>别名</th>
+                    <th>名称/别名</th>
                     <th>分组</th>
                     <th>类型</th>
                     <th>操作</th>
@@ -38,8 +37,12 @@
                         $category = $item->categories->first();
                     @endphp
                     <tr>
-                        <td>{{ $item->name }}</td>
-                        <td>{{$category->slug}}.{{ $item->slug }}</td>
+                        <td>
+                            <strong>{{ $item->name }}</strong>
+                            <div class="text-muted">
+                                {{$category->slug}}.{{ $item->slug }}
+                            </div>
+                        </td>
                         <td>{{ $category->name }}</td>
                         <td>{{ \App\Traits\SettingItemType::typeDescription($item->type) }}</td>
                         <td>
