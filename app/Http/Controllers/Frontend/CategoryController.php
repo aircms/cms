@@ -8,11 +8,21 @@ use App\Models\Page\Page;
 
 class CategoryController extends Controller
 {
-    public function index(Category $category)
+    public function id($id)
+    {
+        return $this->render(Category::first($id));
+    }
+
+    public function slug($slug)
+    {
+        return $this->render(Category::whereSlug($slug)->first());
+    }
+
+    private function render(Category $category)
     {
         $viewPath = 'frontend.category';
-        if (Page::exists('category_' . $category->slug)) {
-            $viewPath = 'frontend.category_' . $category->slug;
+        if (Page::exists('category_'.$category->slug)) {
+            $viewPath = 'frontend.category_'.$category->slug;
         }
 
         return view($viewPath, ['category' => $category]);

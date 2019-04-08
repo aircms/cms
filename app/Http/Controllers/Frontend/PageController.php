@@ -7,9 +7,19 @@ use App\Models\Page\Page;
 
 class PageController extends Controller
 {
-    public function index(Page $page)
+    public function slug($slug)
     {
-        return view('frontend.' . $page->slug, [
+        return $this->render(Page::whereSlug($slug)->first());
+    }
+
+    public function id($id)
+    {
+        return $this->render(Page::first($id));
+    }
+
+    private function render(Page $page)
+    {
+        return view('frontend.'.$page->slug, [
             'page' => $page,
         ]);
     }

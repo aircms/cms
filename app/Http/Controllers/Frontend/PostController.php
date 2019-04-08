@@ -3,19 +3,25 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Page\Page;
 use App\Models\Post\Post;
 
 class PostController extends Controller
 {
-    public function index(Post $post)
+    public function slug($slug)
     {
-        $viewPath = 'frontend.post';
+        return $this->render(Post::whereSlug($slug)->first());
+    }
 
-        if (Page::exists("frontend.post-{$post->slug}")) {
-            $viewPath = "frontend.post-{$post->slug}";
-        } elseif ($post->hasMeta('layout')) {
-            $viewPath = 'frontend.' . $post->getMeta('layout', 'post');
+    public function id($id)
+    {
+        return $this->render(Post::first($id));
+    }
+
+    private function render(Post $post)
+    {
+        $viewPath = 'frontend.post.default';
+        if ($post->hasMeta('layout')) {
+            $viewPath = 'frontend.post'.$post->getMeta('layout', 'default');
         }
 
         return view($viewPath, ['post' => $post]);

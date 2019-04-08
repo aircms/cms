@@ -12,7 +12,7 @@ trait UserAttribute
     /**
      * @param $password
      */
-    public function setPasswordAttribute($password) : void
+    public function setPasswordAttribute($password): void
     {
         // If password was accidentally passed in already hashed, try not to double hash it
         if (
@@ -140,7 +140,7 @@ trait UserAttribute
     public function getLoginAsButtonAttribute()
     {
         // If the admin is currently NOT spoofing a user
-        if (! session()->has('admin_user_id') || ! session()->has('temp_user_id')) {
+        if (!session()->has('admin_user_id') || !session()->has('temp_user_id')) {
             //Won't break, but don't let them "Login As" themselves
             if ($this->id !== auth()->id()) {
                 return '<a href="'.route(
@@ -225,7 +225,7 @@ trait UserAttribute
      */
     public function getConfirmedButtonAttribute()
     {
-        if (! $this->isConfirmed() && ! config('access.users.requires_approval')) {
+        if (!$this->isConfirmed() && !config('access.users.requires_approval')) {
             return '<a href="'.route('admin.auth.user.account.confirm.resend', $this).'" class="dropdown-item">'.__('buttons.backend.access.users.resend_email').'</a> ';
         }
 
@@ -284,8 +284,8 @@ trait UserAttribute
 		  '.$this->edit_button.'
 
 		  <div class="btn-group btn-group-sm" role="group">
-			<button id="userActions" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			  '.__('labels.general.more').'
+            <button id="userActions" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            更多
 			</button>
 			<div class="dropdown-menu" aria-labelledby="userActions">
 			  '.$this->clear_session_button.'
