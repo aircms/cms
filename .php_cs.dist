@@ -125,6 +125,7 @@ $excludes = [
     'node_modules',
     'storage',
     'public',
+    'vendor',
     'docs'
 ];
 
